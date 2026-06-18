@@ -2,3 +2,9 @@ node_modules/
 dist/
 .DS_Store
 *.local
+screenshots/
+Screenshot*.png
+*.webp
+thumbnail*.jpeg
+image-*.webp
+721*.jpg
