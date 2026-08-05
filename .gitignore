@@ -2,9 +2,10 @@ node_modules/
 dist/
 .DS_Store
 *.local
+.vite/
+
+# Local scratch only.
+# NOTE: do not add broad patterns like *.webp / *.jpg here — the site's own
+# images live in assets/images and must be committed or the deploy 404s.
 screenshots/
 Screenshot*.png
-*.webp
-thumbnail*.jpeg
-image-*.webp
-721*.jpg
