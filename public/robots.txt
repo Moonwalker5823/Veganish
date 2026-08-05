@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veganish-ct.vercel.app/sitemap.xml

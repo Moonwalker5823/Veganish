@@ -3,38 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veganish CT — Bridgeport's Vegan Café</title>
-  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Veganish Cafe — Plant-Based Soul Food in Downtown Bridgeport, CT</title>
+  <meta name="description" content="Veganish Cafe serves 100% plant-based soul food in Downtown Bridgeport, CT. Smash burgers, cauliflower wings, chicken &amp; waffles and weekend brunch. Women owned. 881 Lafayette Blvd — order pickup or delivery." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://veganish-ct.vercel.app/" />
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:site_name" content="Veganish Cafe" />
+  <meta property="og:title" content="Veganish Cafe — Plant-Based Soul Food in Bridgeport, CT" />
+  <meta property="og:description" content="Bold, 100% plant-based soul food in Downtown Bridgeport. Women owned by Chef Hannah &amp; Nate Campbell." />
+  <meta property="og:url" content="https://veganish-ct.vercel.app/" />
+  <meta property="og:image" content="https://veganish-ct.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A plant-based smash burger and fries from Veganish Cafe" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Veganish Cafe — Plant-Based Soul Food in Bridgeport, CT" />
+  <meta name="twitter:description" content="Bold, 100% plant-based soul food in Downtown Bridgeport. Women owned." />
+  <meta name="twitter:image" content="https://veganish-ct.vercel.app/og-image.jpg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!--
+    Runs before first paint. Two jobs:
+      1. Mark that JS is alive, so CSS can safely show the splash screen. Without
+         this the splash never renders, and the site is usable with JS disabled.
+      2. Failsafe: if the main bundle 404s or throws, never trap a visitor behind
+         the splash. This is deliberately inline and dependency-free.
+  -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js', 'intro-active');
+      setTimeout(function () {
+        if (root.classList.contains('intro-active')) {
+          root.classList.remove('intro-active');
+          var intro = document.getElementById('intro');
+          if (intro) intro.remove();
+        }
+      }, 8000);
+    })();
+  </script>
+
+  <!-- Local business structured data — powers Google's rich results / knowledge panel -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://veganish-ct.vercel.app/#restaurant",
+    "name": "Veganish Cafe",
+    "alternateName": "Vegan'ish Cafe",
+    "description": "100% plant-based soul food cafe in Downtown Bridgeport, Connecticut. Women owned by Chef Hannah and Nate Campbell.",
+    "url": "https://veganish-ct.vercel.app/",
+    "telephone": "+1-203-275-8924",
+    "email": "veganish881@gmail.com",
+    "image": "https://veganish-ct.vercel.app/og-image.jpg",
+    "servesCuisine": ["Vegan", "Soul Food", "American", "Plant-Based"],
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "881 Lafayette Blvd",
+      "addressLocality": "Bridgeport",
+      "addressRegion": "CT",
+      "postalCode": "06604",
+      "addressCountry": "US"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 41.1737, "longitude": -73.1922 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "19:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "10:00", "closes": "18:30" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "171",
+      "bestRating": "5"
+    },
+    "sameAs": [
+      "https://www.instagram.com/veganish_ct/",
+      "https://www.facebook.com/profile.php?id=61559221286333",
+      "https://www.yelp.com/biz/veganish-cafe-bridgeport"
+    ],
+    "hasMenu": "https://veganish-ct.vercel.app/#menu",
+    "acceptsReservations": "False",
+    "paymentAccepted": "Cash, Credit Card",
+    "currenciesAccepted": "USD"
+  }
+  </script>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ══════════════════════════════════════════
        INTRO / SPLASH SCREEN
+       Rendered only when JS is available (html.js), and always removable —
+       see the failsafe in <head>.
   ══════════════════════════════════════════ -->
-  <div id="intro" class="intro-screen">
+  <div id="intro" class="intro-screen" role="presentation">
     <div class="intro-bg"></div>
     <div class="intro-content">
       <div class="intro-logo-wrap">
-        <svg class="intro-logo-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outer ring -->
+        <svg class="intro-logo-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <circle class="logo-ring" cx="110" cy="110" r="105" fill="none" stroke="#4CAF50" stroke-width="3"/>
-          <!-- Inner decorative ring -->
           <circle class="logo-ring-inner" cx="110" cy="110" r="95" fill="none" stroke="#4CAF50" stroke-width="1" stroke-dasharray="6 4"/>
-          <!-- Background fill -->
           <circle cx="110" cy="110" r="92" fill="#0a0a0a"/>
-          <!-- Leaf / plant motif -->
           <g class="logo-leaf" transform="translate(110,110)">
             <path d="M0,-55 C20,-40 35,-15 0,5 C-35,-15 -20,-40 0,-55Z" fill="#4CAF50" opacity="0.9"/>
             <path d="M0,5 C15,-10 30,5 20,25 C10,35 -10,35 -20,25 C-30,5 -15,-10 0,5Z" fill="#4CAF50" opacity="0.7"/>
             <path d="M0,-20 L0,40" stroke="#4CAF50" stroke-width="2" fill="none"/>
-            <!-- Small leaves -->
             <path d="M0,-5 C10,-15 22,-8 18,2 C14,10 2,8 0,-5Z" fill="#81C784"/>
             <path d="M0,-5 C-10,-15 -22,-8 -18,2 C-14,10 -2,8 0,-5Z" fill="#81C784"/>
           </g>
-          <!-- Orange accent dots -->
           <g class="logo-dots">
             <circle cx="110" cy="25" r="4" fill="#FF6B35"/>
             <circle cx="185" cy="75" r="3" fill="#FF6B35"/>
@@ -46,32 +137,35 @@
         </svg>
       </div>
       <div class="intro-text-wrap">
-        <h1 class="intro-brand">Vegan<span class="intro-ish">-ish</span></h1>
+        <p class="intro-brand">Vegan<span class="intro-ish">-ish</span></p>
         <p class="intro-sub">Bridgeport, CT</p>
-        <p class="intro-tagline">A Flavorful & Fun Twist on Eating Healthier</p>
+        <p class="intro-tagline">A Flavorful &amp; Fun Twist on Eating Healthier</p>
       </div>
-      <div class="intro-loader">
+      <div class="intro-loader" aria-hidden="true">
         <span></span><span></span><span></span>
       </div>
+      <button type="button" class="intro-enter" id="introEnter">
+        Enter <span class="intro-enter-note">— turns on the music</span>
+      </button>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════════
        MAIN SITE
   ══════════════════════════════════════════ -->
-  <div id="main-site" class="hidden">
+  <div id="main-site">
 
     <!-- NAV -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-logo">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <a href="#home" class="nav-logo">
+        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="40" height="40" aria-hidden="true" focusable="false">
           <circle cx="22" cy="22" r="21" fill="#0a0a0a" stroke="#4CAF50" stroke-width="2"/>
           <path d="M22,8 C28,13 32,18 22,24 C12,18 16,13 22,8Z" fill="#4CAF50"/>
           <path d="M22,24 C27,20 32,26 28,32 C25,36 19,36 16,32 C12,26 17,20 22,24Z" fill="#4CAF50" opacity="0.8"/>
         </svg>
         <span>Vegan<em>-ish</em></span>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -85,15 +179,15 @@
       </ul>
     </nav>
 
+    <main id="main-content">
+
     <!-- ══════ HERO ══════ -->
-    <section id="home" class="hero">
-      <!-- Slideshow backgrounds -->
-      <div class="hero-slides" id="heroSlides">
+    <section id="home" class="hero" aria-label="Welcome">
+      <div class="hero-slides" id="heroSlides" aria-hidden="true">
         <div class="hero-slide active" style="background-image:url('assets/images/food-1.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/images/governor-visit.jpeg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/images/governor-visit.webp')"></div>
         <div class="hero-slide" style="background-image:url('assets/images/owners.webp')"></div>
         <div class="hero-slide" style="background-image:url('assets/images/food-2.jpg')"></div>
-        <div class="hero-slide" style="background-image:url('assets/images/ribbon-cutting.png')"></div>
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -104,34 +198,32 @@
           Unapologetically Good.
         </h1>
         <p class="hero-desc">
-          We bring a flavorful & fun twist to eating healthier —
+          We bring a flavorful &amp; fun twist to eating healthier —
           soul food reimagined, 100% plant-based.
         </p>
         <div class="hero-actions">
           <a href="#menu" class="btn btn-primary">Explore the Menu</a>
-          <a href="#about" class="btn btn-outline">Our Story</a>
+          <a href="#order" class="btn btn-outline">Order Now</a>
         </div>
-        <div class="hero-badge">
-          <span class="badge-icon">🏆</span>
+        <p class="hero-badge">
+          <span class="badge-icon" aria-hidden="true">🏆</span>
           <span>As featured — Governor Ned Lamont · Congressman Jim Himes · State Rep. Antonio Felipe</span>
-        </div>
+        </p>
       </div>
-      <!-- Slide dots -->
-      <div class="hero-slide-dots" id="heroSlideDots">
-        <button class="slide-dot active" data-slide="0"></button>
-        <button class="slide-dot" data-slide="1"></button>
-        <button class="slide-dot" data-slide="2"></button>
-        <button class="slide-dot" data-slide="3"></button>
-        <button class="slide-dot" data-slide="4"></button>
+      <div class="hero-slide-dots" id="heroSlideDots" role="group" aria-label="Choose hero image">
+        <button type="button" class="slide-dot active" data-slide="0" aria-label="Show image 1 of 4"></button>
+        <button type="button" class="slide-dot" data-slide="1" aria-label="Show image 2 of 4"></button>
+        <button type="button" class="slide-dot" data-slide="2" aria-label="Show image 3 of 4"></button>
+        <button type="button" class="slide-dot" data-slide="3" aria-label="Show image 4 of 4"></button>
       </div>
-      <div class="hero-scroll-hint">
+      <div class="hero-scroll-hint" aria-hidden="true">
         <span>Scroll</span>
         <div class="scroll-line"></div>
       </div>
     </section>
 
     <!-- ══════ MARQUEE STRIP ══════ -->
-    <div class="marquee-strip">
+    <div class="marquee-strip" aria-hidden="true">
       <div class="marquee-track">
         <span>Plant-Based Soul Food</span>
         <span class="dot">●</span>
@@ -157,28 +249,28 @@
     </div>
 
     <!-- ══════ ABOUT ══════ -->
-    <section id="about" class="about section-pad">
+    <section id="about" class="about section-pad" aria-labelledby="about-title">
       <div class="container">
         <div class="about-grid">
           <div class="about-image-col">
-            <div class="about-img-frame">
-              <img src="assets/images/governor-visit.jpeg" alt="Veganish CT team with Governor Ned Lamont and State Representative Antonio Felipe" class="about-img" />
-              <div class="about-img-badge">
+            <figure class="about-img-frame">
+              <img src="assets/images/governor-visit.webp" alt="The Veganish Cafe team with Governor Ned Lamont and State Representative Antonio Felipe" class="about-img" width="968" height="792" loading="lazy" decoding="async" />
+              <figcaption class="about-img-badge">
                 <span>Featured</span>
                 <strong>Gov. Lamont &amp; State Rep. Felipe</strong>
-              </div>
-            </div>
-            <div class="about-img-frame about-img-frame--secondary">
-              <img src="assets/images/congressman-himes.png" alt="Congressman Jim Himes with Chef Hannah at Veganish Cafe" class="about-img" style="object-position: center 20%;" />
-              <div class="about-img-badge">
+              </figcaption>
+            </figure>
+            <figure class="about-img-frame about-img-frame--secondary">
+              <img src="assets/images/congressman-himes.webp" alt="Congressman Jim Himes with Chef Hannah at Veganish Cafe" class="about-img" width="1200" height="1184" loading="lazy" decoding="async" />
+              <figcaption class="about-img-badge">
                 <span>Community</span>
                 <strong>Congressman Jim Himes</strong>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
             <div class="about-stat-row">
               <div class="stat-card">
-                <strong>1.6K+</strong>
-                <span>Followers</span>
+                <strong>4.7<span class="stat-star" aria-hidden="true">★</span></strong>
+                <span>171 Google Reviews</span>
               </div>
               <div class="stat-card">
                 <strong>100%</strong>
@@ -192,9 +284,9 @@
           </div>
           <div class="about-text-col">
             <span class="section-eyebrow">Our Story</span>
-            <h2 class="section-title">More Than a Meal.<br/>A Movement.</h2>
+            <h2 class="section-title" id="about-title">More Than a Meal.<br/>A Movement.</h2>
             <p class="about-lead">
-              "Don't Be On Edge, Eat A Veggie." — that's the Veganish way.
+              &ldquo;Don't Be On Edge, Eat A Veggie.&rdquo; — that's the Veganish way.
             </p>
             <p>
               Veganish Cafe is the vision of <strong>Nate &amp; Hannah Campbell</strong> — a husband and wife team rooted in Downtown Bridgeport, CT. Hannah leads the kitchen with bold flavors and a passion for making plant-based food approachable, deeply satisfying, and unapologetically delicious.
@@ -204,21 +296,21 @@
             </p>
             <div class="about-values">
               <div class="value-item">
-                <span class="value-icon">🌱</span>
+                <span class="value-icon" aria-hidden="true">🌱</span>
                 <div>
                   <strong>100% Plant-Based</strong>
                   <p>Every item on our menu is completely vegan — no compromises.</p>
                 </div>
               </div>
               <div class="value-item">
-                <span class="value-icon">✊🏾</span>
+                <span class="value-icon" aria-hidden="true">✊🏾</span>
                 <div>
                   <strong>Community First</strong>
                   <p>We invest in Bridgeport and the people who make it home.</p>
                 </div>
               </div>
               <div class="value-item">
-                <span class="value-icon">🍽️</span>
+                <span class="value-icon" aria-hidden="true">🍽️</span>
                 <div>
                   <strong>Soul in Every Bite</strong>
                   <p>Real flavor, real culture — just plant-based.</p>
@@ -231,87 +323,87 @@
     </section>
 
     <!-- ══════ HIGHLIGHTS ══════ -->
-    <section id="highlights" class="highlights-section section-pad">
+    <section id="highlights" class="highlights-section section-pad" aria-labelledby="highlights-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">Notable Moments</span>
-          <h2 class="section-title">Where Community Meets</h2>
+          <h2 class="section-title" id="highlights-title">Where Community Meets</h2>
           <p class="section-desc">Veganish Cafe has become a destination — for great food and great people.</p>
         </div>
         <div class="highlights-grid">
-          <div class="highlight-card">
+          <article class="highlight-card">
             <div class="highlight-img-wrap">
-              <img src="assets/images/governor-visit.jpeg" alt="Governor Ned Lamont visit" />
+              <img src="assets/images/governor-visit.webp" alt="Governor Ned Lamont visiting Veganish Cafe" width="968" height="792" loading="lazy" decoding="async" />
             </div>
             <div class="highlight-body">
               <span class="highlight-tag">Governor's Visit</span>
               <h3>Governor Ned Lamont</h3>
               <p>We had the privilege of hosting the Office of Governor Ned Lamont and State Representative Antonio Felipe for a memorable Vegan Soul Food Sunday.</p>
             </div>
-          </div>
-          <div class="highlight-card">
+          </article>
+          <article class="highlight-card">
             <div class="highlight-img-wrap">
-              <img src="assets/images/ribbon-cutting.png" alt="Grand Opening ribbon cutting" />
+              <img src="assets/images/ribbon-cutting.webp" alt="Ribbon cutting ceremony at the Veganish Cafe grand opening" width="691" height="670" loading="lazy" decoding="async" />
             </div>
             <div class="highlight-body">
               <span class="highlight-tag">Grand Opening</span>
               <h3>Ribbon Cutting Ceremony</h3>
               <p>Celebrated the grand opening of Veganish Cafe at 881 Lafayette Blvd with community leaders, local officials, and a packed house of supporters.</p>
             </div>
-          </div>
-          <div class="highlight-card">
+          </article>
+          <article class="highlight-card">
             <div class="highlight-img-wrap">
-              <img src="assets/images/congressman-himes.png" alt="Congressman Jim Himes with Chef Hannah" style="object-position: center 15%;" />
+              <img src="assets/images/congressman-himes.webp" alt="Congressman Jim Himes with Chef Hannah" class="img-pos-top" width="1200" height="1184" loading="lazy" decoding="async" />
             </div>
             <div class="highlight-body">
               <span class="highlight-tag">Congressional Visit</span>
               <h3>Congressman Jim Himes</h3>
               <p>Congressman Jim Himes stopped in for lunch and couldn't leave without telling Chef Hannah how flavorful the food was.</p>
             </div>
-          </div>
-          <div class="highlight-card">
+          </article>
+          <article class="highlight-card">
             <div class="highlight-img-wrap">
-              <img src="assets/images/owners.webp" alt="Nate and Hannah Campbell, owners" />
+              <img src="assets/images/owners.webp" alt="Nate and Hannah Campbell, owners of Veganish Cafe" width="1400" height="1507" loading="lazy" decoding="async" />
             </div>
             <div class="highlight-body">
               <span class="highlight-tag">Meet the Owners</span>
               <h3>Nate &amp; Hannah Campbell</h3>
               <p>Chef Hannah and Nate Campbell — the husband and wife team behind Veganish Cafe. Built on love, seasoned with culture, and rooted in Bridgeport.</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ══════ MENU ══════ -->
-    <section id="menu" class="menu-section section-pad">
+    <section id="menu" class="menu-section section-pad" aria-labelledby="menu-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">What We're Serving</span>
-          <h2 class="section-title">The Menu</h2>
+          <h2 class="section-title" id="menu-title">The Menu</h2>
           <p class="section-desc">Bold flavors. Plant-based everything. Comfort food with a conscience.</p>
         </div>
 
-        <div class="menu-tabs" id="menuTabs">
-          <button class="tab-btn active" data-tab="breakfast">Breakfast</button>
-          <button class="tab-btn" data-tab="starters">Appetizers</button>
-          <button class="tab-btn" data-tab="lunch">Lunch/Dinner</button>
-          <button class="tab-btn" data-tab="bowls">Salads &amp; Bowls</button>
-          <button class="tab-btn" data-tab="brunch">Brunch</button>
-          <button class="tab-btn" data-tab="sides">Sides &amp; Drinks</button>
+        <div class="menu-tabs" id="menuTabs" role="tablist" aria-label="Menu categories">
+          <button class="tab-btn active" type="button" role="tab" id="tabbtn-breakfast" data-tab="breakfast" aria-selected="true" aria-controls="tab-breakfast">Breakfast</button>
+          <button class="tab-btn" type="button" role="tab" id="tabbtn-starters" data-tab="starters" aria-selected="false" aria-controls="tab-starters" tabindex="-1">Appetizers</button>
+          <button class="tab-btn" type="button" role="tab" id="tabbtn-lunch" data-tab="lunch" aria-selected="false" aria-controls="tab-lunch" tabindex="-1">Lunch/Dinner</button>
+          <button class="tab-btn" type="button" role="tab" id="tabbtn-bowls" data-tab="bowls" aria-selected="false" aria-controls="tab-bowls" tabindex="-1">Salads &amp; Bowls</button>
+          <button class="tab-btn" type="button" role="tab" id="tabbtn-brunch" data-tab="brunch" aria-selected="false" aria-controls="tab-brunch" tabindex="-1">Brunch</button>
+          <button class="tab-btn" type="button" role="tab" id="tabbtn-sides" data-tab="sides" aria-selected="false" aria-controls="tab-sides" tabindex="-1">Sides &amp; Drinks</button>
         </div>
 
         <!-- Breakfast -->
-        <div class="menu-panel active" id="tab-breakfast">
+        <div class="menu-panel active" id="tab-breakfast" role="tabpanel" aria-labelledby="tabbtn-breakfast" tabindex="0">
           <p class="menu-tab-note">Served Tuesday – Friday</p>
           <div class="menu-grid">
             <div class="menu-card featured">
-              <div class="menu-card-badge">Fan Favorite</div>
+              <p class="menu-card-badge">Fan Favorite</p>
               <div class="menu-card-header">
                 <h3>Avocado Classic</h3>
                 <span class="menu-price">$12</span>
               </div>
-              <p>Classic avocado toast on house bread with fresh toppings.</p>
+              <p class="menu-card-desc">Classic avocado toast on house bread with fresh toppings.</p>
               <div class="menu-tags"><span>Fresh</span></div>
             </div>
             <div class="menu-card">
@@ -319,7 +411,7 @@
                 <h3>Spicy Avocado</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Avocado toast with a kick — spiced and layered for heat lovers.</p>
+              <p class="menu-card-desc">Avocado toast with a kick — spiced and layered for heat lovers.</p>
               <div class="menu-tags"><span>Spicy</span></div>
             </div>
             <div class="menu-card">
@@ -327,7 +419,7 @@
                 <h3>Vegan Shroom</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Savory mushroom breakfast served on house bread.</p>
+              <p class="menu-card-desc">Savory mushroom breakfast served on house bread.</p>
               <div class="menu-tags"><span>Savory</span></div>
             </div>
             <div class="menu-card">
@@ -335,7 +427,7 @@
                 <h3>Breakfast Taco</h3>
                 <span class="menu-price">$12</span>
               </div>
-              <p>Plant-based breakfast taco packed with fresh morning ingredients.</p>
+              <p class="menu-card-desc">Plant-based breakfast taco packed with fresh morning ingredients.</p>
               <div class="menu-tags"><span>Handheld</span></div>
             </div>
             <div class="menu-card">
@@ -343,7 +435,7 @@
                 <h3>Vegan Breakfast Wrap</h3>
                 <span class="menu-price">$9</span>
               </div>
-              <p>A hearty wrap with scrambled plant-based eggs and fresh veggies.</p>
+              <p class="menu-card-desc">A hearty wrap with scrambled plant-based eggs and fresh veggies.</p>
               <div class="menu-tags"><span>Hearty</span></div>
             </div>
             <div class="menu-card">
@@ -351,22 +443,22 @@
                 <h3>Egg &amp; Cheese Sandwich</h3>
                 <span class="menu-price">$6</span>
               </div>
-              <p>Simple, satisfying egg and vegan cheese on your choice of bread.</p>
+              <p class="menu-card-desc">Simple, satisfying egg and vegan cheese on your choice of bread.</p>
               <div class="menu-tags"><span>Classic</span></div>
             </div>
           </div>
         </div>
 
         <!-- Appetizers -->
-        <div class="menu-panel" id="tab-starters">
+        <div class="menu-panel" id="tab-starters" role="tabpanel" aria-labelledby="tabbtn-starters" tabindex="0" hidden>
           <div class="menu-grid">
             <div class="menu-card featured">
-              <div class="menu-card-badge">Most Popular</div>
+              <p class="menu-card-badge">Most Popular</p>
               <div class="menu-card-header">
                 <h3>Cauliflower Wings</h3>
                 <span class="menu-price">$11</span>
               </div>
-              <p>Golden-fried cauliflower florets tossed in your choice of sauce.</p>
+              <p class="menu-card-desc">Golden-fried cauliflower florets tossed in your choice of sauce.</p>
               <div class="menu-tags"><span>Crispy</span><span>Crowd Fave</span></div>
             </div>
             <div class="menu-card">
@@ -374,7 +466,7 @@
                 <h3>Vegan Calamari</h3>
                 <span class="menu-price">$12</span>
               </div>
-              <p>Crispy plant-based calamari rings with dipping sauce.</p>
+              <p class="menu-card-desc">Crispy plant-based calamari rings with dipping sauce.</p>
               <div class="menu-tags"><span>Crispy</span></div>
             </div>
             <div class="menu-card">
@@ -382,7 +474,7 @@
                 <h3>Vegan Crispy Fish Bites</h3>
                 <span class="menu-price">$12</span>
               </div>
-              <p>Bite-sized crispy fish pieces — all plant-based, all delicious.</p>
+              <p class="menu-card-desc">Bite-sized crispy fish pieces — all plant-based, all delicious.</p>
               <div class="menu-tags"><span>Crispy</span></div>
             </div>
             <div class="menu-card">
@@ -390,7 +482,7 @@
                 <h3>Ackee &amp; Plantain Sliders</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Caribbean-inspired sliders with ackee and sweet plantain.</p>
+              <p class="menu-card-desc">Caribbean-inspired sliders with ackee and sweet plantain.</p>
               <div class="menu-tags"><span>Caribbean</span></div>
             </div>
             <div class="menu-card">
@@ -398,7 +490,7 @@
                 <h3>Vegan Beef &amp; Cheese Empanada</h3>
                 <span class="menu-price">$7</span>
               </div>
-              <p>Flaky pastry filled with seasoned plant-based beef and vegan cheese.</p>
+              <p class="menu-card-desc">Flaky pastry filled with seasoned plant-based beef and vegan cheese.</p>
               <div class="menu-tags"><span>Handheld</span></div>
             </div>
             <div class="menu-card">
@@ -406,7 +498,7 @@
                 <h3>Vegan Sweet Chili Tenders</h3>
                 <span class="menu-price">$10</span>
               </div>
-              <p>Crispy tenders glazed in a house sweet chili sauce.</p>
+              <p class="menu-card-desc">Crispy tenders glazed in a house sweet chili sauce.</p>
               <div class="menu-tags"><span>Sweet</span><span>Spicy</span></div>
             </div>
             <div class="menu-card">
@@ -414,22 +506,22 @@
                 <h3>Vegan Crab Cakes</h3>
                 <span class="menu-price">$18.50</span>
               </div>
-              <p>Pan-seared plant-based crab cakes with house remoulade.</p>
+              <p class="menu-card-desc">Pan-seared plant-based crab cakes with house remoulade.</p>
               <div class="menu-tags"><span>Premium</span></div>
             </div>
           </div>
         </div>
 
-        <!-- Lunch/Early Dinner -->
-        <div class="menu-panel" id="tab-lunch">
+        <!-- Lunch / Early Dinner -->
+        <div class="menu-panel" id="tab-lunch" role="tabpanel" aria-labelledby="tabbtn-lunch" tabindex="0" hidden>
           <div class="menu-grid">
             <div class="menu-card featured">
-              <div class="menu-card-badge">Chef's Pick</div>
+              <p class="menu-card-badge">Chef's Pick</p>
               <div class="menu-card-header">
                 <h3>The Burger Blvd</h3>
                 <span class="menu-price">$22</span>
               </div>
-              <p>Our premium smash burger — stacked, sauced, and unapologetically bold.</p>
+              <p class="menu-card-desc">Our premium smash burger — stacked, sauced, and unapologetically bold.</p>
               <div class="menu-tags"><span>Signature</span></div>
             </div>
             <div class="menu-card">
@@ -437,7 +529,7 @@
                 <h3>Vegan Crispy Sandwich</h3>
                 <span class="menu-price">$19</span>
               </div>
-              <p>Crispy plant-based chicken sandwich with house sauce on a brioche bun.</p>
+              <p class="menu-card-desc">Crispy plant-based chicken sandwich with house sauce on a brioche bun.</p>
               <div class="menu-tags"><span>Crispy</span></div>
             </div>
             <div class="menu-card">
@@ -445,7 +537,7 @@
                 <h3>The Shroom Wrap</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Seasoned mushroom wrap loaded with fresh toppings and house sauce.</p>
+              <p class="menu-card-desc">Seasoned mushroom wrap loaded with fresh toppings and house sauce.</p>
               <div class="menu-tags"><span>Savory</span></div>
             </div>
             <div class="menu-card">
@@ -453,7 +545,7 @@
                 <h3>Tuna Sandwich</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Plant-based tuna salad on house bread with crisp toppings.</p>
+              <p class="menu-card-desc">Plant-based tuna salad on house bread with crisp toppings.</p>
               <div class="menu-tags"><span>Light</span></div>
             </div>
             <div class="menu-card">
@@ -461,7 +553,7 @@
                 <h3>Vegan Tacos</h3>
                 <span class="menu-price">$15</span>
               </div>
-              <p>Three seasoned plant-based tacos with fresh toppings and house salsa.</p>
+              <p class="menu-card-desc">Three seasoned plant-based tacos with fresh toppings and house salsa.</p>
               <div class="menu-tags"><span>Bold</span></div>
             </div>
             <div class="menu-card">
@@ -469,7 +561,7 @@
                 <h3>Bang Bang Cauliflower Taco</h3>
                 <span class="menu-price">$15</span>
               </div>
-              <p>Crispy cauliflower in bang bang sauce wrapped in soft tortillas.</p>
+              <p class="menu-card-desc">Crispy cauliflower in bang bang sauce wrapped in soft tortillas.</p>
               <div class="menu-tags"><span>Spicy</span><span>Crispy</span></div>
             </div>
             <div class="menu-card">
@@ -477,7 +569,7 @@
                 <h3>Vegan Sweet Chili Wrap</h3>
                 <span class="menu-price">$15</span>
               </div>
-              <p>A flavor-packed wrap with sweet chili-glazed protein and fresh veggies.</p>
+              <p class="menu-card-desc">A flavor-packed wrap with sweet chili-glazed protein and fresh veggies.</p>
               <div class="menu-tags"><span>Sweet</span></div>
             </div>
             <div class="menu-card">
@@ -485,7 +577,7 @@
                 <h3>Miami Fries</h3>
                 <span class="menu-price">$9</span>
               </div>
-              <p>Loaded fries topped with house seasoning and signature toppings.</p>
+              <p class="menu-card-desc">Loaded fries topped with house seasoning and signature toppings.</p>
               <div class="menu-tags"><span>Shareable</span></div>
             </div>
             <div class="menu-card">
@@ -493,7 +585,7 @@
                 <h3>Vegan Lasagna Rolls</h3>
                 <span class="menu-price">$24</span>
               </div>
-              <p>Rolled pasta filled with plant-based ricotta and baked in marinara.</p>
+              <p class="menu-card-desc">Rolled pasta filled with plant-based ricotta and baked in marinara.</p>
               <div class="menu-tags"><span>Comfort</span></div>
             </div>
             <div class="menu-card">
@@ -501,7 +593,7 @@
                 <h3>Eggplant Parmigiana</h3>
                 <span class="menu-price">$22</span>
               </div>
-              <p>Breaded eggplant layered with vegan mozzarella and house marinara.</p>
+              <p class="menu-card-desc">Breaded eggplant layered with vegan mozzarella and house marinara.</p>
               <div class="menu-tags"><span>Italian</span></div>
             </div>
             <div class="menu-card">
@@ -509,7 +601,7 @@
                 <h3>Fried Fish Sandwich</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Crispy plant-based fish on a brioche bun with tartar sauce and slaw.</p>
+              <p class="menu-card-desc">Crispy plant-based fish on a brioche bun with tartar sauce and slaw.</p>
               <div class="menu-tags"><span>Crispy</span></div>
             </div>
             <div class="menu-card">
@@ -517,22 +609,22 @@
                 <h3>Vegan Fish &amp; Chips</h3>
                 <span class="menu-price">$19</span>
               </div>
-              <p>Beer-battered plant-based fish with house fries and house tartar sauce.</p>
+              <p class="menu-card-desc">Beer-battered plant-based fish with house fries and house tartar sauce.</p>
               <div class="menu-tags"><span>Classic</span></div>
             </div>
           </div>
         </div>
 
         <!-- Salads & Bowls -->
-        <div class="menu-panel" id="tab-bowls">
+        <div class="menu-panel" id="tab-bowls" role="tabpanel" aria-labelledby="tabbtn-bowls" tabindex="0" hidden>
           <div class="menu-grid">
             <div class="menu-card featured">
-              <div class="menu-card-badge">Fresh &amp; Bold</div>
+              <p class="menu-card-badge">Fresh &amp; Bold</p>
               <div class="menu-card-header">
                 <h3>The Vegan Cobb</h3>
                 <span class="menu-price">$16</span>
               </div>
-              <p>A hearty cobb salad loaded with plant-based proteins, avocado, and house dressing.</p>
+              <p class="menu-card-desc">A hearty cobb salad loaded with plant-based proteins, avocado, and house dressing.</p>
               <div class="menu-tags"><span>High Protein</span></div>
             </div>
             <div class="menu-card">
@@ -540,7 +632,7 @@
                 <h3>The Vegan Chop</h3>
                 <span class="menu-price">$16</span>
               </div>
-              <p>Chopped salad with seasonal veggies, house croutons, and zesty vinaigrette.</p>
+              <p class="menu-card-desc">Chopped salad with seasonal veggies, house croutons, and zesty vinaigrette.</p>
               <div class="menu-tags"><span>Light</span></div>
             </div>
             <div class="menu-card">
@@ -548,23 +640,23 @@
                 <h3>Caesar Salad</h3>
                 <span class="menu-price">$16</span>
               </div>
-              <p>Crisp romaine, vegan caesar dressing, house croutons, and nutritional yeast.</p>
+              <p class="menu-card-desc">Crisp romaine, vegan caesar dressing, house croutons, and nutritional yeast.</p>
               <div class="menu-tags"><span>Classic</span></div>
             </div>
           </div>
         </div>
 
         <!-- Brunch -->
-        <div class="menu-panel" id="tab-brunch">
+        <div class="menu-panel" id="tab-brunch" role="tabpanel" aria-labelledby="tabbtn-brunch" tabindex="0" hidden>
           <p class="menu-tab-note">Served Saturday &amp; Sunday Only</p>
           <div class="menu-grid">
             <div class="menu-card featured">
-              <div class="menu-card-badge">Weekend Special</div>
+              <p class="menu-card-badge">Weekend Special</p>
               <div class="menu-card-header">
                 <h3>Vegan Soul Platter</h3>
                 <span class="menu-price">$31</span>
               </div>
-              <p>The full spread — a generous soul food brunch plate with all the fixings.</p>
+              <p class="menu-card-desc">The full spread — a generous soul food brunch plate with all the fixings.</p>
               <div class="menu-tags"><span>Hearty</span><span>Signature</span></div>
             </div>
             <div class="menu-card">
@@ -572,7 +664,7 @@
                 <h3>Vegan Chicken &amp; Waffle</h3>
                 <span class="menu-price">$24</span>
               </div>
-              <p>Crispy plant-based chicken on a fluffy waffle with maple syrup and hot sauce.</p>
+              <p class="menu-card-desc">Crispy plant-based chicken on a fluffy waffle with maple syrup and hot sauce.</p>
               <div class="menu-tags"><span>Sweet &amp; Savory</span></div>
             </div>
             <div class="menu-card">
@@ -580,15 +672,15 @@
                 <h3>Vegan Unlimited Fried Seafood Platter</h3>
                 <span class="menu-price">$36</span>
               </div>
-              <p>All-you-can-eat plant-based fried seafood platter — the ultimate brunch treat.</p>
+              <p class="menu-card-desc">All-you-can-eat plant-based fried seafood platter — the ultimate brunch treat.</p>
               <div class="menu-tags"><span>Premium</span></div>
             </div>
             <div class="menu-card">
               <div class="menu-card-header">
-                <h3>Vegan Brunch "My Way"</h3>
+                <h3>Vegan Brunch &ldquo;My Way&rdquo;</h3>
                 <span class="menu-price">$29</span>
               </div>
-              <p>Build your own brunch plate — choose your proteins, sides, and extras.</p>
+              <p class="menu-card-desc">Build your own brunch plate — choose your proteins, sides, and extras.</p>
               <div class="menu-tags"><span>Customizable</span></div>
             </div>
             <div class="menu-card">
@@ -596,7 +688,7 @@
                 <h3>The Vegan Scrambler</h3>
                 <span class="menu-price">$22</span>
               </div>
-              <p>Plant-based egg scramble with fresh veggies and house seasoning.</p>
+              <p class="menu-card-desc">Plant-based egg scramble with fresh veggies and house seasoning.</p>
               <div class="menu-tags"><span>Savory</span></div>
             </div>
             <div class="menu-card">
@@ -604,7 +696,7 @@
                 <h3>Loaded Vegan Nachos</h3>
                 <span class="menu-price">$22</span>
               </div>
-              <p>Brunch nachos piled high with plant-based toppings and house queso.</p>
+              <p class="menu-card-desc">Brunch nachos piled high with plant-based toppings and house queso.</p>
               <div class="menu-tags"><span>Shareable</span></div>
             </div>
             <div class="menu-card">
@@ -612,7 +704,7 @@
                 <h3>Cinnamon Sweet Potato Pancakes</h3>
                 <span class="menu-price">$17.50</span>
               </div>
-              <p>Fluffy sweet potato pancakes with warm cinnamon spice and maple syrup.</p>
+              <p class="menu-card-desc">Fluffy sweet potato pancakes with warm cinnamon spice and maple syrup.</p>
               <div class="menu-tags"><span>Sweet</span></div>
             </div>
             <div class="menu-card">
@@ -620,7 +712,7 @@
                 <h3>Upside Down Pineapple Pancakes</h3>
                 <span class="menu-price">$16.50</span>
               </div>
-              <p>Caramelized pineapple pancakes — sweet, tropical, and unforgettable.</p>
+              <p class="menu-card-desc">Caramelized pineapple pancakes — sweet, tropical, and unforgettable.</p>
               <div class="menu-tags"><span>Sweet</span></div>
             </div>
             <div class="menu-card">
@@ -628,7 +720,7 @@
                 <h3>Very Berry Pancakes</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Light fluffy pancakes loaded with mixed berries and whipped coconut cream.</p>
+              <p class="menu-card-desc">Light fluffy pancakes loaded with mixed berries and whipped coconut cream.</p>
               <div class="menu-tags"><span>Sweet</span></div>
             </div>
             <div class="menu-card">
@@ -636,7 +728,7 @@
                 <h3>French Toast</h3>
                 <span class="menu-price">$10</span>
               </div>
-              <p>Thick-cut brioche dipped in vanilla-cinnamon batter, served golden and warm.</p>
+              <p class="menu-card-desc">Thick-cut brioche dipped in vanilla-cinnamon batter, served golden and warm.</p>
               <div class="menu-tags"><span>Classic</span></div>
             </div>
             <div class="menu-card">
@@ -644,7 +736,7 @@
                 <h3>Fried Corn</h3>
                 <span class="menu-price">$10</span>
               </div>
-              <p>Skillet-fried sweet corn with house seasoning — a beloved side.</p>
+              <p class="menu-card-desc">Skillet-fried sweet corn with house seasoning — a beloved side.</p>
               <div class="menu-tags"><span>Side</span></div>
             </div>
             <div class="menu-card">
@@ -652,35 +744,35 @@
                 <h3>Crispy Fish Bites</h3>
                 <span class="menu-price">$17</span>
               </div>
-              <p>Brunch-style crispy plant-based fish bites with house dipping sauce.</p>
+              <p class="menu-card-desc">Brunch-style crispy plant-based fish bites with house dipping sauce.</p>
               <div class="menu-tags"><span>Crispy</span></div>
             </div>
           </div>
         </div>
 
         <!-- Sides & Drinks -->
-        <div class="menu-panel" id="tab-sides">
+        <div class="menu-panel" id="tab-sides" role="tabpanel" aria-labelledby="tabbtn-sides" tabindex="0" hidden>
           <div class="menu-grid">
             <div class="menu-card">
               <div class="menu-card-header">
                 <h3>Regular Fries</h3>
                 <span class="menu-price">$4</span>
               </div>
-              <p>Classic crispy fries with house seasoning.</p>
+              <p class="menu-card-desc">Classic crispy fries with house seasoning.</p>
             </div>
             <div class="menu-card">
               <div class="menu-card-header">
                 <h3>Sweet Potato Fries</h3>
                 <span class="menu-price">$7.50</span>
               </div>
-              <p>Hand-cut sweet potato fries seasoned to perfection.</p>
+              <p class="menu-card-desc">Hand-cut sweet potato fries seasoned to perfection.</p>
             </div>
             <div class="menu-card">
               <div class="menu-card-header">
                 <h3>Gluten Free Pancakes</h3>
                 <span class="menu-price">$16</span>
               </div>
-              <p>Fluffy gluten-free pancakes — same great taste, no gluten.</p>
+              <p class="menu-card-desc">Fluffy gluten-free pancakes — same great taste, no gluten.</p>
               <div class="menu-tags"><span>GF</span></div>
             </div>
             <div class="menu-card">
@@ -688,7 +780,7 @@
                 <h3>Gluten Free Cauliflower Bites</h3>
                 <span class="menu-price">$22</span>
               </div>
-              <p>Crispy cauliflower bites made gluten-free without sacrificing flavor.</p>
+              <p class="menu-card-desc">Crispy cauliflower bites made gluten-free without sacrificing flavor.</p>
               <div class="menu-tags"><span>GF</span></div>
             </div>
             <div class="menu-card">
@@ -696,7 +788,7 @@
                 <h3>Gluten Free Fish &amp; Chips</h3>
                 <span class="menu-price">$22</span>
               </div>
-              <p>Plant-based fish and chips, fully gluten-free.</p>
+              <p class="menu-card-desc">Plant-based fish and chips, fully gluten-free.</p>
               <div class="menu-tags"><span>GF</span></div>
             </div>
             <div class="menu-card">
@@ -704,7 +796,7 @@
                 <h3>Crispy Chicken Skewers</h3>
                 <span class="menu-price">$14</span>
               </div>
-              <p>Skewered plant-based crispy chicken bites with dipping sauce.</p>
+              <p class="menu-card-desc">Skewered plant-based crispy chicken bites with dipping sauce.</p>
               <div class="menu-tags"><span>GF</span></div>
             </div>
             <div class="menu-card">
@@ -712,7 +804,7 @@
                 <h3>Fountain Drinks</h3>
                 <span class="menu-price">$4.25 / $5.25</span>
               </div>
-              <p>Beet Sorrel Ginger · Lemonade Ginger · Hibiscus Iced Tea — Small or Large.</p>
+              <p class="menu-card-desc">Beet Sorrel Ginger · Lemonade Ginger · Hibiscus Iced Tea — Small or Large.</p>
               <div class="menu-tags"><span>Small</span><span>Large</span></div>
             </div>
           </div>
@@ -726,302 +818,393 @@
     </section>
 
     <!-- ══════ GALLERY ══════ -->
-    <section id="gallery" class="gallery-section section-pad">
+    <section id="gallery" class="gallery-section section-pad" aria-labelledby="gallery-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">From Our Kitchen</span>
-          <h2 class="section-title">Food That Speaks For Itself</h2>
+          <h2 class="section-title" id="gallery-title">Food That Speaks For Itself</h2>
         </div>
-        <div class="gallery-grid">
-          <div class="gallery-item g-tall">
-            <img src="assets/images/food-1.jpg" alt="Jalapeño Smash Burger" class="gallery-photo" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
-            <div class="gallery-overlay"><span>Jalapeño Smash Burger</span></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/food-2.jpg" alt="Classic Smash Burger" class="gallery-photo" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
-            <div class="gallery-overlay"><span>Classic Smash Burger</span></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/food-3.webp" alt="Ranch Cauliflower Bites" class="gallery-photo" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
-            <div class="gallery-overlay"><span>Ranch Cauliflower Bites</span></div>
-          </div>
-          <div class="gallery-item g-wide">
-            <img src="assets/images/food-4.webp" alt="BBQ Cauliflower Wings" class="gallery-photo" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
-            <div class="gallery-overlay"><span>BBQ Cauliflower Wings</span></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/food-5.webp" alt="BBQ Skewers" class="gallery-photo" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
-            <div class="gallery-overlay"><span>BBQ Skewers</span></div>
-          </div>
-          <div class="gallery-item">
-            <img src="assets/images/owners.webp" alt="Nate &amp; Hannah Campbell" class="gallery-photo" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
-            <div class="gallery-overlay"><span>Plant-Based Eats</span></div>
-          </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <button type="button" class="gallery-item g-tall" data-caption="Jalapeño Smash Burger">
+            <img src="assets/images/food-1.jpg" alt="Jalapeño smash burger with fries" class="gallery-photo" width="1440" height="1440" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>Jalapeño Smash Burger</span></span>
+          </button>
+          <button type="button" class="gallery-item" data-caption="Classic Smash Burger">
+            <img src="assets/images/food-2.jpg" alt="Classic plant-based smash burger" class="gallery-photo" width="960" height="1280" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>Classic Smash Burger</span></span>
+          </button>
+          <button type="button" class="gallery-item" data-caption="Ranch Cauliflower Bites">
+            <img src="assets/images/food-3.webp" alt="Ranch cauliflower bites" class="gallery-photo" width="1200" height="1292" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>Ranch Cauliflower Bites</span></span>
+          </button>
+          <button type="button" class="gallery-item g-wide" data-caption="BBQ Cauliflower Wings">
+            <img src="assets/images/food-4.webp" alt="BBQ cauliflower wings" class="gallery-photo" width="1200" height="1292" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>BBQ Cauliflower Wings</span></span>
+          </button>
+          <button type="button" class="gallery-item" data-caption="BBQ Skewers">
+            <img src="assets/images/food-5.webp" alt="Plant-based BBQ skewers" class="gallery-photo" width="1200" height="1292" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>BBQ Skewers</span></span>
+          </button>
+          <button type="button" class="gallery-item" data-caption="Nate &amp; Hannah Campbell">
+            <img src="assets/images/owners.webp" alt="Nate and Hannah Campbell at Veganish Cafe" class="gallery-photo" width="1400" height="1507" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>Nate &amp; Hannah Campbell</span></span>
+          </button>
         </div>
         <div class="gallery-footer">
-          <p>Follow us on Facebook for daily food photos &amp; specials</p>
-          <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener" class="btn btn-outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            @VeganishCT
-          </a>
+          <p>Follow along for daily food photos &amp; specials</p>
+          <div class="gallery-footer-actions">
+            <a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @veganish_ct
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Veganish CT
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ══════ YOUTUBE REVIEW ══════ -->
-    <section class="youtube-section section-pad">
+    <section class="youtube-section section-pad" aria-labelledby="video-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">See It For Yourself</span>
-          <h2 class="section-title">Watch the Review</h2>
+          <h2 class="section-title" id="video-title">Watch the Review</h2>
           <p class="section-desc">Don't just take our word for it — see what people are saying about Veganish Cafe.</p>
         </div>
-        <div class="youtube-embed-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/Fa0wXz2HvBI"
-            title="Veganish CT Restaurant Review"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+        <!--
+          Click-to-play facade. Embedding the real iframe on load pulls ~1MB of
+          YouTube script into every page view; this defers it until asked.
+        -->
+        <div class="youtube-embed-wrap" id="youtubeEmbed" data-video-id="Fa0wXz2HvBI">
+          <button type="button" class="youtube-facade" id="youtubePlay" aria-label="Play the Veganish Cafe review video on YouTube">
+            <img src="https://i.ytimg.com/vi/Fa0wXz2HvBI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async" />
+            <span class="youtube-play-btn" aria-hidden="true">
+              <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74a8.6 8.6 0 00-6.05-6.09C55.08.24 34 .24 34 .24s-21.08 0-26.47 1.41a8.6 8.6 0 00-6.05 6.09A90.2 90.2 0 000 24a90.2 90.2 0 001.48 16.26 8.6 8.6 0 006.05 6.09C12.92 47.76 34 47.76 34 47.76s21.08 0 26.47-1.41a8.6 8.6 0 006.05-6.09A90.2 90.2 0 0068 24a90.2 90.2 0 00-1.48-16.26z" fill="#f00"/><path d="M27.2 34.29L45.02 24 27.2 13.71z" fill="#fff"/></svg>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
     <!-- ══════ EVENT: VEGANS ON THE RUN 5K ══════ -->
-    <section id="events" class="event-section section-pad">
+    <!-- ══════ EVENTS ══════
+         Each card carries its own date(s); main.js flips a card to its "past"
+         state once every date on it has gone by, and retitles the section when
+         nothing upcoming is left. No manual edits needed as dates roll past.
+    ══════════════════════════════════════════ -->
+    <section id="events" class="event-section section-pad" aria-labelledby="events-title">
       <div class="container">
-        <div class="event-card">
-          <div class="event-left">
-            <span class="section-eyebrow">Upcoming Event</span>
-            <h2 class="event-title">Vegans on the Run 5K</h2>
-            <p class="event-tagline">RUN FOR YOUR HEALTH. EAT FOR YOUR FUTURE.</p>
-            <p class="event-desc">
-              Join us where fitness meets flavor and healthy living takes center stage! Whether you're a seasoned runner, a weekend jogger, or simply passionate about wellness — this event is for YOU.
-            </p>
-            <div class="event-highlights">
-              <div class="event-hi"><span>🌱</span> 100% Vegan Post-Race Meal</div>
-              <div class="event-hi"><span>🏅</span> 1st, 2nd &amp; 3rd Place Winners</div>
-              <div class="event-hi"><span>💚</span> Family-Friendly Atmosphere</div>
-              <div class="event-hi"><span>🌍</span> Promoting Healthier People</div>
-              <div class="event-hi"><span>🎉</span> 10% OFF All Food for Finishers</div>
+        <div class="section-header">
+          <span class="section-eyebrow" data-events-eyebrow>What's On</span>
+          <h2 class="section-title" id="events-title">Events at Veganish</h2>
+          <p class="section-desc" data-events-desc>Concert nights, community runs, and the celebrations in between.</p>
+        </div>
+
+        <div class="events-stack">
+
+          <!-- ── LATE NITE CONCERT SEASON ── -->
+          <article class="event-card event-card--concert" data-event-dates="2026-07-08,2026-07-11,2026-07-19,2026-07-21">
+            <div class="event-left">
+              <span class="section-eyebrow" data-event-eyebrow>Late Nite Season</span>
+              <h3 class="event-title">Veganish Concert Nights</h3>
+              <p class="event-tagline">Good food. Good music. Good vibes.</p>
+              <p class="event-desc">
+                On select concert nights we stay open late so you can eat great — even late. Roll in after the show for a full plant-based menu, to-go only.
+              </p>
+              <ul class="event-highlights">
+                <li class="event-hi"><span aria-hidden="true">🕙</span> Open late until 10 PM</li>
+                <li class="event-hi"><span aria-hidden="true">🥡</span> To-go option only on these nights</li>
+                <li class="event-hi"><span aria-hidden="true">🎶</span> Select concert dates only</li>
+                <li class="event-hi"><span aria-hidden="true">🌱</span> Full plant-based menu available</li>
+              </ul>
+              <a href="tel:+12032758924" class="btn btn-primary btn-lg" data-event-cta>Call ahead — (203) 275-8924</a>
             </div>
-            <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Register — DM "VEGAN ON THE RUN 5K"</a>
-          </div>
-          <div class="event-right">
-            <div class="event-flyer">
-              <img src="assets/images/5k-flyer.png" alt="Vegans on the Run 5K Flyer" />
-            </div>
-            <div class="event-details-box">
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📅</span>
-                <div>
-                  <strong>Date</strong>
-                  <p>July 18, 2026</p>
-                  <small>Rain Date: July 19, 2026</small>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">⏰</span>
-                <div>
-                  <strong>Start Time</strong>
-                  <p>9:30 AM</p>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">📍</span>
-                <div>
-                  <strong>Meet at Veganish Cafe</strong>
-                  <p>881 Lafayette Blvd</p>
-                  <p>Downtown Bridgeport, CT</p>
-                </div>
-              </div>
-              <div class="event-detail-row">
-                <span class="event-detail-icon">🎟️</span>
-                <div>
-                  <strong>Registration</strong>
-                  <p>FREE — Open to all</p>
-                </div>
+            <div class="event-right">
+              <div class="lineup-box">
+                <h4 class="lineup-heading">The Line-Up</h4>
+                <ol class="lineup">
+                  <li data-date="2026-07-08">
+                    <span class="lineup-date"><time datetime="2026-07-08">Jul 8</time></span>
+                    <span class="lineup-act">Sarah McLachlan</span>
+                  </li>
+                  <li data-date="2026-07-11">
+                    <span class="lineup-date"><time datetime="2026-07-11">Jul 11</time></span>
+                    <span class="lineup-act">Buju Banton &amp; Steven Marley</span>
+                  </li>
+                  <li data-date="2026-07-19">
+                    <span class="lineup-date"><time datetime="2026-07-19">Jul 19</time></span>
+                    <span class="lineup-act">Bob Dylan</span>
+                  </li>
+                  <li data-date="2026-07-21">
+                    <span class="lineup-date"><time datetime="2026-07-21">Jul 21</time></span>
+                    <span class="lineup-act">Lauryn Hill</span>
+                  </li>
+                </ol>
+                <p class="lineup-note">Kitchen open until 10 PM on these dates.</p>
               </div>
             </div>
-            <div class="event-powered">Powered by Veganish CT</div>
-          </div>
+          </article>
+
+          <!-- ── 2-YEAR ANNIVERSARY + VEGANS ON THE RUN 5K ── -->
+          <article class="event-card" data-event-date="2026-07-18">
+            <div class="event-left">
+              <span class="section-eyebrow" data-event-eyebrow>Community Event</span>
+              <h3 class="event-title">2-Year Anniversary &amp; Vegans on the Run 5K</h3>
+              <p class="event-tagline">Don't be on edge… eat a veg!</p>
+              <p class="event-desc">
+                Two years of Veganish, celebrated the only way we know how — an all-day block party with a community 5K, a DJ, games, and a whole lot of plant-based food. Runner, weekend jogger, or just here for the plate: this one's for everyone.
+              </p>
+              <ul class="event-highlights">
+                <li class="event-hi"><span aria-hidden="true">🏃</span> &ldquo;Vegans-on-the-Run&rdquo; 5K — 9:30 AM start</li>
+                <li class="event-hi"><span aria-hidden="true">🎧</span> Live DJ &amp; games all day</li>
+                <li class="event-hi"><span aria-hidden="true">🌱</span> 100% vegan post-race meal</li>
+                <li class="event-hi"><span aria-hidden="true">🏅</span> 1st, 2nd &amp; 3rd place winners</li>
+                <li class="event-hi"><span aria-hidden="true">🎉</span> 10% off all food for finishers</li>
+              </ul>
+              <a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" data-event-cta>Register — DM &ldquo;VEGANS ON THE RUN 5K&rdquo;</a>
+            </div>
+            <div class="event-right">
+              <div class="event-flyer">
+                <img src="assets/images/5k-flyer.webp" alt="Vegans on the Run 5K event flyer" width="1200" height="1601" loading="lazy" decoding="async" />
+              </div>
+              <div class="event-details-box">
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">📅</span>
+                  <div>
+                    <strong>Date</strong>
+                    <p><time datetime="2026-07-18">July 18, 2026</time></p>
+                    <small>All-day event · Rain date July 19</small>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">⏰</span>
+                  <div>
+                    <strong>5K Start Time</strong>
+                    <p>9:30 AM</p>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">📍</span>
+                  <div>
+                    <strong>Meet at Veganish Cafe</strong>
+                    <p>881 Lafayette Blvd</p>
+                    <p>Bridgeport, CT 06604</p>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">🎟️</span>
+                  <div>
+                    <strong>Registration</strong>
+                    <p>FREE — Open to all</p>
+                  </div>
+                </div>
+              </div>
+              <p class="event-powered">Powered by plants · Fueled by purpose · Stronger together</p>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
     <!-- ══════ REVIEWS CAROUSEL ══════ -->
-    <section id="reviews" class="reviews-section section-pad">
+    <section id="reviews" class="reviews-section section-pad" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">Veganish Cafe Reviews</span>
-          <h2 class="section-title">What People Are Saying</h2>
-          <div class="reviews-overall">
-            <div class="reviews-stars">★★★★★</div>
-            <span>5.0 · Highly Rated · Bridgeport's Hidden Gem</span>
-          </div>
+          <h2 class="section-title" id="reviews-title">What People Are Saying</h2>
+          <p class="reviews-overall">
+            <span class="reviews-stars" aria-hidden="true">★★★★★</span>
+            <span>Rated 4.7 out of 5 across 171 Google reviews · Bridgeport's hidden gem</span>
+          </p>
         </div>
         <div class="reviews-carousel-wrap">
-          <button class="reviews-arrow reviews-prev" id="reviewsPrev" aria-label="Previous review">&#8592;</button>
-          <div class="reviews-track-outer">
+          <button class="reviews-arrow reviews-prev" type="button" id="reviewsPrev" aria-label="Previous reviews">&#8592;</button>
+          <div class="reviews-track-outer" id="reviewsViewport" aria-live="polite">
             <div class="reviews-track" id="reviewsTrack">
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Veganish Cafe in Bridgeport, CT is an absolute gem for vegan, vegetarian, and even non-vegan diners. Our whole group loved it, including the meat eaters, who walked out completely satisfied and surprised by how good everything was. Every plate we tried was fresh, flavorful, and super creative."</p>
-                <div class="review-author">
-                  <div class="review-avatar">PL</div>
-                  <div><strong>Phillip Laughton</strong><span>Verified Diner</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">Veganish Cafe in Bridgeport, CT is an absolute gem for vegan, vegetarian, and even non-vegan diners. Our whole group loved it, including the meat eaters, who walked out completely satisfied and surprised by how good everything was. Every plate we tried was fresh, flavorful, and super creative.</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">PL</span>
+                  <span class="review-author-info"><strong>Phillip Laughton</strong><span>Verified Diner</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Veganish, Veganish, Veganish! This Bridgeport hidden gem delivers an ambiance and music vibe that's always a perfect 10/10. The vegan chicken and waffles are hands down the best I've ever had — crispy, flavorful, and seasoned to perfection."</p>
-                <div class="review-author">
-                  <div class="review-avatar">DM</div>
-                  <div><strong>Desiree Marie</strong><span>@beyondbiteswithdes</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">Veganish, Veganish, Veganish! This Bridgeport hidden gem delivers an ambiance and music vibe that's always a perfect 10/10. The vegan chicken and waffles are hands down the best I've ever had — crispy, flavorful, and seasoned to perfection.</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">DM</span>
+                  <span class="review-author-info"><strong>Desiree Marie</strong><span>@beyondbiteswithdes</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"I had the absolute best birthday experience at Veganish Café! The owner Hannah went above and beyond to make the day special. They surprised me with a complimentary birthday donut and played Stevie Wonder's 'Happy Birthday' — every dish was perfectly seasoned, beautifully presented, and absolutely delicious."</p>
-                <div class="review-author">
-                  <div class="review-avatar">JS</div>
-                  <div><strong>J S</strong><span>Birthday Celebration</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">I had the absolute best birthday experience at Veganish Café! The owner Hannah went above and beyond to make the day special. They surprised me with a complimentary birthday donut and played Stevie Wonder's &ldquo;Happy Birthday&rdquo; — every dish was perfectly seasoned, beautifully presented, and absolutely delicious.</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">JS</span>
+                  <span class="review-author-info"><strong>J S</strong><span>Birthday Celebration</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Let's just say I am addicted!!! Finding vegan food in New Haven was impossible! But then someone told me about this place in Bridgeport. I've had deliveries all the way to Shelton and Milford — I'm almost willing to move to Bridgeport just to eat here everyday!"</p>
-                <div class="review-author">
-                  <div class="review-avatar">S</div>
-                  <div><strong>Salimā</strong><span>Loyal Customer</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">Let's just say I am addicted!!! Finding vegan food in New Haven was impossible! But then someone told me about this place in Bridgeport. I've had deliveries all the way to Shelton and Milford — I'm almost willing to move to Bridgeport just to eat here everyday!</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">S</span>
+                  <span class="review-author-info"><strong>Salimā</strong><span>Loyal Customer</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Amazing experience and tasty food!! We had Bang Bang cauliflower taco, Vegan Buffalo chicken wrap, Oyster Po boy — all incredible. They asked us to spin a wheel and we got a 5% discount. They gave us complimentary non-alcoholic mimosas. We would love to go back and try everything on the menu!!"</p>
-                <div class="review-author">
-                  <div class="review-avatar">MB</div>
-                  <div><strong>Mrinalini Buddha</strong><span>First Time Visitor</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">Amazing experience and tasty food!! We had Bang Bang cauliflower taco, Vegan Buffalo chicken wrap, Oyster Po boy — all incredible. They asked us to spin a wheel and we got a 5% discount. They gave us complimentary non-alcoholic mimosas. We would love to go back and try everything on the menu!!</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">MB</span>
+                  <span class="review-author-info"><strong>Mrinalini Buddha</strong><span>First Time Visitor</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Don't let the name fool you, everything on the menu starts out vegan. The food is affordably priced, delicious, and comes out quickly. The staff was informative, kind, and happy to answer questions. This is some genuinely delicious food in an otherwise not very vegan friendly city. I highly recommend it!"</p>
-                <div class="review-author">
-                  <div class="review-avatar">EK</div>
-                  <div><strong>EGKunz</strong><span>Verified Diner</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">Don't let the name fool you, everything on the menu starts out vegan. The food is affordably priced, delicious, and comes out quickly. The staff was informative, kind, and happy to answer questions. This is some genuinely delicious food in an otherwise not very vegan friendly city. I highly recommend it!</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">EK</span>
+                  <span class="review-author-info"><strong>EGKunz</strong><span>Verified Diner</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p>"Great vegan/vegetarian cafe. I had the crispy 'chicken' sweet chili wrap. My husband's salad was really tasty with fried mushrooms as a meat alternative. Fun and inviting options. Hidden gem. Happy we found it."</p>
-                <div class="review-author">
-                  <div class="review-avatar">LM</div>
-                  <div><strong>Linda M</strong><span>Verified Diner</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★★</span><span class="sr-only">Rated 5 out of 5</span></p>
+                <blockquote class="review-text">Great vegan/vegetarian cafe. I had the crispy &ldquo;chicken&rdquo; sweet chili wrap. My husband's salad was really tasty with fried mushrooms as a meat alternative. Fun and inviting options. Hidden gem. Happy we found it.</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">LM</span>
+                  <span class="review-author-info"><strong>Linda M</strong><span>Verified Diner</span></span>
+                </figcaption>
+              </figure>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★☆</div>
-                <p>"Even if you're not vegan I strongly recommend this place for any food! I experienced the vegan 'fish' tacos and they were filling, flavorful with a hint of spice in the sauce. Very much a cafe style establishment but definitely recommend sitting in if you have time."</p>
-                <div class="review-author">
-                  <div class="review-avatar">CB</div>
-                  <div><strong>Courtney Brown</strong><span>Verified Diner</span></div>
-                </div>
-              </div>
+              <figure class="review-card">
+                <p class="review-stars"><span aria-hidden="true">★★★★☆</span><span class="sr-only">Rated 4 out of 5</span></p>
+                <blockquote class="review-text">Even if you're not vegan I strongly recommend this place for any food! I experienced the vegan &ldquo;fish&rdquo; tacos and they were filling, flavorful with a hint of spice in the sauce. Very much a cafe style establishment but definitely recommend sitting in if you have time.</blockquote>
+                <figcaption class="review-author">
+                  <span class="review-avatar" aria-hidden="true">CB</span>
+                  <span class="review-author-info"><strong>Courtney Brown</strong><span>Verified Diner</span></span>
+                </figcaption>
+              </figure>
 
             </div>
           </div>
-          <button class="reviews-arrow reviews-next" id="reviewsNext" aria-label="Next review">&#8594;</button>
+          <button class="reviews-arrow reviews-next" type="button" id="reviewsNext" aria-label="Next reviews">&#8594;</button>
         </div>
-        <div class="reviews-dots" id="reviewsDots">
-          <button class="rdot active" data-r="0"></button>
-          <button class="rdot" data-r="1"></button>
-          <button class="rdot" data-r="2"></button>
-          <button class="rdot" data-r="3"></button>
-          <button class="rdot" data-r="4"></button>
-          <button class="rdot" data-r="5"></button>
-          <button class="rdot" data-r="6"></button>
-          <button class="rdot" data-r="7"></button>
-        </div>
+        <div class="reviews-dots" id="reviewsDots" role="group" aria-label="Review pages"></div>
       </div>
     </section>
 
     <!-- ══════ ORDER / CTA BANNER ══════ -->
-    <section id="order" class="order-banner">
-      <div class="order-banner-bg"></div>
+    <section id="order" class="order-banner" aria-labelledby="order-title">
+      <div class="order-banner-bg" aria-hidden="true"></div>
       <div class="container">
         <div class="order-content">
-          <h2>Ready to Order?</h2>
-          <p>Pick up in-store or call us — we'll have it fresh and ready for you.</p>
+          <h2 id="order-title">Ready to Order?</h2>
+          <p>Pick up in-store, get it delivered, or call us — we'll have it fresh and ready for you.</p>
           <div class="order-actions">
-            <a href="tel:+12034000000" class="btn btn-primary btn-lg">📞 Call to Order</a>
-            <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Message Us on Facebook</a>
+            <a href="tel:+12032758924" class="btn btn-primary btn-lg">
+              <span aria-hidden="true">📞</span> Call (203) 275-8924
+            </a>
+            <a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Order on Grubhub</a>
+            <a href="https://www.ubereats.com/store/veganish-cafe/M534NMX0TJ2JhZ4s1W9c2g" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Order on Uber Eats</a>
           </div>
+          <p class="order-note">Catering or private events? Email <a href="mailto:veganish881@gmail.com">veganish881@gmail.com</a></p>
         </div>
       </div>
     </section>
 
     <!-- ══════ CONTACT / VISIT ══════ -->
-    <section id="contact" class="contact-section section-pad">
+    <section id="contact" class="contact-section section-pad" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-grid">
           <div class="contact-info">
             <span class="section-eyebrow">Come See Us</span>
-            <h2 class="section-title">Visit Veganish CT</h2>
+            <h2 class="section-title" id="contact-title">Visit Veganish Cafe</h2>
             <div class="contact-items">
               <div class="contact-item">
-                <span class="contact-icon">📍</span>
+                <span class="contact-icon" aria-hidden="true">📍</span>
                 <div>
                   <strong>Location</strong>
-                  <p>881 Lafayette Blvd</p>
-                  <p>Downtown Bridgeport, CT</p>
+                  <address>
+                    881 Lafayette Blvd<br />
+                    Bridgeport, CT 06604
+                  </address>
                 </div>
               </div>
               <div class="contact-item">
-                <span class="contact-icon">🕐</span>
+                <span class="contact-icon" aria-hidden="true">🕐</span>
                 <div>
                   <strong>Hours</strong>
-                  <p>Tuesday – Friday: 11AM – 8PM</p>
-                  <p>Saturday – Sunday: 10AM – 5PM (Brunch!)</p>
-                  <p>Monday: Closed</p>
+                  <!-- Source of truth for the "Open now / Closed" pill — keep in sync with the JSON-LD in <head>. -->
+                  <ul class="hours-list" id="hoursList">
+                    <li data-day="1"><span>Monday</span><span class="hours-closed">Closed</span></li>
+                    <li data-day="2" data-open="10:00" data-close="19:30"><span>Tuesday</span><span>10:00 AM – 7:30 PM</span></li>
+                    <li data-day="3" data-open="10:00" data-close="19:30"><span>Wednesday</span><span>10:00 AM – 7:30 PM</span></li>
+                    <li data-day="4" data-open="10:00" data-close="19:30"><span>Thursday</span><span>10:00 AM – 7:30 PM</span></li>
+                    <li data-day="5" data-open="10:00" data-close="19:30"><span>Friday</span><span>10:00 AM – 7:30 PM</span></li>
+                    <li data-day="6" data-open="10:00" data-close="18:30"><span>Saturday</span><span>10:00 AM – 6:30 PM</span></li>
+                    <li data-day="0" data-open="10:00" data-close="18:30"><span>Sunday</span><span>10:00 AM – 6:30 PM</span></li>
+                  </ul>
+                  <p class="hours-note">Brunch served all day Saturday &amp; Sunday.</p>
                 </div>
               </div>
               <div class="contact-item">
-                <span class="contact-icon">📱</span>
+                <span class="contact-icon" aria-hidden="true">📞</span>
                 <div>
-                  <strong>Social</strong>
-                  <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener">Facebook: @VeganishCT</a>
+                  <strong>Phone</strong>
+                  <a href="tel:+12032758924">(203) 275-8924</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon" aria-hidden="true">✉️</span>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:veganish881@gmail.com">veganish881@gmail.com</a>
                 </div>
               </div>
             </div>
             <div class="social-links">
-              <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener" class="social-btn facebook">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer" class="social-btn instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener noreferrer" class="social-btn facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 Facebook
+              </a>
+              <a href="https://www.yelp.com/biz/veganish-cafe-bridgeport" target="_blank" rel="noopener noreferrer" class="social-btn yelp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.271 16.718v1.417q-.011 3.257-.067 3.4a.83.83 0 01-.372.44 1.16 1.16 0 01-.742.13 8.4 8.4 0 01-4.535-2.442 1.2 1.2 0 01-.24-.36.9.9 0 01-.033-.484.85.85 0 01.206-.4q.16-.173 2.4-1.925 1.394-1.084 1.4-1.09a.8.8 0 01.5-.17.77.77 0 01.5.19.8.8 0 01.28.44 2 2 0 01.036.416 1 1 0 01.007.13v.308zm-2.464-3.42a.83.83 0 00-.13-.803.9.9 0 00-.336-.253 12 12 0 00-.44-.15q-2.7-.87-2.89-.913a.85.85 0 00-.487.037.87.87 0 00-.4.316 1.2 1.2 0 00-.173.4 8.6 8.6 0 00.106 4.628q.09.279.253.42a.85.85 0 00.42.19.9.9 0 00.44-.06q.153-.06 2.343-1.85l.85-.694a.85.85 0 00.29-.457.83.83 0 00-.02-.44l-.036-.11zm4.474-.5a.9.9 0 00-.44.11l-.11.06q-.17.11-1.85 1.13l-.85.5a.85.85 0 00-.37.44.83.83 0 00.02.5q.06.17 1.13 1.85l.5.85a.85.85 0 00.44.37.83.83 0 00.5-.02 8.4 8.4 0 003.5-3.5.83.83 0 00.02-.5.85.85 0 00-.37-.44q-.17-.11-1.85-1.13zm-2.01-2.5q.29.11.5.02a.85.85 0 00.44-.37q.11-.17 1.13-1.85l.5-.85a.85.85 0 00.37-.44.83.83 0 00-.02-.5 8.4 8.4 0 00-3.5-3.5.83.83 0 00-.5.02.85.85 0 00-.44.37q-.11.17-1.13 1.85l-.5.85a.85.85 0 00-.37.44.83.83 0 00.02.5q.11.29.37.44z"/></svg>
+                Yelp
               </a>
             </div>
           </div>
           <div class="contact-map">
-            <div class="map-embed-placeholder">
-              <div class="map-inner">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="#4CAF50"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <p>881 Lafayette Blvd<br/>Downtown Bridgeport, CT</p>
-                <a href="https://maps.google.com/?q=881+Lafayette+Blvd+Bridgeport+CT" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
-              </div>
-            </div>
+            <iframe
+              class="map-embed"
+              title="Map showing Veganish Cafe at 881 Lafayette Blvd, Bridgeport, CT"
+              src="https://www.google.com/maps?q=881+Lafayette+Blvd,+Bridgeport,+CT+06604&output=embed"
+              width="600" height="400"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a href="https://maps.google.com/?q=881+Lafayette+Blvd+Bridgeport+CT+06604" target="_blank" rel="noopener noreferrer" class="btn btn-primary map-directions">Get Directions</a>
           </div>
         </div>
       </div>
     </section>
+
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -1029,12 +1212,12 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <div class="footer-logo">
-              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+              <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true" focusable="false">
                 <circle cx="22" cy="22" r="21" fill="#0a0a0a" stroke="#4CAF50" stroke-width="2"/>
                 <path d="M22,8 C28,13 32,18 22,24 C12,18 16,13 22,8Z" fill="#4CAF50"/>
                 <path d="M22,24 C27,20 32,26 28,32 C25,36 19,36 16,32 C12,26 17,20 22,24Z" fill="#4CAF50" opacity="0.8"/>
               </svg>
-              <span>Vegan<em>-ish</em> CT</span>
+              <span>Vegan<em>-ish</em> Cafe</span>
             </div>
             <p>Vegan food you can trust. A flavorful &amp; fun twist to eating healthier. Women owned by Chef Hannah &amp; Nate Campbell. Bridgeport proud.</p>
           </div>
@@ -1049,23 +1232,49 @@
             </ul>
           </div>
           <div class="footer-links">
-            <h4>Connect</h4>
+            <h4>Order &amp; Connect</h4>
             <ul>
-              <li><a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener">Facebook</a></li>
-              <li><a href="#order">Order Now</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="tel:+12032758924">(203) 275-8924</a></li>
+              <li><a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer">Grubhub</a></li>
+              <li><a href="https://www.ubereats.com/store/veganish-cafe/M534NMX0TJ2JhZ4s1W9c2g" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
+              <li><a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61559221286333" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 Veganish CT. All rights reserved. Women Owned &amp; Operated · Bridgeport, CT</p>
-          <p class="footer-credit">Designed &amp; built by <a href="https://ea-portfolio-khaki.vercel.app/" target="_blank" rel="noopener">Eric Askew</a></p>
+          <p>© <span id="footerYear">2026</span> Veganish Cafe. All rights reserved. Women Owned &amp; Operated · Bridgeport, CT</p>
+          <p class="footer-credit">Designed &amp; built by <a href="https://ea-portfolio-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">Eric Askew</a></p>
         </div>
       </div>
     </footer>
 
   </div><!-- /main-site -->
 
-  <script src="js/main.js"></script>
+  <!-- ══════ BACKGROUND MUSIC ══════ -->
+  <audio id="bgMusic" loop preload="none">
+    <source src="/audio/veganish-ambience.mp3" type="audio/mpeg" />
+  </audio>
+  <button type="button" class="music-toggle" id="musicToggle" aria-pressed="false" aria-label="Play background music" hidden>
+    <span class="music-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    <span class="music-muted-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4.03v8.06A4.5 4.5 0 0016.5 12zM14 3.23v2.06a7 7 0 010 13.42v2.06a9 9 0 000-17.54z" opacity=".9"/><path d="M2 2l20 20" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+    </span>
+  </button>
+
+  <!-- ══════ GALLERY LIGHTBOX ══════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#8592;</button>
+    <figure class="lightbox-figure">
+      <!-- No src= until a photo is chosen: an empty src resolves to the page
+           URL and fires a wasted request. main.js sets and clears it. -->
+      <img id="lightboxImg" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#8594;</button>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
 </body>
 </html>
