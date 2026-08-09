@@ -849,6 +849,18 @@
             <img src="assets/images/owners.webp" alt="Nate and Hannah Campbell at Veganish Cafe" class="gallery-photo" width="1400" height="1507" loading="lazy" decoding="async" />
             <span class="gallery-overlay"><span>Nate &amp; Hannah Campbell</span></span>
           </button>
+          <button type="button" class="gallery-item g-tall" data-caption="Vegan Soul Platter">
+            <img src="assets/images/food-7.webp" alt="Vegan Soul Platter — rice and peas, mac and cheese, candied yams, cabbage, curry and BBQ" class="gallery-photo" width="900" height="1200" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>Vegan Soul Platter</span></span>
+          </button>
+          <button type="button" class="gallery-item" data-caption="The Vegan Cobb">
+            <img src="assets/images/food-6.webp" alt="The Vegan Cobb — crispy plant-based protein over greens with avocado and house dressing" class="gallery-photo" width="1179" height="1200" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>The Vegan Cobb</span></span>
+          </button>
+          <button type="button" class="gallery-item" data-caption="Vegan Meal Prep">
+            <img src="assets/images/food-8.webp" alt="Vegan meal prep containers with BBQ over seasoned grains and cucumber salad" class="gallery-photo" width="900" height="1200" loading="lazy" decoding="async" />
+            <span class="gallery-overlay"><span>Vegan Meal Prep</span></span>
+          </button>
         </div>
         <div class="gallery-footer">
           <p>Follow along for daily food photos &amp; specials</p>
@@ -1114,6 +1126,13 @@
           <h2 id="order-title">Ready to Order?</h2>
           <p>Pick up in-store, get it delivered, or call us — we'll have it fresh and ready for you.</p>
           <div class="order-actions">
+            <!-- TODO(clover): un-comment when the Clover Online Ordering URL arrives, and drop the
+                 phone button below back to `btn btn-outline btn-lg` so this stays the only primary.
+                 Where to find the link: Clover Dashboard → Account & Setup → Online Ordering,
+                 then Online Ordering Providers → Clover → "More Options" (URL + QR code).
+                 Keep this FIRST and PRIMARY — it's commission-free, unlike Grubhub/Uber Eats.
+            <a href="CLOVER_ORDERING_URL" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Order Pickup — Powered by Clover</a>
+            -->
             <a href="tel:+12032758924" class="btn btn-primary btn-lg">
               <span aria-hidden="true">📞</span> Call (203) 275-8924
             </a>
@@ -1157,7 +1176,7 @@
                     <li data-day="6" data-open="10:00" data-close="18:30"><span>Saturday</span><span>10:00 AM – 6:30 PM</span></li>
                     <li data-day="0" data-open="10:00" data-close="18:30"><span>Sunday</span><span>10:00 AM – 6:30 PM</span></li>
                   </ul>
-                  <p class="hours-note">Brunch served all day Saturday &amp; Sunday.</p>
+                  <p class="hours-note">Brunch served all day Saturday &amp; Sunday.<br />Concert late nights run to 11:00 PM — schedule posted monthly on <a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer">Instagram</a>.</p>
                 </div>
               </div>
               <div class="contact-item">
@@ -1235,6 +1254,9 @@
             <h4>Order &amp; Connect</h4>
             <ul>
               <li><a href="tel:+12032758924">(203) 275-8924</a></li>
+              <!-- TODO(clover): un-comment alongside the order-banner button above.
+              <li><a href="CLOVER_ORDERING_URL" target="_blank" rel="noopener noreferrer">Order Pickup (Clover)</a></li>
+              -->
               <li><a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer">Grubhub</a></li>
               <li><a href="https://www.ubereats.com/store/veganish-cafe/M534NMX0TJ2JhZ4s1W9c2g" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
               <li><a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -1244,7 +1266,11 @@
         </div>
         <div class="footer-bottom">
           <p>© <span id="footerYear">2026</span> Veganish Cafe. All rights reserved. Women Owned &amp; Operated · Bridgeport, CT</p>
-          <p class="footer-credit">Designed &amp; built by <a href="https://ea-portfolio-khaki.vercel.app/" target="_blank" rel="noopener noreferrer">Eric Askew</a></p>
+          <!-- Credit mark is the ♛ (U+265B) glyph in #F5C518 — the same mark used on the
+               portfolio itself, so it stays in sync without shipping an image asset.
+               The name lives in aria-label only: hidden from sighted visitors, but the link
+               still announces its destination to screen readers. -->
+          <p class="footer-credit">Designed &amp; built by <a href="https://ea-portfolio-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-credit-mark" aria-label="Eric Askew — portfolio"><span aria-hidden="true">♛</span></a></p>
         </div>
       </div>
     </footer>

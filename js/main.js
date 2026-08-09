@@ -240,6 +240,10 @@ const music = (() => {
   function setMenu(open) {
     navLinks.classList.toggle('open', open);
     navToggle.classList.toggle('open', open);
+    // Drops the navbar's backdrop-filter while the menu is open. Without this the
+    // filter makes the navbar a containing block for the fixed overlay, which
+    // collapses it to navbar height — see the note in the CSS.
+    navbar.classList.toggle('menu-open', open);
     navToggle.setAttribute('aria-expanded', String(open));
     navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     if (open) scrollLock.lock();

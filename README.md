@@ -91,6 +91,18 @@ veganish/
   with the `openingHoursSpecification` in the JSON-LD block in `<head>`.
 - **Footer year** updates itself.
 
+### Ordering links
+
+Grubhub and Uber Eats are hardcoded in two places each — the order banner (`#order`) and the
+footer's "Order & Connect" list. Keep them in sync.
+
+**Clover Online Ordering is staged but not live.** Both spots carry a commented-out
+`TODO(clover)` block waiting on the store's ordering URL. The cafe finds it in the Clover
+Dashboard under *Account & Setup → Online Ordering*, then *Online Ordering Providers → Clover
+→ "More Options"*. When it lands, un-comment both blocks, paste the URL over
+`CLOVER_ORDERING_URL`, and drop the phone button to `btn-outline` so Clover is the only
+primary CTA — it's commission-free, unlike the delivery marketplaces.
+
 ---
 
 ## ✨ Features

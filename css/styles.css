@@ -3,7 +3,8 @@
    Color Palette:
    - Deep Black:    #0a0a0a
    - Rich Dark:     #111111 / #1a1a1a
-   - Green:         #4CAF50 / #388E3C
+   - Green:         #4CAF50 / #388E3C  (accents, borders, green-on-dark text)
+   - Deep Green:    #2E7D32           (any green surface carrying white text)
    - Orange Accent: #FF6B35
    - Gold:          #D4AF37
    - Off-White:     #F5F0E8
@@ -20,6 +21,14 @@
   --green:    #4CAF50;
   --green2:   #388E3C;
   --green-lt: #81C784;
+  /* White text needs 4.5:1. It gets 2.8:1 on --green and 4.1:1 on --green2, so
+     neither can carry body copy. This is the fill for any green surface with
+     white/cream text on it — 5.1:1. --green and --green2 stay as-is for
+     accents, borders and green-on-dark text, where they already pass. */
+  --green-deep: #2E7D32;
+  /* Hover lift for those same surfaces — lighter than --green-deep but still
+     4.7:1, so the label stays readable mid-hover. */
+  --green-deep-hi: #328436;
   --orange:   #FF6B35;
   --gold:     #D4AF37;
   --cream:    #F5F0E8;
@@ -79,7 +88,7 @@ address { font-style: normal; }
   top: 8px; left: 8px;
   z-index: 10001;
   padding: 12px 20px;
-  background: var(--green);
+  background: var(--green-deep);
   color: var(--white);
   font-size: 0.9rem;
   font-weight: 600;
@@ -145,13 +154,13 @@ address { font-style: normal; }
   white-space: nowrap;
 }
 .btn-primary {
-  background: var(--green);
+  background: var(--green-deep);
   color: var(--white);
-  border-color: var(--green);
+  border-color: var(--green-deep);
 }
 .btn-primary:hover {
-  background: var(--green2);
-  border-color: var(--green2);
+  background: var(--green-deep-hi);
+  border-color: var(--green-deep-hi);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(76,175,80,0.35);
 }
@@ -410,7 +419,7 @@ html.js.intro-active #main-site { opacity: 0; }
 .nav-cta {
   display: block;
   padding: 10px 22px;
-  background: var(--green);
+  background: var(--green-deep);
   color: var(--white);
   border-radius: 50px;
   font-size: 0.88rem;
@@ -419,7 +428,7 @@ html.js.intro-active #main-site { opacity: 0; }
   margin-left: 8px;
 }
 .nav-cta:hover {
-  background: var(--green2);
+  background: var(--green-deep-hi);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(76,175,80,0.4);
 }
@@ -427,11 +436,18 @@ html.js.intro-active #main-site { opacity: 0; }
 .nav-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  /* Was 40x32 from padding alone — the primary mobile control sat under the
+     touch-target minimum. Sized explicitly instead. */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-right: -8px; /* keeps the bars optically aligned with the edge */
   z-index: 1001;
 }
 .nav-toggle span {
@@ -478,10 +494,16 @@ html.js.intro-active #main-site { opacity: 0; }
   right: 88px; /* clears the fixed music toggle in the corner */
   z-index: 3;
   display: flex;
-  gap: 8px;
+  /* See .slide-dot::after — 14px puts the centres 24px apart so the tap
+     strips tile without overlapping. */
+  gap: 14px;
   align-items: center;
 }
+/* The visible dot stays 10px; the tap area is grown to 44px with a transparent
+   ::after so it meets the touch-target minimum without changing the design.
+   Padding would have moved the dots apart instead. */
 .slide-dot {
+  position: relative;
   width: 10px; height: 10px;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.55);
@@ -496,6 +518,18 @@ html.js.intro-active #main-site { opacity: 0; }
   width: 26px;
   border-radius: 5px;
 }
+/* 24x44 rather than 44x44: the dots sit 24px apart, so a 44px-wide area would
+   overlap its neighbours and later siblings would steal the tap. 24px wide is
+   the full stride (no dead space between dots) and clears the WCAG 2.5.8
+   minimum; the height expands freely because nothing sits above or below. */
+.slide-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px; height: 44px;
+}
+.slide-dot.active::after { width: 40px; }
 
 .hero-overlay {
   position: absolute;
@@ -608,7 +642,7 @@ html.js.intro-active #main-site { opacity: 0; }
    MARQUEE
 ══════════════════════════════════════════ */
 .marquee-strip {
-  background: var(--green2);
+  background: var(--green-deep);
   overflow: hidden;
   padding: 14px 0;
   border-top: 1px solid rgba(76,175,80,0.3);
@@ -782,7 +816,9 @@ html.js.intro-active #main-site { opacity: 0; }
   margin-bottom: 48px;
 }
 .tab-btn {
-  padding: 10px 22px;
+  /* 13px vertical takes the button from 39px to 44px tall. */
+  padding: 13px 22px;
+  min-height: 44px;
   border-radius: 50px;
   border: 1px solid var(--border);
   background: transparent;
@@ -798,8 +834,8 @@ html.js.intro-active #main-site { opacity: 0; }
   color: var(--cream);
 }
 .tab-btn.active {
-  background: var(--green);
-  border-color: var(--green);
+  background: var(--green-deep);
+  border-color: var(--green-deep);
   color: var(--white);
 }
 
@@ -1043,6 +1079,7 @@ html.js.intro-active #main-site { opacity: 0; }
 .lightbox-figure img {
   max-width: 100%;
   max-height: calc(100vh - 140px);
+  max-height: calc(100svh - 140px); /* see the note in the 768px block */
   width: auto;
   object-fit: contain;
   border-radius: var(--radius);
@@ -1213,7 +1250,7 @@ html.js.intro-active #main-site { opacity: 0; }
 .review-avatar {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: var(--green2);
+  background: var(--green-deep);
   display: flex; align-items: center; justify-content: center;
   font-weight: 700;
   font-size: 0.85rem;
@@ -1245,10 +1282,13 @@ html.js.intro-active #main-site { opacity: 0; }
 .reviews-dots {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  /* 14px keeps the dot centres 24px apart so the ::after tap strips tile
+     edge-to-edge instead of overlapping. */
+  gap: 14px;
   margin-top: 8px;
 }
 .rdot {
+  position: relative;
   width: 10px; height: 10px;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.25);
@@ -1257,6 +1297,15 @@ html.js.intro-active #main-site { opacity: 0; }
   transition: var(--transition);
   padding: 0;
 }
+/* Same non-overlapping 24x44 tap strip as .slide-dot. */
+.rdot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px; height: 44px;
+}
+.rdot.active::after { width: 36px; }
 .rdot.active {
   background: var(--green);
   border-color: var(--green);
@@ -1534,7 +1583,7 @@ html.js.intro-active #main-site { opacity: 0; }
   position: relative;
   padding: 100px 0;
   overflow: hidden;
-  background: var(--green2);
+  background: var(--green-deep);
 }
 .order-banner-bg {
   position: absolute;
@@ -1569,6 +1618,10 @@ html.js.intro-active #main-site { opacity: 0; }
 .order-note a {
   color: var(--white);
   border-bottom: 1px solid rgba(255,255,255,0.45);
+  /* 22px tall inline — padding brings the tap area to 24px+ without changing
+     the line box. Safe as inline-block: the address is a single token. */
+  display: inline-block;
+  padding-block: 3px;
 }
 .order-note a:hover { border-color: var(--white); }
 
@@ -1632,6 +1685,10 @@ html.js.intro-active #main-site { opacity: 0; }
   display: block;
   line-height: 1.6;
 }
+/* Phone and email rows were exactly 24px — on the line rather than over it.
+   A few px of padding puts them comfortably clear. */
+.contact-item a { padding-block: 4px; }
+.hours-note a { display: inline-block; padding-block: 3px; }
 .contact-item a:hover { color: var(--green); text-decoration: underline; }
 
 .hours-list {
@@ -1833,9 +1890,14 @@ html.js.intro-active #main-site { opacity: 0; }
 .footer-links ul {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* Rows were 18px tall on a 10px gap — under the 24px target minimum and
+     fiddly to hit with a thumb. The links now carry their own padding, so the
+     gap comes down to keep the visual rhythm unchanged. */
+  gap: 2px;
 }
 .footer-links a {
+  display: inline-block;
+  padding: 5px 0;
   font-size: 0.9rem;
   color: rgba(245,240,232,0.65);
   transition: color 0.2s;
@@ -1866,6 +1928,25 @@ html.js.intro-active #main-site { opacity: 0; }
   transition: border-color 0.3s ease;
 }
 .footer-credit a:hover { border-color: rgba(245,240,232,0.5); }
+/* The ♛ credit mark. Needs `a.footer-credit-mark` — plain `.footer-credit-mark`
+   loses to `.footer-credit a` above on specificity and inherits its colour + underline. */
+.footer-credit a.footer-credit-mark {
+  color: #f5c518;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-bottom: none;
+  /* The glyph is only ~11px wide; padding brings the tap area up to 44px
+     without moving anything around it (negative margin absorbs the growth). */
+  padding: 13px;
+  margin: -13px;
+  display: inline-block;
+  vertical-align: -2px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.footer-credit a.footer-credit-mark:hover {
+  transform: translateY(-1px) scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(245,197,24,0.55));
+}
 
 
 /* ══════════════════════════════════════════
@@ -1905,29 +1986,62 @@ html.js.intro-active #main-site { opacity: 0; }
   .navbar.scrolled { padding: 12px 24px; }
 
   .nav-toggle { display: flex; }
+
+  /* `.navbar.scrolled` sets backdrop-filter, which makes the navbar the
+     containing block for its position:fixed children. `inset: 0` then resolved
+     against the 68px navbar instead of the viewport, so once the page was
+     scrolled the open menu collapsed to navbar height and threw its first five
+     links above y=0 where nothing could reach them.
+
+     Two independent guards, because this failure is silent and total:
+     1. `.navbar.menu-open` (set by main.js) drops the filter while the menu is
+        open, so the navbar stops being a containing block at all.
+     2. Explicit viewport units instead of `inset: 0`, so the overlay is sized
+        correctly even if some future ancestor reintroduces a containing block. */
+  .navbar.menu-open {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
   .nav-links {
     display: none;
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* tracks the collapsing mobile URL bar */
     background: rgba(10,10,10,0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* flex-start + auto margins on the end items: centres when there's room,
+       but stays scrollable to the very first item when there isn't. Plain
+       `justify-content: center` makes overflow unreachable above the scrollport. */
+    justify-content: flex-start;
     gap: 16px;
+    padding: 84px 24px 40px; /* clears the hamburger */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     z-index: 999;
   }
   .nav-links.open { display: flex; }
-  .nav-link { font-size: 1.2rem; padding: 12px 24px; }
-  .nav-cta  { font-size: 1.1rem; padding: 14px 32px; margin-left: 0; }
+  .nav-links > li:first-child { margin-top: auto; }
+  .nav-links > li:last-child  { margin-bottom: auto; }
+  .nav-links > li { flex: 0 0 auto; }
+  .nav-link { font-size: 1.2rem; padding: 12px 24px; display: block; }
+  .nav-cta  { font-size: 1.1rem; padding: 14px 32px; margin-left: 0; display: block; }
 
   .hero-content { padding: 120px 24px 90px; }
   .hero-scroll-hint { display: none; }
 
   .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
   .gallery-item.g-tall { grid-row: span 1; }
-  .gallery-item.g-wide { grid-column: span 2; }
+  /* g-wide used to keep spanning both columns here. Landing on column 2 it
+     couldn't fit, wrapped to the next row, and left a dead cell behind it.
+     At two columns every tile is a single cell. */
+  .gallery-item.g-wide { grid-column: span 1; }
 
   .footer-grid  { grid-template-columns: 1fr; }
   .footer-brand { grid-column: span 1; }
@@ -1937,13 +2051,25 @@ html.js.intro-active #main-site { opacity: 0; }
 
   .review-card { flex: 0 0 100%; }
   .reviews-carousel-wrap { gap: 8px; }
-  .reviews-arrow { width: 38px; height: 38px; }
+  /* Previously shrank these to 38px and 40px — below the touch minimum on the
+     exact devices where they're tapped rather than clicked. Held at 44px. */
+  .reviews-arrow { width: 44px; height: 44px; }
 
   .lightbox { padding: 12px; gap: 8px; }
-  .lightbox-nav { width: 40px; height: 40px; }
-  .lightbox-figure img { max-height: calc(100vh - 180px); }
+  .lightbox-nav { width: 44px; height: 44px; }
+  /* svh, not vh: vh is the *expanded* viewport on mobile, so the photo could be
+     taller than the visible area and push the controls off-screen. */
+  .lightbox-figure img { max-height: calc(100vh - 180px); max-height: calc(100svh - 180px); }
 
   .music-toggle { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}
+
+/* Two-column gallery only. With an odd number of photos the last one would sit
+   alone and leave a gap beside it, so it stretches across instead. Scoped with
+   :nth-child(odd) so an even count still tiles normally, and kept out of the
+   480px single-column block where `span 2` would invent a second column. */
+@media (min-width: 481px) and (max-width: 768px) {
+  .gallery-item:last-child:nth-child(odd) { grid-column: span 2; }
 }
 
 @media (max-width: 480px) {
