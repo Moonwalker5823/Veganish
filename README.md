@@ -1,6 +1,6 @@
 # Veganish CT — Official Website
 
-Official website for **Veganish Cafe**, a women-owned vegan restaurant in Downtown Bridgeport, CT, founded by Nate & Hannah Campbell.
+Official website for **Veganish Cafe**, a Black women-owned vegan restaurant in Downtown Bridgeport, CT, founded by Nate & Hannah Campbell.
 
 ---
 
