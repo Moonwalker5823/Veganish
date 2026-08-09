@@ -1866,6 +1866,22 @@ html.js.intro-active #main-site { opacity: 0; }
   transition: border-color 0.3s ease;
 }
 .footer-credit a:hover { border-color: rgba(245,240,232,0.5); }
+/* The ♛ credit mark. Needs `a.footer-credit-mark` — plain `.footer-credit-mark`
+   loses to `.footer-credit a` above on specificity and inherits its colour + underline. */
+.footer-credit a.footer-credit-mark {
+  color: #f5c518;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-bottom: none;
+  padding-bottom: 0;
+  display: inline-block;
+  vertical-align: -2px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.footer-credit a.footer-credit-mark:hover {
+  transform: translateY(-1px) scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(245,197,24,0.55));
+}
 
 
 /* ══════════════════════════════════════════
