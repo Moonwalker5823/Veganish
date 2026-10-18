@@ -5,6 +5,7 @@
 // touching markup.
 import { SectionHeader, PlanCard, MenuGrid, ChipList, GalleryGrid } from '../components/index.js';
 import { esc, join } from '../lib/html.js';
+import { menuItem, menuSection, nameOnlySection } from '../lib/schema.js';
 import {
   juiceCleansePublished, juiceCleanseIntro, juiceCleansePlans, juiceCleanseNote,
   juiceCleanseJuices, juiceCleanseShots, juiceCleanseHerbal, juiceCleanseAddOns,
@@ -69,3 +70,16 @@ export function renderJuiceCleanse() {
       </div>
     </div>`;
 }
+
+/** Unpublished means the menu isn't public, so it stays out of the structured data too. */
+export const juiceCleanseSections = () => {
+  if (!juiceCleansePublished) return [];
+  return [
+    menuSection('Juice Cleanse Packages', juiceCleansePlans.map((p) =>
+      menuItem({ name: p.label, desc: `${p.juices} juices · ${p.days}`, price: p.price }))),
+    menuSection(juiceCleanseJuices.title, juiceCleanseJuices.items.map(menuItem)),
+    menuSection(juiceCleanseShots.title, juiceCleanseShots.items.map(menuItem)),
+    menuSection(juiceCleanseHerbal.title, juiceCleanseHerbal.items.map(menuItem)),
+    nameOnlySection(`Juice Cleanse — ${juiceCleanseAddOns.title}`, juiceCleanseAddOns.items),
+  ];
+};

@@ -1,6 +1,7 @@
 // Catering section - built entirely from src/data/catering.js.
 import { SectionHeader, TrayCategory, PricedList, ChipList, GalleryGrid } from '../components/index.js';
 import { esc, join } from '../lib/html.js';
+import { menuItem, menuSection, nameOnlySection, panOffers } from '../lib/schema.js';
 import {
   cateringIntro, cateringTrays, cateringSoups, cateringSauces, cateringDesserts, cateringBrunch,
 } from '../data/catering.js';
@@ -47,3 +48,14 @@ export function renderCatering() {
       </div>
     </div>`;
 }
+
+/** Tray prices are per pan, so each tray carries a Full Pan and a Half Pan offer. */
+export const cateringSections = () => [
+  ...cateringTrays.map((cat) =>
+    menuSection(`Catering — ${cat.title}`, cat.items.map((i) =>
+      menuItem({ name: i.name, desc: i.desc, offers: panOffers(i) })))),
+  menuSection(`Catering — ${cateringSoups.title}`, cateringSoups.items.map(menuItem)),
+  nameOnlySection(`Catering — ${cateringSauces.title}`, cateringSauces.items),
+  nameOnlySection(`Catering — ${cateringDesserts.title}`, cateringDesserts.items),
+  nameOnlySection(`Catering — ${cateringBrunch.title}`, cateringBrunch.items),
+];

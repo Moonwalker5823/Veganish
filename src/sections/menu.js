@@ -3,6 +3,7 @@
 // independently of any other tab strip on the page.
 import { SectionHeader, MenuGrid } from '../components/index.js';
 import { esc, join } from '../lib/html.js';
+import { menuItem, menuSection } from '../lib/schema.js';
 import { menu } from '../data/menu.js';
 import { site } from '../data/site.js';
 
@@ -48,17 +49,6 @@ export function renderMenu() {
     </div>`;
 }
 
-export const menuSchema = () => ({
-  '@type': 'Menu',
-  name: `${site.name} Menu`,
-  hasMenuSection: Object.entries(menu).map(([key, panel]) => ({
-    '@type': 'MenuSection',
-    name: LABELS[key] ?? key,
-    hasMenuItem: panel.items.map((i) => ({
-      '@type': 'MenuItem',
-      name: i.name,
-      ...(i.desc ? { description: i.desc } : {}),
-      offers: { '@type': 'Offer', price: i.price.replace(/[^0-9.]/g, '') || undefined, priceCurrency: 'USD' },
-    })),
-  })),
-});
+export const menuSections = () =>
+  Object.entries(menu).map(([key, panel]) =>
+    menuSection(LABELS[key] ?? key, panel.items.map(menuItem)));
