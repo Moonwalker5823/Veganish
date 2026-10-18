@@ -1,0 +1,146 @@
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+/* The nav carries nine items since Catering and Meal Prep were added; four of
+   them wrapped at 813px, so the hamburger takes over here rather than at 768px.
+   Mirrored by BREAKPOINTS.nav in lib/breakpoints.js. */
+@media (max-width: 1024px) {
+  .about-grid   { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid  { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: span 2; }
+  .highlights-grid { grid-template-columns: 1fr 1fr; }
+  .review-card  { flex: 0 0 calc(50% - 12px); }
+  .event-card   { padding: 40px; gap: 40px; }
+
+  /* With the links collapsed there's nothing to balance the logo against, so the
+     lockup centres and the hamburger pins to the right edge. */
+  .navbar { padding: 16px 24px; justify-content: center; }
+  .navbar.scrolled { padding: 12px 24px; }
+  .nav-toggle {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  /* Keep the wordmark on one line - "Vegan-" / "ish" was breaking in two. */
+  .nav-logo { white-space: nowrap; }
+
+  .nav-toggle { display: flex; }
+
+  /* `.navbar.scrolled` sets backdrop-filter, which makes the navbar the
+     containing block for its position:fixed children. `inset: 0` then resolved
+     against the 68px navbar instead of the viewport, so once the page was
+     scrolled the open menu collapsed to navbar height and threw its first five
+     links above y=0 where nothing could reach them.
+
+     Two independent guards, because this failure is silent and total:
+     1. `.navbar.menu-open` (set by main.js) drops the filter while the menu is
+        open, so the navbar stops being a containing block at all.
+     2. Explicit viewport units instead of `inset: 0`, so the overlay is sized
+        correctly even if some future ancestor reintroduces a containing block. */
+  .navbar.menu-open {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* tracks the collapsing mobile URL bar */
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: center;
+    /* flex-start + auto margins on the end items: centres when there's room,
+       but stays scrollable to the very first item when there isn't. Plain
+       `justify-content: center` makes overflow unreachable above the scrollport. */
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 84px 24px 40px; /* clears the hamburger */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    z-index: 999;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links > li:first-child { margin-top: auto; }
+  .nav-links > li:last-child  { margin-bottom: auto; }
+  .nav-links > li { flex: 0 0 auto; }
+  .nav-link { font-size: 1.2rem; padding: 12px 24px; display: block; }
+  /* Match the larger padding so the underline sits under the text, not past it. */
+  .nav-link::after { left: 24px; right: 24px; bottom: 6px; }
+  .nav-cta  { font-size: 1.1rem; padding: 14px 32px; margin-left: 0; display: block; }
+}
+
+@media (max-width: 900px) {
+  .event-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 36px; }
+}
+
+
+@media (max-width: 768px) {
+  .section-pad { padding: 72px 0; }
+
+  .hero-content { padding: 120px 24px 90px; }
+  .hero-scroll-hint { display: none; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+  .gallery-item.g-tall { grid-row: span 1; }
+  /* g-wide used to keep spanning both columns here. Landing on column 2 it
+     couldn't fit, wrapped to the next row, and left a dead cell behind it.
+     At two columns every tile is a single cell. */
+  .gallery-item.g-wide { grid-column: span 1; }
+
+  .footer-grid  { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: span 1; }
+
+  .menu-grid { grid-template-columns: 1fr; }
+  .highlights-grid { grid-template-columns: 1fr; }
+
+  .review-card { flex: 0 0 100%; }
+  .reviews-carousel-wrap { gap: 8px; }
+  /* Previously shrank these to 38px and 40px — below the touch minimum on the
+     exact devices where they're tapped rather than clicked. Held at 44px. */
+  .reviews-arrow { width: 44px; height: 44px; }
+
+  .lightbox { padding: 12px; gap: 8px; }
+  .lightbox-nav { width: 44px; height: 44px; }
+  /* svh, not vh: vh is the *expanded* viewport on mobile, so the photo could be
+     taller than the visible area and push the controls off-screen. */
+  .lightbox-figure img { max-height: calc(100vh - 180px); max-height: calc(100svh - 180px); }
+
+  .music-toggle { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}
+
+/* Two-column gallery only. With an odd number of photos the last one would sit
+   alone and leave a gap beside it, so it stretches across instead. Scoped with
+   :nth-child(odd) so an even count still tiles normally, and kept out of the
+   480px single-column block where `span 2` would invent a second column. */
+@media (min-width: 481px) and (max-width: 768px) {
+  .gallery-item:last-child:nth-child(odd) { grid-column: span 2; }
+  .gallery-item.g-full { grid-column: span 2; }
+}
+
+@media (max-width: 480px) {
+  .hero-actions  { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+  .order-actions { flex-direction: column; align-items: stretch; }
+  .order-actions .btn { width: 100%; }
+  .gallery-grid  { grid-template-columns: 1fr; }
+  .gallery-item.g-wide { grid-column: span 1; }
+  /* A multi-column span in a one-column grid invents extra columns and overflows. */
+  .gallery-item.g-full,
+  .gallery-item:last-child:nth-child(odd) { grid-column: span 1; }
+  /* Stack above the music toggle rather than beside it on narrow screens. */
+  .hero-slide-dots { right: 16px; bottom: 76px; }
+  .about-stat-row { gap: 8px; }
+  .stat-card { padding: 12px 8px; }
+  .stat-card strong { font-size: 1.25rem; }
+  .stat-card span { font-size: 0.62rem; }
+}
+
+

@@ -1,0 +1,38 @@
+/* ══════════════════════════════════════════
+   REDUCED MOTION
+   Honour the OS-level preference. Autoplaying carousels are also disabled
+   in JS — this covers the purely decorative CSS animation.
+══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track { animation: none; transform: none; }
+  .scroll-line::after { animation: none; opacity: 0; }
+  .intro-bg { animation: none; }
+  .music-bars span { animation: none; transform: scaleY(0.8); }
+
+  /* Never leave content stuck at opacity:0 when transitions are neutered. */
+  .reveal,
+  .intro-logo-wrap,
+  .intro-text-wrap,
+  .intro-loader,
+  .intro-enter,
+  .logo-dots circle {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Keeps its positioning transform — see the note on .logo-leaf above. */
+  .logo-leaf {
+    opacity: 1 !important;
+    transform: translate(110px, 110px) !important;
+  }
+  .logo-ring, .logo-ring-inner { stroke-dashoffset: 0 !important; }
+}
+

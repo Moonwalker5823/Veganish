@@ -1,0 +1,38 @@
+/* ══════════════════════════════════════════
+   VEGANISH CAFE — stylesheet entry
+
+   Order is load-bearing:
+     tokens  -> everything else reads the custom properties
+     base    -> resets, typography, buttons, a11y primitives
+     components / sections -> may override base
+     reveal  -> opt-in animation hooks
+     responsive -> all breakpoint overrides, last so they win
+     reduced-motion -> last of all, neutralises animation
+══════════════════════════════════════════ */
+
+@import './base/tokens.css';
+
+@import './components/nav.css';
+@import './components/marquee.css';
+@import './components/gallery.css';
+@import './components/lightbox.css';
+@import './components/highlights.css';
+@import './components/reviews.css';
+@import './components/youtube.css';
+@import './components/music.css';
+@import './components/footer.css';
+@import './components/trays.css';
+@import './components/plans.css';
+
+@import './sections/intro.css';
+@import './sections/hero.css';
+@import './sections/about.css';
+@import './sections/menu.css';
+@import './sections/catering.css';
+@import './sections/events.css';
+@import './sections/order.css';
+@import './sections/contact.css';
+
+@import './base/reveal.css';
+@import './responsive.css';
+@import './base/reduced-motion.css';

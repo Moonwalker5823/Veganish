@@ -1,0 +1,174 @@
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh; /* avoids the mobile URL-bar jump */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-slide-dots {
+  position: absolute;
+  bottom: 36px;
+  right: 88px; /* clears the fixed music toggle in the corner */
+  z-index: 3;
+  display: flex;
+  /* See .slide-dot::after — 14px puts the centres 24px apart so the tap
+     strips tile without overlapping. */
+  gap: 14px;
+  align-items: center;
+}
+/* The visible dot stays 10px; the tap area is grown to 44px with a transparent
+   ::after so it meets the touch-target minimum without changing the design.
+   Padding would have moved the dots apart instead. */
+.slide-dot {
+  position: relative;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.55);
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+}
+.slide-dot.active {
+  background: var(--white);
+  border-color: var(--white);
+  width: 26px;
+  border-radius: 5px;
+}
+/* 24x44 rather than 44x44: the dots sit 24px apart, so a 44px-wide area would
+   overlap its neighbours and later siblings would steal the tap. 24px wide is
+   the full stride (no dead space between dots) and clears the WCAG 2.5.8
+   minimum; the height expands freely because nothing sits above or below. */
+.slide-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px; height: 44px;
+}
+.slide-dot.active::after { width: 40px; }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.15) 100%),
+    linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 140px 40px 100px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: rgba(255,107,53,0.12);
+  border: 1px solid rgba(255,107,53,0.25);
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+.hero-accent { color: var(--green); font-style: italic; }
+
+.hero-desc {
+  font-size: 1.2rem;
+  color: rgba(245,240,232,0.75);
+  max-width: 520px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(245,240,232,0.78);
+  max-width: 500px;
+}
+.badge-icon { font-size: 1.1rem; }
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--muted);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--green);
+  transform: translateX(-100%);
+  animation: scrollSlide 2s ease-in-out infinite;
+}
+@keyframes scrollSlide {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+

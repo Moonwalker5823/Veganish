@@ -1,0 +1,127 @@
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  transition: var(--transition);
+}
+.navbar.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 14px 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  color: var(--cream);
+  z-index: 1001;
+}
+.nav-logo em { color: var(--orange); font-style: normal; }
+.nav-logo svg { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.nav-logo:hover svg { transform: rotate(-8deg) scale(1.08); }
+.nav-logo:hover em { color: var(--green-lt); }
+.nav-logo em { transition: color 0.25s ease; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link {
+  position: relative;
+  display: block;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(245,240,232,0.75);
+  border-radius: 50px;
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+/* Underline grows from the centre. scaleX animates on the compositor, so it
+   stays smooth over the hero's background-image slides. */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--green-lt);
+  transform: scaleX(0);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link:hover {
+  color: var(--cream);
+  background: rgba(255,255,255,0.05);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+.nav-link.active { color: var(--cream); }
+.nav-link.active::after { transform: scaleX(1); }
+
+/* The focus ring already marks keyboard position, so don't double up with the
+   underline's entrance - just show it immediately. */
+.nav-link:focus-visible::after { transform: scaleX(1); transition: none; }
+.nav-cta {
+  display: block;
+  padding: 10px 22px;
+  background: var(--green-deep);
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition);
+  margin-left: 8px;
+}
+.nav-cta:hover {
+  background: var(--green-deep-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(46,125,50,0.5);
+}
+.nav-cta:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(46,125,50,0.4); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* Was 40x32 from padding alone — the primary mobile control sat under the
+     touch-target minimum. Sized explicitly instead. */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-right: -8px; /* keeps the bars optically aligned with the edge */
+  z-index: 1001;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.2s ease, background-color 0.25s ease;
+}
+.nav-toggle:hover span { background: var(--green-lt); }
+/* Hamburger → X. Previously applied as inline styles from JS. */
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+

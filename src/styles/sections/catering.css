@@ -1,0 +1,48 @@
+/* ══════════════════════════════════════════
+   CATERING + MEAL PREP + JUICE CLEANSE sections
+══════════════════════════════════════════ */
+.catering-section { background: var(--dark); }
+.mealprep-section { background: var(--black); }
+.juice-section    { background: var(--dark); }
+
+.catering-terms {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--orange);
+  background: rgba(255,107,53,0.08);
+  border: 1px solid rgba(255,107,53,0.2);
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  margin: 0 auto 48px;
+  max-width: 640px;
+}
+.catering-legend {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.catering-cta {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.catering-cta > p {
+  font-size: 1.05rem;
+  color: var(--cream);
+  margin-bottom: 20px;
+}
+.catering-cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* The catering and meal-prep photo grids reuse .gallery-grid, but sit under a
+   price list rather than a header, so they need their own top margin. */
+.catering-section .gallery-grid,
+.mealprep-section .gallery-grid { margin-top: 8px; }

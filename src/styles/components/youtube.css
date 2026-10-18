@@ -1,0 +1,54 @@
+/* ══════════════════════════════════════════
+   YOUTUBE
+══════════════════════════════════════════ */
+.youtube-section { background: var(--dark); }
+
+.youtube-embed-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+}
+.youtube-embed-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.youtube-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: var(--black);
+  cursor: pointer;
+  display: block;
+}
+.youtube-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.youtube-facade:hover img,
+.youtube-facade:focus-visible img { opacity: 1; transform: scale(1.02); }
+.youtube-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+  transition: transform var(--transition);
+}
+.youtube-facade:hover .youtube-play-btn { transform: translate(-50%, -50%) scale(1.08); }
+
+
