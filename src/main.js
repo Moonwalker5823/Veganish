@@ -7,13 +7,13 @@
 ══════════════════════════════════════════ */
 import { $, mount } from './lib/dom.js';
 
-import { renderMenu, menuSchema } from './sections/menu.js';
+import { renderMenu, menuSections } from './sections/menu.js';
 import { renderGallery } from './sections/gallery.js';
 import { renderReviews } from './sections/reviews.js';
 import { renderHighlights } from './sections/highlights.js';
-import { renderCatering } from './sections/catering.js';
-import { renderMealPrep } from './sections/mealPrep.js';
-import { renderJuiceCleanse, isJuiceCleansePublished } from './sections/juiceCleanse.js';
+import { renderCatering, cateringSections } from './sections/catering.js';
+import { renderMealPrep, mealPrepSections } from './sections/mealPrep.js';
+import { renderJuiceCleanse, isJuiceCleansePublished, juiceCleanseSections } from './sections/juiceCleanse.js';
 import { renderContact, renderHoursList } from './sections/contact.js';
 
 import { initMusic } from './features/music.js';
@@ -84,7 +84,18 @@ if (ld) {
     },
     openingHoursSpecification: toSchemaHours(hours),
     sameAs: [site.social.instagram, site.social.facebook],
-    hasMenu: menuSchema(),
+    // One Menu carrying every section the cafe sells from. Catering, Meal Prep
+    // and Juice Cleanse were absent, so none of that pricing was reaching search.
+    hasMenu: {
+      '@type': 'Menu',
+      name: `${site.name} Menu`,
+      hasMenuSection: [
+        ...menuSections(),
+        ...cateringSections(),
+        ...mealPrepSections(),
+        ...juiceCleanseSections(),
+      ],
+    },
   });
 }
 

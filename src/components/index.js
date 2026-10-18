@@ -116,12 +116,13 @@ export function ChipList({ title, items, note }) {
     </section>`;
 }
 
-export function PlanCard({ label, meals, perDay, price, featured }) {
+/** `detail` overrides the meal-plan phrasing; juice packs count juices, not meals. */
+export function PlanCard({ label, meals, perDay, price, featured, detail }) {
   return `
     <article class="plan-card${featured ? ' plan-card-featured' : ''}">
       ${featured ? '<p class="plan-badge">Best Value</p>' : ''}
       <h3 class="plan-label">${esc(label)}</h3>
-      <p class="plan-detail">${meals} meals · ${perDay} per day</p>
+      <p class="plan-detail">${esc(detail ?? `${meals} meals · ${perDay} per day`)}</p>
       <p class="plan-price">${esc(usd(price))}</p>
     </article>`;
 }

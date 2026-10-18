@@ -374,3 +374,87 @@ export const catering = [
     "height": 1200
   }
 ];
+
+export const juice = [
+  {
+    "src": "assets/images/juice/juice-lineup-hedge.webp",
+    "slug": "juice-lineup-hedge",
+    "alt": "Nine cold-pressed juices in glass bottles arranged against a green hedge wall",
+    "caption": "The Full Lineup",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-bar-neon.webp",
+    "slug": "juice-bar-neon",
+    "alt": "Cold-pressed juice bottles on a wooden table beneath the Veganish Cafe neon sign",
+    "caption": "At the Juice Bar",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-trio-closeup.webp",
+    "slug": "juice-trio-closeup",
+    "alt": "Three bottles of beet, coconut and citrus juice close up on a bed of greenery",
+    "caption": "Pressed to Order",
+    "width": 1200,
+    "height": 1159
+  },
+  {
+    "src": "assets/images/juice/cold-press-beet-celery.webp",
+    "slug": "cold-press-beet-celery",
+    "alt": "Cold-press juicer surrounded by beets, celery and ginger beside bottles of red juice",
+    "caption": "Whole Produce, Nothing Else",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/cold-press-green-citrus.webp",
+    "slug": "cold-press-green-citrus",
+    "alt": "Bottles of green juice beside a cold-press juicer with orange, apple and ginger",
+    "caption": "Greens in the Press",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-purple-bottle.webp",
+    "slug": "juice-purple-bottle",
+    "alt": "Single bottle of deep purple cold-pressed juice against a green hedge wall",
+    "caption": "Cold-Pressed Daily",
+    "width": 776,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-orange-bottle.webp",
+    "slug": "juice-orange-bottle",
+    "alt": "Single bottle of bright orange cold-pressed juice against a green hedge wall",
+    "caption": "Citrus & Ginger",
+    "width": 791,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-beet-bottle.webp",
+    "slug": "juice-beet-bottle",
+    "alt": "Single bottle of deep red beet juice against a green hedge wall",
+    "caption": "Beet Blvd",
+    "width": 754,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-gallons.webp",
+    "slug": "juice-gallons",
+    "alt": "Two Veganish-labelled gallon jugs of fresh juice",
+    "caption": "By the Gallon",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/juice/juice-cleanse-menu.webp",
+    "slug": "juice-cleanse-menu",
+    "alt": "The Veganish Cafe 180 Juice Cleanse and Herbal Health Bar menu",
+    "caption": "180 Juice Cleanse Menu",
+    "width": 618,
+    "height": 927,
+    "flyer": true
+  }
+];

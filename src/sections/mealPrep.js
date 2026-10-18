@@ -1,6 +1,7 @@
 // Meal Prep section - built from src/data/mealPrep.js.
 import { SectionHeader, PlanCard, ChipList, GalleryGrid } from '../components/index.js';
 import { esc, join } from '../lib/html.js';
+import { menuItem, menuSection, nameOnlySection } from '../lib/schema.js';
 import { mealPrepIntro, mealPrepPlans, mealPrepChoices } from '../data/mealPrep.js';
 import { mealprep as mealPrepPhotos } from '../data/photos.js';
 import { withAssets } from '../lib/assets.js';
@@ -43,3 +44,9 @@ export function renderMealPrep() {
       </div>
     </div>`;
 }
+
+export const mealPrepSections = () => [
+  menuSection('Meal Prep Plans', mealPrepPlans.map((p) =>
+    menuItem({ name: p.label, desc: `${p.meals} meals, ${p.perDay} per day`, price: p.price }))),
+  ...mealPrepChoices.map((c) => nameOnlySection(`Meal Prep — ${c.title}`, c.items)),
+];
