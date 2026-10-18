@@ -38,7 +38,7 @@ export const menu = {
       },
       {
         "name": "Vegan Breakfast Wrap",
-        "price": "$9",
+        "price": "$12",
         "desc": "A hearty wrap with scrambled plant-based eggs and fresh veggies.",
         "tags": [
           "Hearty"
@@ -85,7 +85,7 @@ export const menu = {
       },
       {
         "name": "Ackee & Plantain Sliders",
-        "price": "$14",
+        "price": "$16",
         "desc": "Caribbean-inspired sliders with ackee and sweet plantain.",
         "tags": [
           "Caribbean"
@@ -101,7 +101,7 @@ export const menu = {
       },
       {
         "name": "Vegan Sweet Chili Tenders",
-        "price": "$10",
+        "price": "$12",
         "desc": "Crispy tenders glazed in a house sweet chili sauce.",
         "tags": [
           "Sweet",
@@ -131,7 +131,7 @@ export const menu = {
       },
       {
         "name": "Vegan Crispy Sandwich",
-        "price": "$19",
+        "price": "$21",
         "desc": "Crispy plant-based chicken sandwich with house sauce on a brioche bun.",
         "tags": [
           "Crispy"
@@ -146,16 +146,8 @@ export const menu = {
         ]
       },
       {
-        "name": "Tuna Sandwich",
-        "price": "$14",
-        "desc": "Plant-based tuna salad on house bread with crisp toppings.",
-        "tags": [
-          "Light"
-        ]
-      },
-      {
         "name": "Vegan Tacos",
-        "price": "$15",
+        "price": "$16",
         "desc": "Three seasoned plant-based tacos with fresh toppings and house salsa.",
         "tags": [
           "Bold"
@@ -163,7 +155,7 @@ export const menu = {
       },
       {
         "name": "Bang Bang Cauliflower Taco",
-        "price": "$15",
+        "price": "$19",
         "desc": "Crispy cauliflower in bang bang sauce wrapped in soft tortillas.",
         "tags": [
           "Spicy",
@@ -180,7 +172,7 @@ export const menu = {
       },
       {
         "name": "Miami Fries",
-        "price": "$9",
+        "price": "$13",
         "desc": "Loaded fries topped with house seasoning and signature toppings.",
         "tags": [
           "Shareable"
@@ -196,7 +188,7 @@ export const menu = {
       },
       {
         "name": "Eggplant Parmigiana",
-        "price": "$22",
+        "price": "$27",
         "desc": "Breaded eggplant layered with vegan mozzarella and house marinara.",
         "tags": [
           "Italian"
@@ -204,7 +196,7 @@ export const menu = {
       },
       {
         "name": "Fried Fish Sandwich",
-        "price": "$14",
+        "price": "$16",
         "desc": "Crispy plant-based fish on a brioche bun with tartar sauce and slaw.",
         "tags": [
           "Crispy"
@@ -224,7 +216,7 @@ export const menu = {
     "items": [
       {
         "name": "The Vegan Cobb",
-        "price": "$16",
+        "price": "$18",
         "desc": "A hearty cobb salad loaded with plant-based proteins, avocado, and house dressing.",
         "tags": [
           "High Protein"
@@ -253,7 +245,7 @@ export const menu = {
     "items": [
       {
         "name": "Vegan Soul Platter",
-        "price": "$31",
+        "price": "$35",
         "desc": "The full spread — a generous soul food brunch plate with all the fixings.",
         "tags": [
           "Hearty",
@@ -287,7 +279,7 @@ export const menu = {
       },
       {
         "name": "The Vegan Scrambler",
-        "price": "$22",
+        "price": "$25",
         "desc": "Plant-based egg scramble with fresh veggies and house seasoning.",
         "tags": [
           "Savory"
@@ -311,7 +303,7 @@ export const menu = {
       },
       {
         "name": "Upside Down Pineapple Pancakes",
-        "price": "$16.50",
+        "price": "$17.50",
         "desc": "Caramelized pineapple pancakes — sweet, tropical, and unforgettable.",
         "tags": [
           "Sweet"
@@ -319,7 +311,7 @@ export const menu = {
       },
       {
         "name": "Very Berry Pancakes",
-        "price": "$14",
+        "price": "$17.50",
         "desc": "Light fluffy pancakes loaded with mixed berries and whipped coconut cream.",
         "tags": [
           "Sweet"
@@ -335,7 +327,7 @@ export const menu = {
       },
       {
         "name": "Fried Corn",
-        "price": "$10",
+        "price": "$12",
         "desc": "Skillet-fried sweet corn with house seasoning — a beloved side.",
         "tags": [
           "Side"
