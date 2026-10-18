@@ -1,0 +1,70 @@
+/* ══════════════════════════════════════════
+   ORDER BANNER
+══════════════════════════════════════════ */
+.order-banner {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: var(--green-deep);
+}
+.order-banner-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 50%, rgba(0,0,0,0.3) 0%, transparent 70%),
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px);
+}
+.order-content { position: relative; text-align: center; }
+.order-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.order-content > p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 36px;
+}
+.order-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.order-note {
+  margin-top: 28px;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+}
+.order-note a {
+  color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.45);
+  /* 22px tall inline — padding brings the tap area to 24px+ without changing
+     the line box. Safe as inline-block: the address is a single token. */
+  display: inline-block;
+  padding-block: 3px;
+}
+.order-note a:hover { border-color: var(--white); }
+
+.order-banner .btn-primary {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+.order-banner .btn-primary:hover {
+  background: var(--dark2);
+  border-color: var(--dark2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.order-banner .btn-outline {
+  border-color: rgba(255,255,255,0.55);
+  color: var(--white);
+}
+.order-banner .btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+}
+
+

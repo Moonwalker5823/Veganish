@@ -1,0 +1,208 @@
+/* ══════════════════════════════════════════
+   EVENT
+══════════════════════════════════════════ */
+.event-section { background: var(--black); }
+
+.event-card {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  background: var(--dark2);
+  border: 1px solid rgba(255,107,53,0.25);
+  border-radius: var(--radius-lg);
+  padding: 56px;
+  position: relative;
+  overflow: hidden;
+}
+.event-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.event-left, .event-right { position: relative; }
+
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.event-tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.event-desc {
+  color: rgba(245,240,232,0.72);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+}
+
+.event-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.event-hi {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(245,240,232,0.82);
+}
+.event-hi span { font-size: 1.1rem; }
+
+.event-flyer {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,107,53,0.25);
+  margin-bottom: 32px;
+}
+.event-flyer img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.event-details-box {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.event-detail-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.event-detail-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.event-detail-row strong {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+.event-detail-row p {
+  font-size: 1rem;
+  color: var(--cream);
+  line-height: 1.4;
+}
+.event-detail-row small { font-size: 0.78rem; color: var(--muted); }
+
+.event-powered {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.events-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ── Late-nite concert card ── */
+.event-card--concert {
+  border-color: rgba(76,175,80,0.28);
+}
+.event-card--concert::before {
+  background: linear-gradient(135deg, rgba(76,175,80,0.07) 0%, transparent 60%);
+}
+
+.lineup-box {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.lineup-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 18px;
+}
+.lineup {
+  list-style: none;
+  counter-reset: none;
+  display: flex;
+  flex-direction: column;
+}
+.lineup li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.lineup li:last-child { border-bottom: none; }
+.lineup-date {
+  flex-shrink: 0;
+  min-width: 62px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.lineup-act {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--cream);
+  line-height: 1.3;
+}
+/* Individual dates grey out as they pass. */
+.lineup li.is-past .lineup-date,
+.lineup li.is-past .lineup-act {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(154,154,154,0.5);
+}
+.lineup-note {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Applied by JS once every date on a card has passed. */
+.event-past { border-color: var(--border) !important; }
+.event-past [data-event-eyebrow] { color: var(--muted); }
+.event-past .event-flyer { filter: saturate(0.55); opacity: 0.75; }
+.event-past .event-detail-row p,
+.event-past .event-detail-row small { color: var(--muted); }
+.event-past .event-title { color: rgba(245,240,232,0.82); }
+.event-past-note {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255,107,53,0.08);
+  border: 1px solid rgba(255,107,53,0.2);
+  font-size: 0.82rem;
+  color: rgba(245,240,232,0.78);
+  line-height: 1.6;
+}
+
+

@@ -1,0 +1,84 @@
+/* ══════════════════════════════════════════
+   GALLERY
+══════════════════════════════════════════ */
+.gallery-section { background: var(--dark); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  /* Tall tiles leave gaps under them with default sparse placement; dense
+     backfills with whatever fits. */
+  grid-auto-flow: row dense;
+  gap: 12px;
+}
+/* Tiles are real <button>s now — they open the lightbox instead of only
+   looking clickable. */
+.gallery-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--dark2);
+  font: inherit;
+  color: inherit;
+}
+.gallery-item.g-tall { grid-row: span 2; }
+.gallery-item.g-wide { grid-column: span 2; }
+
+.gallery-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+.gallery-item:hover .gallery-photo,
+.gallery-item:focus-visible .gallery-photo { transform: scale(1.04); }
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+  text-align: left;
+}
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-visible .gallery-overlay { opacity: 1; }
+.gallery-overlay span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.gallery-footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.gallery-footer p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.gallery-footer-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+
+.gallery-item.g-full { grid-column: span 3; }

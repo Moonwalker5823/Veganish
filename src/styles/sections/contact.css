@@ -1,0 +1,140 @@
+/* ══════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════ */
+.contact-section { background: var(--dark); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 36px 0;
+}
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.contact-item strong {
+  display: block;
+  color: var(--cream);
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.contact-item address,
+.contact-item p,
+.contact-item a {
+  font-size: 0.92rem;
+  color: rgba(245,240,232,0.7);
+  display: block;
+  line-height: 1.6;
+}
+/* Phone and email rows were exactly 24px — on the line rather than over it.
+   A few px of padding puts them comfortably clear. */
+.contact-item a { padding-block: 4px; }
+.hours-note a { display: inline-block; padding-block: 3px; }
+.contact-item a:hover { color: var(--green); text-decoration: underline; }
+
+.hours-list {
+  display: grid;
+  gap: 4px;
+  font-size: 0.88rem;
+  max-width: 320px;
+}
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(245,240,232,0.6);
+  padding: 2px 0;
+}
+.hours-list li.is-today {
+  color: var(--cream);
+  font-weight: 600;
+}
+.hours-closed { color: var(--muted); }
+.hours-note {
+  margin-top: 10px;
+  font-size: 0.82rem !important;
+  color: var(--muted) !important;
+  font-style: italic;
+}
+.hours-pill {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.hours-pill.is-open {
+  background: rgba(76,175,80,0.15);
+  border: 1px solid rgba(76,175,80,0.4);
+  color: var(--green-lt);
+}
+.hours-pill.is-closed {
+  background: rgba(255,107,53,0.12);
+  border: 1px solid rgba(255,107,53,0.3);
+  color: var(--orange);
+}
+
+.social-links { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+.social-btn:hover { transform: translateY(-2px); }
+.social-btn.facebook {
+  background: rgba(24, 119, 242, 0.12);
+  border-color: rgba(24, 119, 242, 0.3);
+  color: #7ab8f7;
+}
+.social-btn.facebook:hover { background: rgba(24, 119, 242, 0.2); }
+.social-btn.instagram {
+  background: rgba(225, 48, 108, 0.12);
+  border-color: rgba(225, 48, 108, 0.3);
+  color: #f191b4;
+}
+.social-btn.instagram:hover { background: rgba(225, 48, 108, 0.2); }
+.social-btn.yelp {
+  background: rgba(211, 35, 35, 0.12);
+  border-color: rgba(211, 35, 35, 0.3);
+  color: #ef8b8b;
+}
+.social-btn.yelp:hover { background: rgba(211, 35, 35, 0.2); }
+
+.contact-map {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.map-embed {
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  /* The embed ships a light-mode map; take the edge off on a dark page. */
+  filter: grayscale(0.25) contrast(1.05) brightness(0.9);
+}
+.map-directions { align-self: center; }
+
+

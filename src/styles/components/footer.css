@@ -1,0 +1,104 @@
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer {
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  padding: 60px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--cream);
+}
+.footer-logo em { color: var(--orange); font-style: normal; }
+.footer-brand p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-links h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  /* Rows were 18px tall on a 10px gap — under the 24px target minimum and
+     fiddly to hit with a thumb. The links now carry their own padding, so the
+     gap comes down to keep the visual rhythm unchanged. */
+  gap: 2px;
+}
+.footer-links a {
+  display: inline-block;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  color: rgba(245,240,232,0.65);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--green); }
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.footer-credit {
+  margin-top: 6px;
+  font-size: 0.72rem !important;
+  color: rgba(245,240,232,0.38) !important;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+.footer-credit:hover { color: rgba(245,240,232,0.6) !important; }
+.footer-credit a {
+  color: inherit;
+  border-bottom: 1px solid rgba(245,240,232,0.2);
+  padding-bottom: 1px;
+  transition: border-color 0.3s ease;
+}
+.footer-credit a:hover { border-color: rgba(245,240,232,0.5); }
+/* The ♛ credit mark. Needs `a.footer-credit-mark` — plain `.footer-credit-mark`
+   loses to `.footer-credit a` above on specificity and inherits its colour + underline. */
+.footer-credit a.footer-credit-mark {
+  color: #f5c518;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-bottom: none;
+  /* The glyph is only ~11px wide; padding brings the tap area up to 44px
+     without moving anything around it (negative margin absorbs the growth). */
+  padding: 13px;
+  margin: -13px;
+  display: inline-block;
+  vertical-align: -2px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.footer-credit a.footer-credit-mark:hover {
+  transform: translateY(-1px) scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(245,197,24,0.55));
+}
+
+

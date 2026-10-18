@@ -1,0 +1,276 @@
+{
+  "note": "Photo batch from Nate, Oct 18 2026. `source` is relative to the --src dir.",
+  "photos": [
+    {
+      "source": "1000023594.jpg",
+      "slug": "meal-prep-containers",
+      "category": "mealprep",
+      "caption": "Meal Prep Containers",
+      "alt": "Twelve prepared meal containers with rice, greens, sweet potato and protein"
+    },
+    {
+      "source": "1000023595.jpg",
+      "slug": "meal-prep-menu",
+      "category": "mealprep",
+      "caption": "Meal Prep Menu",
+      "alt": "Veganish meal prep menu listing proteins, sides, soups and salads with four and five day pricing",
+      "flyer": true
+    },
+    {
+      "source": "1000023603.jpg",
+      "slug": "meal-prep-mondays",
+      "category": "mealprep",
+      "caption": "Meal Prep Mondays",
+      "alt": "Meal Prep Mondays promotion: four days eight meals $175, five days ten meals $200",
+      "flyer": true
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/DSC01387.JPG",
+      "slug": "fried-green-tomatoes",
+      "category": "gallery",
+      "caption": "Fried Green Tomatoes",
+      "alt": "Crisp fried green tomatoes topped with relish on a black oval plate"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/DSC01944.JPG",
+      "slug": "seafood-platter",
+      "category": "gallery",
+      "caption": "Vegan Seafood Platter",
+      "alt": "Plant-based fried fish, popcorn shrimp and hush puppies with lemon and dipping sauce"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/DSC02141.JPG",
+      "slug": "crispy-chickn-plate",
+      "category": "gallery",
+      "caption": "Crispy Chick'n",
+      "alt": "Golden fried plant-based chicken served on a white plate"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/DSC02162.JPG",
+      "slug": "rice-and-greens-bowl",
+      "category": "gallery",
+      "caption": "Rice & Greens Bowl",
+      "alt": "Takeout bowl of seasoned rice, kale and beans on a wooden table"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/DSC02213.JPG",
+      "slug": "bbq-wings-fried-rice",
+      "category": "gallery",
+      "caption": "BBQ Wings & Fried Rice",
+      "alt": "Glazed plant-based BBQ wings beside a bowl of vegetable fried rice"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/DSC02291.JPG",
+      "slug": "smothered-mashed-potatoes",
+      "category": "gallery",
+      "caption": "Smothered Comfort Plate",
+      "alt": "Saucy plant-based protein over creamy mashed potatoes with a side of corn"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_5126.heic",
+      "slug": "game-day-platter",
+      "category": "gallery",
+      "caption": "Game Day Platter",
+      "alt": "Shareable game day platter of wings, fresh vegetables and pretzels"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_5187.heic",
+      "slug": "chicken-and-waffles",
+      "category": "gallery",
+      "caption": "Vegan Chicken & Waffles",
+      "alt": "Crispy plant-based chicken on a waffle with whipped cream and a strawberry"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_5396.heic",
+      "slug": "tenders-and-fries",
+      "category": "gallery",
+      "caption": "Tenders & Fries",
+      "alt": "Plant-based tenders with crinkle cut fries and two dipping sauces"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_5398.HEIC",
+      "slug": "tofu-scramble-breakfast",
+      "category": "gallery",
+      "caption": "Tofu Scramble Breakfast",
+      "alt": "Tofu scramble with peppers, toast and a small side salad"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_6671.heic",
+      "slug": "neon-sign",
+      "category": "brand",
+      "caption": "Inside Veganish",
+      "alt": "The Veganish Cafe neon sign glowing above a plated wrap"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_6874.HEIC",
+      "slug": "garden-salad-bowl",
+      "category": "gallery",
+      "caption": "Garden Salad",
+      "alt": "Overhead view of a loaded garden salad bowl with fresh vegetables"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_7062.HEIC",
+      "slug": "soul-food-plate",
+      "category": "gallery",
+      "caption": "Soul Food Plate",
+      "alt": "Takeout plate of mac and cheese, rice, candied yams, cabbage and stewed beans"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_8311.HEIC",
+      "slug": "sweet-chili-wings",
+      "category": "gallery",
+      "caption": "Sweet Chili Wings",
+      "alt": "Sweet chili glazed plant-based wings served outdoors"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_8579.HEIC",
+      "slug": "brunch-platter",
+      "category": "gallery",
+      "caption": "Brunch Platter",
+      "alt": "Brunch platter with pancakes, plant-based bacon and dipping sauces"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_9531.HEIC",
+      "slug": "kale-avocado-bowl",
+      "category": "gallery",
+      "caption": "Kale & Avocado Bowl",
+      "alt": "Kale bowl topped with avocado and crispy plant-based protein"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_9642.HEIC",
+      "slug": "chickpea-salad",
+      "category": "brand",
+      "caption": "Chickpea Salad",
+      "alt": "Chickpea salad plated in the dining room beneath the neon sign"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell 2/IMG_9997.HEIC",
+      "slug": "dessert-tray",
+      "category": "catering",
+      "caption": "Dessert Tray",
+      "alt": "Catering tray of plant-based desserts presented on crisp lettuce"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/02B6EDB3-4A83-4167-AAC9-460643D0EAA8.JPG",
+      "slug": "fried-medley-pan",
+      "category": "catering",
+      "caption": "Fried Medley Tray",
+      "alt": "Full catering pan of assorted fried plant-based bites with lemon and kale"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/C4F08CC5-5D2B-49CD-B8AB-0329836A0C07.jpg",
+      "slug": "fried-chunks-peppers",
+      "category": "catering",
+      "caption": "Fried Chunks & Peppers",
+      "alt": "Catering tray of crispy plant-based chunks with mini sweet peppers and corn"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/DSC03043.JPG",
+      "slug": "chafing-setup",
+      "category": "catering",
+      "caption": "Full Service Catering",
+      "alt": "Catering setup with three chafing dishes on a black linen table"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_4590.HEIC",
+      "slug": "empanadas-pan",
+      "category": "catering",
+      "caption": "Empanadas",
+      "alt": "Catering tray lined with golden plant-based empanadas"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_4596.HEIC",
+      "slug": "fried-cauliflower-jalapeno",
+      "category": "catering",
+      "caption": "Fried Cauliflower",
+      "alt": "Catering tray of fried cauliflower topped with fresh jalapeno slices"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_4597.HEIC",
+      "slug": "fried-cauliflower-pan",
+      "category": "catering",
+      "caption": "Fried Cauliflower Tray",
+      "alt": "Full pan of crispy fried cauliflower with jalapeno"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_4604.HEIC",
+      "slug": "breaded-squash",
+      "category": "catering",
+      "caption": "Breaded Squash",
+      "alt": "Catering tray of breaded squash pieces over greens"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_4605.HEIC",
+      "slug": "fried-seafood-pan",
+      "category": "catering",
+      "caption": "Vegan Fried Seafood",
+      "alt": "Catering tray of plant-based fried calamari and seafood bites with peppers"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_6747.heic",
+      "slug": "lasagna-pan",
+      "category": "catering",
+      "caption": "Vegan Lasagna",
+      "alt": "Catering pan of vegan lasagna with marinara and melted plant-based cheese"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_9577.HEIC",
+      "slug": "mac-and-cheese-pan",
+      "category": "catering",
+      "caption": "Mac & Cheese",
+      "alt": "Full catering pan of baked vegan macaroni and cheese"
+    },
+    {
+      "source": "C724D03E-8940-4689-8F2F-73948B927076.heic",
+      "slug": "meal-prep-week-spread",
+      "category": "mealprep",
+      "caption": "A Week, Boxed",
+      "alt": "Sixteen prepared containers of mains and side salads laid out in a grid"
+    },
+    {
+      "source": "IMG_5053.heic",
+      "slug": "meal-prep-trays-overhead",
+      "category": "mealprep",
+      "caption": "Lunch and Dinner Prep",
+      "alt": "Eight meal prep containers overhead with BBQ, sweet potato, rice, curry and greens"
+    },
+    {
+      "source": "IMG_5111.heic",
+      "slug": "meal-prep-variety",
+      "category": "mealprep",
+      "caption": "Mix and Match",
+      "alt": "Meal prep containers with broccoli, rice, BBQ strips, cabbage and curried vegetables"
+    },
+    {
+      "source": "IMG_5623.heic",
+      "slug": "meal-prep-bbq-closeup",
+      "category": "mealprep",
+      "caption": "BBQ Over Rice",
+      "alt": "Close view of a meal prep container with BBQ protein, broccoli and rice"
+    },
+    {
+      "source": "IMG_5637.heic",
+      "slug": "meal-prep-table",
+      "category": "mealprep",
+      "caption": "Ready for Pickup",
+      "alt": "Meal prep containers arranged on a table by the cafe window"
+    },
+    {
+      "source": "IMG_6452.heic",
+      "slug": "meal-prep-bbq-quinoa",
+      "category": "mealprep",
+      "caption": "BBQ & Quinoa",
+      "alt": "Six meal prep containers of BBQ over seasoned quinoa with avocado cucumber salad"
+    }
+  ],
+  "sourceOnly": [
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_0261.HEIC",
+      "why": "Printed catering menu - transcribed into src/data/catering.js, not shipped as an image"
+    },
+    {
+      "source": "iCloud Photos from Nate Campbell/IMG_0262.HEIC",
+      "why": "Catering brochure - mission statement and brunch list transcribed, not shipped"
+    }
+  ]
+}
