@@ -465,20 +465,94 @@ export const menu = {
         ]
       },
       {
-        "name": "Fountain Drinks",
+        "name": "Gluten Free Tacos (2)",
+        "price": "$15",
+        "desc": "Two tacos, fully gluten-free.",
+        "tags": [
+          "GF"
+        ]
+      },
+      {
+        "name": "Hibiscus Iced Tea",
         "price": "$4.25 / $5.25",
-        "desc": "Beet Sorrel Ginger · Lemonade Ginger · Hibiscus Iced Tea — Small or Large.",
+        "desc": "House hibiscus iced tea — 12oz small or 16oz large.",
         "tags": [
           "Small",
           "Large"
         ]
       },
       {
-        "name": "Gluten Free Tacos (2)",
-        "price": "$15",
-        "desc": "Two tacos, fully gluten-free.",
+        "name": "Beet/Ginger",
+        "price": "$5.25",
         "tags": [
-          "GF"
+          "Large"
+        ]
+      },
+      {
+        "name": "VHive Ice Tea",
+        "price": "$5.25",
+        "tags": [
+          "Large"
+        ]
+      },
+      {
+        "name": "Gorilla Lemonade",
+        "price": "$5.00",
+        "tags": []
+      },
+      {
+        "name": "Berry Berry Mocktail",
+        "price": "$7.50",
+        "desc": "Non-alcoholic.",
+        "tags": [
+          "Signature"
+        ]
+      },
+      {
+        "name": "Hawaiian Breeze",
+        "price": "$7.00",
+        "tags": [
+          "Signature"
+        ]
+      },
+      {
+        "name": "Iceman Slushie",
+        "price": "$6.25",
+        "tags": []
+      },
+      {
+        "name": "Double Shot Cold Brew Latte",
+        "price": "$11.50",
+        "tags": [
+          "Premium"
+        ]
+      },
+      {
+        "name": "Cran-Water",
+        "price": "$4.25",
+        "tags": []
+      },
+      {
+        "name": "Perfect Lemon Water",
+        "price": "$4.50",
+        "tags": []
+      },
+      {
+        "name": "Orange Juice",
+        "price": "$4.25",
+        "tags": []
+      },
+      {
+        "name": "Apple Juice",
+        "price": "$4.50",
+        "tags": []
+      },
+      {
+        "name": "Bottled, Sparkling & Soda",
+        "price": "$2.25 – $5.25",
+        "desc": "Fiji · Perrier · Topo Chico · La Croix · Poppi · Olipop · Spindrift · Bai · Vitamin Water · Honest Kids and more — ask what’s in the cooler.",
+        "tags": [
+          "Varies"
         ]
       }
     ]
