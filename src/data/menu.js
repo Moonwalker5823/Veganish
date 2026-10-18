@@ -45,11 +45,27 @@ export const menu = {
         ]
       },
       {
-        "name": "Egg & Cheese Sandwich",
-        "price": "$6",
-        "desc": "Simple, satisfying egg and vegan cheese on your choice of bread.",
+        "name": "French Toast",
+        "price": "$12",
+        "desc": "Thick-cut brioche dipped in vanilla-cinnamon batter, served golden and warm.",
         "tags": [
           "Classic"
+        ]
+      },
+      {
+        "name": "Vegan Egg & Cheese with Bacon or Sausage",
+        "price": "$8.50",
+        "desc": "Scrambled plant-based egg and vegan cheese with your choice of vegan bacon or sausage.",
+        "tags": [
+          "Hearty"
+        ]
+      },
+      {
+        "name": "Ultimate Vegan Breakfast Wrap",
+        "price": "$16",
+        "desc": "The loaded version of our breakfast wrap, stacked with everything.",
+        "tags": [
+          "Hearty"
         ]
       }
     ],
@@ -115,6 +131,15 @@ export const menu = {
         "tags": [
           "Premium"
         ]
+      },
+      {
+        "name": "Vegan Loaded Empanadas",
+        "price": "$9",
+        "desc": "Our flaky empanadas, loaded and finished with house toppings.",
+        "tags": [
+          "Handheld",
+          "Shareable"
+        ]
       }
     ]
   },
@@ -163,9 +188,17 @@ export const menu = {
         ]
       },
       {
-        "name": "Vegan Sweet Chili Wrap",
+        "name": "Vegan Sweet Chili Wrap (Tofu)",
         "price": "$15",
-        "desc": "A flavor-packed wrap with sweet chili-glazed protein and fresh veggies.",
+        "desc": "A flavor-packed wrap with sweet chili-glazed tofu and fresh veggies.",
+        "tags": [
+          "Sweet"
+        ]
+      },
+      {
+        "name": "Vegan Sweet Chili Wrap (Oyster Mushroom)",
+        "price": "$17",
+        "desc": "A flavor-packed wrap with sweet chili-glazed oyster mushroom and fresh veggies.",
         "tags": [
           "Sweet"
         ]
@@ -208,6 +241,39 @@ export const menu = {
         "desc": "Beer-battered plant-based fish with house fries and house tartar sauce.",
         "tags": [
           "Classic"
+        ]
+      },
+      {
+        "name": "Cali Fries",
+        "price": "$13",
+        "desc": "Loaded fries finished with our Just Right sauce.",
+        "tags": [
+          "Shareable"
+        ]
+      },
+      {
+        "name": "Vegan Philly Cheese Steak",
+        "price": "$17",
+        "desc": "Seasoned plant-based steak and melted vegan cheese on a roll.",
+        "tags": [
+          "Hearty"
+        ]
+      },
+      {
+        "name": "Loaded Philly Cheese Steak",
+        "price": "$25",
+        "desc": "The philly, loaded — stacked higher with everything on it.",
+        "tags": [
+          "Hearty",
+          "Large"
+        ]
+      },
+      {
+        "name": "Vegan Bacon Cheeseburger Wrap",
+        "price": "$19.50",
+        "desc": "Smash burger patty, vegan bacon and melted cheese, wrapped up.",
+        "tags": [
+          "Bold"
         ]
       }
     ]
@@ -319,7 +385,7 @@ export const menu = {
       },
       {
         "name": "French Toast",
-        "price": "$10",
+        "price": "$12",
         "desc": "Thick-cut brioche dipped in vanilla-cinnamon batter, served golden and warm.",
         "tags": [
           "Classic"
@@ -339,6 +405,14 @@ export const menu = {
         "desc": "Brunch-style crispy plant-based fish bites with house dipping sauce.",
         "tags": [
           "Crispy"
+        ]
+      },
+      {
+        "name": "The Nitty Grittys",
+        "price": "$16 / $17",
+        "desc": "Your choice of vegan Fysh ($16) or vegan Chick’N ($17).",
+        "tags": [
+          "Customizable"
         ]
       }
     ],
@@ -367,25 +441,25 @@ export const menu = {
         ]
       },
       {
-        "name": "Gluten Free Cauliflower Bites",
+        "name": "Gluten Free Cauliflower Wings & Fries",
         "price": "$22",
-        "desc": "Crispy cauliflower bites made gluten-free without sacrificing flavor.",
+        "desc": "Crispy cauliflower wings served with fries, fully gluten-free.",
         "tags": [
           "GF"
         ]
       },
       {
-        "name": "Gluten Free Fish & Chips",
+        "name": "Gluten Free Vegan Fysh & Chips",
         "price": "$22",
-        "desc": "Plant-based fish and chips, fully gluten-free.",
+        "desc": "Plant-based fysh and chips, fully gluten-free.",
         "tags": [
           "GF"
         ]
       },
       {
-        "name": "Crispy Chicken Skewers",
+        "name": "Gluten Free Crispy Chik’N Skewers (3)",
         "price": "$14",
-        "desc": "Skewered plant-based crispy chicken bites with dipping sauce.",
+        "desc": "Three skewers of crispy plant-based chik’n with dipping sauce.",
         "tags": [
           "GF"
         ]
@@ -397,6 +471,14 @@ export const menu = {
         "tags": [
           "Small",
           "Large"
+        ]
+      },
+      {
+        "name": "Gluten Free Tacos (2)",
+        "price": "$15",
+        "desc": "Two tacos, fully gluten-free.",
+        "tags": [
+          "GF"
         ]
       }
     ]
