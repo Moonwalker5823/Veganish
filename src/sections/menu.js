@@ -43,7 +43,7 @@ export function renderMenu() {
       </div>
       <div class="menu-note">
         <p>* Menu items and prices may vary. Please ask about daily specials and seasonal offerings.</p>
-        <a href="#order" class="btn btn-primary">Place an Order</a>
+        <a href="#order" class="btn btn-accent">Place an Order</a>
       </div>
     </div>`;
 }

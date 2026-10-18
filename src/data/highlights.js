@@ -22,8 +22,8 @@ export const highlights = [
   {
     "img": "assets/images/congressman-himes.webp",
     "alt": "Congressman Jim Himes with Chef Hannah",
-    "width": 1200,
-    "height": 1184,
+    "width": 1160,
+    "height": 1157,
     "tag": "Congressional Visit",
     "title": "Congressman Jim Himes",
     "body": "Congressman Jim Himes stopped in for lunch and couldn't leave without telling Chef Hannah how flavorful the food was.",
@@ -32,10 +32,11 @@ export const highlights = [
   {
     "img": "assets/images/owners.webp",
     "alt": "Nate and Hannah Campbell, owners of Veganish Cafe",
-    "width": 1400,
-    "height": 1507,
+    "width": 1119,
+    "height": 1200,
     "tag": "Meet the Owners",
     "title": "Nate & Hannah Campbell",
-    "body": "Chef Hannah and Nate Campbell — the husband and wife team behind Veganish Cafe. Built on love, seasoned with culture, and rooted in Bridgeport."
+    "body": "Chef Hannah and Nate Campbell — the husband and wife team behind Veganish Cafe. Built on love, seasoned with culture, and rooted in Bridgeport.",
+    "imgClass": "img-pos-top"
   }
 ];

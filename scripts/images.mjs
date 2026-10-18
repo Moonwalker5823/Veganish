@@ -10,7 +10,12 @@
  * hand: every <img> on the site carries explicit width/height to prevent layout shift,
  * and 31 hand-written pairs is 31 chances to be wrong.
  *
- *   node scripts/images.mjs --src "<folder>" --manifest scripts/manifests/oct-2026.json
+ * photos.js is rewritten wholesale, so every manifest that feeds it has to be passed on
+ * the same run. Each manifest carries its own `src` root; --src only covers one that
+ * doesn't.
+ *
+ *   node scripts/images.mjs --manifest scripts/manifests/oct-2026.json \
+ *                           --manifest scripts/manifests/instagram-2026.json
  *   node scripts/images.mjs ... --dry
  */
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
@@ -50,27 +55,61 @@ async function decode(src) {
   return tmp;
 }
 
-const args = Object.fromEntries(
-  process.argv.slice(2).reduce((acc, a, i, arr) => {
-    if (!a.startsWith('--')) return acc;
-    const next = arr[i + 1];
+const args = {};
+const manifestPaths = [];
+{
+  const argv = process.argv.slice(2);
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (!a.startsWith('--')) continue;
+    const next = argv[i + 1];
     // a flag with no value (or followed by another flag) is boolean true
-    acc.push([a.slice(2), next === undefined || next.startsWith('--') ? true : next]);
-    return acc;
-  }, [])
-);
+    const value = next === undefined || next.startsWith('--') ? true : next;
+    if (a === '--manifest') manifestPaths.push(value);
+    else args[a.slice(2)] = value;
+  }
+}
 
-if (!args.src || !args.manifest) {
-  console.error('usage: node scripts/images.mjs --src <dir> --manifest <file.json> [--dry]');
+if (!manifestPaths.length) {
+  console.error('usage: node scripts/images.mjs --manifest <file.json> [--manifest ...] [--src <dir>] [--dry]');
   process.exit(1);
 }
 
-const manifest = JSON.parse(await readFile(args.manifest, 'utf8'));
+/**
+ * `aspect` ("3:4") re-frames a photo that doesn't suit the grid - Instagram reel covers
+ * arrive 9:16. sharp's attention strategy keeps the busiest region, which on a plated
+ * dish is the food. Without it the photo keeps its own proportions.
+ */
+function sizing(aspect) {
+  if (!aspect) return { width: LONG_EDGE, height: LONG_EDGE, fit: 'inside', withoutEnlargement: true };
+  const [w, h] = String(aspect).split(':').map(Number);
+  if (!w || !h) throw new Error(`bad aspect "${aspect}" - expected W:H`);
+  return {
+    width: w >= h ? LONG_EDGE : Math.round((LONG_EDGE * w) / h),
+    height: w >= h ? Math.round((LONG_EDGE * h) / w) : LONG_EDGE,
+    fit: 'cover',
+    position: sharp.strategy.attention,
+  };
+}
+
+const manifests = [];
+for (const p of manifestPaths) {
+  const m = JSON.parse(await readFile(p, 'utf8'));
+  const root = m.src ?? args.src;
+  if (!root) {
+    console.error(`${p}: no "src" in the manifest and no --src given`);
+    process.exit(1);
+  }
+  // src roots are written relative to the repo root, the same way --src always was
+  manifests.push({ path: p, root: path.resolve(root), photos: m.photos });
+}
+
 const results = [];
 const failures = [];
 
-for (const photo of manifest.photos) {
-  const src = path.join(args.src, photo.source);
+for (const { root, photos } of manifests) {
+for (const photo of photos) {
+  const src = path.join(root, photo.source);
   if (!existsSync(src)) {
     failures.push({ ...photo, reason: 'source not found' });
     continue;
@@ -84,7 +123,7 @@ for (const photo of manifest.photos) {
     decoded = await decode(src);
     const pipeline = sharp(decoded)
       .rotate()
-      .resize({ width: LONG_EDGE, height: LONG_EDGE, fit: 'inside', withoutEnlargement: true })
+      .resize(sizing(photo.aspect))
       .webp({ quality: QUALITY });
 
     if (args.dry) {
@@ -101,6 +140,7 @@ for (const photo of manifest.photos) {
     // only remove files we created, never the originals
     if (decoded && decoded !== src) await rm(decoded, { force: true });
   }
+}
 }
 
 // Group by category so each section imports only what it needs.
@@ -131,7 +171,8 @@ if (!args.dry) {
 }
 
 const totalKB = results.reduce((a, r) => a + r.bytes, 0) / 1024;
-console.log(`\n  converted ${results.length}/${manifest.photos.length}  (${totalKB.toFixed(0)} KB total, avg ${(totalKB / (results.length || 1)).toFixed(0)} KB)`);
+const requested = manifests.reduce((a, m) => a + m.photos.length, 0);
+console.log(`\n  converted ${results.length}/${requested}  (${totalKB.toFixed(0)} KB total, avg ${(totalKB / (results.length || 1)).toFixed(0)} KB)`);
 for (const [cat, items] of Object.entries(byCategory)) console.log(`    ${cat.padEnd(10)} ${items.length}`);
 if (!args.dry) console.log(`  wrote ${DATA_OUT}`);
 if (failures.length) {

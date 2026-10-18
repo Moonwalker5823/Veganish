@@ -89,9 +89,12 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--orange);
-  background: rgba(255,107,53,0.12);
-  border: 1px solid rgba(255,107,53,0.25);
+  /* A 12% tint let the slide behind set the contrast — orange on orange ran 1.4:1 over
+     a mid-tone photo. An opaque plate holds 7:1+ against any slide, and cream keeps
+     --orange reserved for the ordering CTAs so this doesn't read as a button. */
+  color: var(--cream);
+  background: rgba(10,10,10,0.72);
+  border: 1px solid rgba(255,107,53,0.55);
   padding: 6px 14px;
   border-radius: 50px;
   margin-bottom: 28px;

@@ -2,48 +2,48 @@
 
 export const legacyGallery = [
   {
-    "src": "assets/images/food-1.jpg",
+    "src": "assets/images/food-1.webp",
     "alt": "Jalapeño smash burger with fries",
     "caption": "Jalapeño Smash Burger",
-    "width": 1440,
-    "height": 1440,
+    "width": 1200,
+    "height": 1200,
     "size": "tall"
   },
   {
-    "src": "assets/images/food-2.jpg",
+    "src": "assets/images/food-2.webp",
     "alt": "Classic plant-based smash burger",
     "caption": "Classic Smash Burger",
-    "width": 960,
-    "height": 1280
+    "width": 900,
+    "height": 1200
   },
   {
     "src": "assets/images/food-3.webp",
     "alt": "Ranch cauliflower bites",
     "caption": "Ranch Cauliflower Bites",
-    "width": 1200,
-    "height": 1292
+    "width": 949,
+    "height": 1152
   },
   {
     "src": "assets/images/food-4.webp",
     "alt": "BBQ cauliflower wings",
     "caption": "BBQ Cauliflower Wings",
-    "width": 1200,
-    "height": 1292,
+    "width": 966,
+    "height": 1152,
     "size": "wide"
   },
   {
     "src": "assets/images/food-5.webp",
     "alt": "Plant-based BBQ skewers",
     "caption": "BBQ Skewers",
-    "width": 1200,
-    "height": 1292
+    "width": 805,
+    "height": 1152
   },
   {
     "src": "assets/images/owners.webp",
     "alt": "Nate and Hannah Campbell at Veganish Cafe",
     "caption": "Nate & Hannah Campbell",
-    "width": 1400,
-    "height": 1507
+    "width": 1119,
+    "height": 1200
   },
   {
     "src": "assets/images/food-7.webp",

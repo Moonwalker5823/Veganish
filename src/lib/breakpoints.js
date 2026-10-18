@@ -6,9 +6,9 @@ export const BREAKPOINTS = {
   mobile: 480,
   tablet: 768,
   desktop: 1024,
-  // The nav collapses to the hamburger earlier than the rest: nine items stop
-  // fitting on one line around 1050px.
-  nav: 1024,
+  // The nav collapses to the hamburger earlier than the rest: logo + nine items
+  // + CTA measure 1080px on one line, so this sits above `desktop`, not on it.
+  nav: 1100,
 };
 
 // Lazy so importing this doesn't require a `window`.

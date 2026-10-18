@@ -1,9 +1,6 @@
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
-/* The nav carries nine items since Catering and Meal Prep were added; four of
-   them wrapped at 813px, so the hamburger takes over here rather than at 768px.
-   Mirrored by BREAKPOINTS.nav in lib/breakpoints.js. */
 @media (max-width: 1024px) {
   .about-grid   { grid-template-columns: 1fr; gap: 48px; }
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -12,7 +9,14 @@
   .highlights-grid { grid-template-columns: 1fr 1fr; }
   .review-card  { flex: 0 0 calc(50% - 12px); }
   .event-card   { padding: 40px; gap: 40px; }
+}
 
+/* The nav needs 1080px to hold one line: 151px logo + 761px of links + 8px gaps +
+   80px padding. Collapsing at the 1024 layout breakpoint left 1025-1080px with a
+   full nav that didn't fit, so the wordmark and four labels each broke in two.
+   The hamburger takes over above the layout breakpoint for that reason.
+   Mirrored by BREAKPOINTS.nav in lib/breakpoints.js. */
+@media (max-width: 1100px) {
   /* With the links collapsed there's nothing to balance the logo against, so the
      lockup centres and the hamburger pins to the right edge. */
   .navbar { padding: 16px 24px; justify-content: center; }
@@ -23,8 +27,6 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  /* Keep the wordmark on one line - "Vegan-" / "ish" was breaking in two. */
-  .nav-logo { white-space: nowrap; }
 
   .nav-toggle { display: flex; }
 
