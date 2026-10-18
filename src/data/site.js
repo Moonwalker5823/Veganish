@@ -5,7 +5,7 @@ export const site = {
   name: 'Veganish Cafe',
   altName: "Vegan'ish Cafe",
   tagline: 'Flavorful. Plant-Based. Unapologetically Good.',
-  ownership: 'Black Women Owned',
+  ownership: 'Black Owned',
   owners: 'Chef Hannah & Nate Campbell',
   shortDesc: 'Bold, 100% plant-based soul food in Downtown Bridgeport.',
 
