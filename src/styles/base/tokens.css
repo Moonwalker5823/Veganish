@@ -30,6 +30,7 @@
      4.7:1, so the label stays readable mid-hover. */
   --green-deep-hi: #328436;
   --orange:   #FF6B35;
+  --orange-hi:#FF7F4F;          /* .btn-accent hover — 7.9:1 on --black */
   --gold:     #D4AF37;
   --cream:    #F5F0E8;
   --white:    #ffffff;
@@ -163,6 +164,20 @@ address { font-style: normal; }
   border-color: var(--green-deep-hi);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(76,175,80,0.35);
+}
+/* Ordering CTA. --orange carries only 2.84:1 against white, so it takes dark text
+   (6.98:1) — lightening the text or darkening the fill to suit white would cost the
+   logo colour. Reserved for "order" actions so there is one accent on the page. */
+.btn-accent {
+  background: var(--orange);
+  color: var(--black);
+  border-color: var(--orange);
+}
+.btn-accent:hover {
+  background: var(--orange-hi);
+  border-color: var(--orange-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,107,53,0.4);
 }
 .btn-outline {
   background: transparent;

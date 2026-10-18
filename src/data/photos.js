@@ -198,6 +198,54 @@ export const gallery = [
     "caption": "Kale & Avocado Bowl",
     "width": 900,
     "height": 1200
+  },
+  {
+    "src": "assets/images/gallery/oyster-mushroom-salad.webp",
+    "slug": "oyster-mushroom-salad",
+    "alt": "Bowl of fried oyster mushrooms over kale and tomato with avocado and blue cheese on the side",
+    "caption": "Fried Oyster Mushroom Salad",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/gallery/smash-burger-closeup.webp",
+    "slug": "smash-burger-closeup",
+    "alt": "Close-up of a double smash burger with melted cheese and sauce beside crinkle-cut fries",
+    "caption": "Double Smash Burger",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/gallery/buffalo-cauliflower-wings.webp",
+    "slug": "buffalo-cauliflower-wings",
+    "alt": "Buffalo cauliflower wings in bright red sauce topped with diced cucumber",
+    "caption": "Buffalo Cauliflower Wings",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/gallery/vegan-tacos.webp",
+    "slug": "vegan-tacos",
+    "alt": "Two trays of vegan tacos with crispy fillings, lettuce and avocado on printed deli paper",
+    "caption": "Taco Tuesday",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "src": "assets/images/gallery/sweet-chili-cauliflower-platter.webp",
+    "slug": "sweet-chili-cauliflower-platter",
+    "alt": "Plate of sweet chili cauliflower with spring rolls and chickpeas on a patio table",
+    "caption": "Sweet Chili Cauliflower",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "src": "assets/images/gallery/soul-food-tray.webp",
+    "slug": "soul-food-tray",
+    "alt": "Takeout tray of rice and peas, cabbage, candied yams, mac and cheese and barbecue protein",
+    "caption": "Vegan Soul Food Tray",
+    "width": 900,
+    "height": 1200
   }
 ];
 
@@ -215,6 +263,14 @@ export const brand = [
     "slug": "chickpea-salad",
     "alt": "Chickpea salad plated in the dining room beneath the neon sign",
     "caption": "Chickpea Salad",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/brand/storefront-burger-neon.webp",
+    "slug": "storefront-burger-neon",
+    "alt": "Smash burger and seasoned fries on a plate in front of the Veganish storefront window and neon sign",
+    "caption": "Smash Burger at the Window",
     "width": 900,
     "height": 1200
   }
@@ -307,6 +363,14 @@ export const catering = [
     "alt": "Full catering pan of baked vegan macaroni and cheese",
     "caption": "Mac & Cheese",
     "width": 900,
+    "height": 1200
+  },
+  {
+    "src": "assets/images/catering/festival-catering-setup.webp",
+    "slug": "festival-catering-setup",
+    "alt": "Veganish staff in branded shirts serving from chafing trays under a tent at an outdoor festival",
+    "caption": "Catering on Location",
+    "width": 1200,
     "height": 1200
   }
 ];

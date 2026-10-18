@@ -1,0 +1,63 @@
+{
+  "note": "Pulled from the cafe's own Instagram (@veganish_ct) via the public embed endpoint, which serves the uploaded original rather than the 640px grid thumbnail. Several are 3-4K. Sources live outside the repo in instagram-oct-2026/.",
+  "src": "../instagram-oct-2026",
+  "photos": [
+    {
+      "source": "storefront-burger-neon.jpg",
+      "slug": "storefront-burger-neon",
+      "category": "brand",
+      "caption": "Smash Burger at the Window",
+      "alt": "Smash burger and seasoned fries on a plate in front of the Veganish storefront window and neon sign"
+    },
+    {
+      "source": "festival-catering-setup.jpg",
+      "slug": "festival-catering-setup",
+      "category": "catering",
+      "caption": "Catering on Location",
+      "alt": "Veganish staff in branded shirts serving from chafing trays under a tent at an outdoor festival"
+    },
+    {
+      "source": "oyster-mushroom-salad.jpg",
+      "slug": "oyster-mushroom-salad",
+      "category": "gallery",
+      "caption": "Fried Oyster Mushroom Salad",
+      "alt": "Bowl of fried oyster mushrooms over kale and tomato with avocado and blue cheese on the side"
+    },
+    {
+      "source": "smash-burger-closeup.jpg",
+      "slug": "smash-burger-closeup",
+      "category": "gallery",
+      "caption": "Double Smash Burger",
+      "alt": "Close-up of a double smash burger with melted cheese and sauce beside crinkle-cut fries"
+    },
+    {
+      "source": "buffalo-cauliflower-wings.jpg",
+      "slug": "buffalo-cauliflower-wings",
+      "category": "gallery",
+      "caption": "Buffalo Cauliflower Wings",
+      "alt": "Buffalo cauliflower wings in bright red sauce topped with diced cucumber"
+    },
+    {
+      "source": "vegan-tacos.jpg",
+      "slug": "vegan-tacos",
+      "category": "gallery",
+      "caption": "Taco Tuesday",
+      "alt": "Two trays of vegan tacos with crispy fillings, lettuce and avocado on printed deli paper"
+    },
+    {
+      "source": "sweet-chili-cauliflower-platter.jpg",
+      "slug": "sweet-chili-cauliflower-platter",
+      "category": "gallery",
+      "caption": "Sweet Chili Cauliflower",
+      "alt": "Plate of sweet chili cauliflower with spring rolls and chickpeas on a patio table"
+    },
+    {
+      "source": "soul-food-tray.jpg",
+      "slug": "soul-food-tray",
+      "category": "gallery",
+      "caption": "Vegan Soul Food Tray",
+      "alt": "Takeout tray of rice and peas, cabbage, candied yams, mac and cheese and barbecue protein",
+      "aspect": "3:4"
+    }
+  ]
+}
