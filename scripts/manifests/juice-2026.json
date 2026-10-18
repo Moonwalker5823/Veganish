@@ -1,0 +1,77 @@
+{
+  "note": "Juice Cleanse photos and menu, sent by Nate on 18 Oct 2026. Five near-identical single-bottle shots were in the batch; three are kept so the grid doesn't repeat itself. Sources live outside the repo in juice-oct-2026/.",
+  "src": "../juice-oct-2026",
+  "photos": [
+    {
+      "source": "juice-lineup-hedge.jpg",
+      "slug": "juice-lineup-hedge",
+      "category": "juice",
+      "caption": "The Full Lineup",
+      "alt": "Nine cold-pressed juices in glass bottles arranged against a green hedge wall"
+    },
+    {
+      "source": "juice-bar-neon.jpg",
+      "slug": "juice-bar-neon",
+      "category": "juice",
+      "caption": "At the Juice Bar",
+      "alt": "Cold-pressed juice bottles on a wooden table beneath the Veganish Cafe neon sign"
+    },
+    {
+      "source": "juice-trio-closeup.jpg",
+      "slug": "juice-trio-closeup",
+      "category": "juice",
+      "caption": "Pressed to Order",
+      "alt": "Three bottles of beet, coconut and citrus juice close up on a bed of greenery"
+    },
+    {
+      "source": "cold-press-beet-celery.jpg",
+      "slug": "cold-press-beet-celery",
+      "category": "juice",
+      "caption": "Whole Produce, Nothing Else",
+      "alt": "Cold-press juicer surrounded by beets, celery and ginger beside bottles of red juice"
+    },
+    {
+      "source": "cold-press-green-citrus.jpg",
+      "slug": "cold-press-green-citrus",
+      "category": "juice",
+      "caption": "Greens in the Press",
+      "alt": "Bottles of green juice beside a cold-press juicer with orange, apple and ginger"
+    },
+    {
+      "source": "juice-purple-bottle.jpg",
+      "slug": "juice-purple-bottle",
+      "category": "juice",
+      "caption": "Cold-Pressed Daily",
+      "alt": "Single bottle of deep purple cold-pressed juice against a green hedge wall"
+    },
+    {
+      "source": "juice-orange-bottle.jpg",
+      "slug": "juice-orange-bottle",
+      "category": "juice",
+      "caption": "Citrus & Ginger",
+      "alt": "Single bottle of bright orange cold-pressed juice against a green hedge wall"
+    },
+    {
+      "source": "juice-beet-bottle.jpg",
+      "slug": "juice-beet-bottle",
+      "category": "juice",
+      "caption": "Beet Blvd",
+      "alt": "Single bottle of deep red beet juice against a green hedge wall"
+    },
+    {
+      "source": "juice-gallons.jpg",
+      "slug": "juice-gallons",
+      "category": "juice",
+      "caption": "By the Gallon",
+      "alt": "Two Veganish-labelled gallon jugs of fresh juice"
+    },
+    {
+      "source": "juice-cleanse-menu.jpg",
+      "slug": "juice-cleanse-menu",
+      "category": "juice",
+      "caption": "180 Juice Cleanse Menu",
+      "alt": "The Veganish Cafe 180 Juice Cleanse and Herbal Health Bar menu",
+      "flyer": true
+    }
+  ]
+}

@@ -11,12 +11,12 @@
   .event-card   { padding: 40px; gap: 40px; }
 }
 
-/* The nav needs 1080px to hold one line: 151px logo + 761px of links + 8px gaps +
-   80px padding. Collapsing at the 1024 layout breakpoint left 1025-1080px with a
-   full nav that didn't fit, so the wordmark and four labels each broke in two.
-   The hamburger takes over above the layout breakpoint for that reason.
+/* Ten nav items need 1200px to hold one line. Below that the labels wrap and the
+   bar grows 84px -> 108px; below 1080 the wordmark broke in two as well. The
+   hamburger therefore takes over well above the 1024 layout breakpoint.
+   Re-measure this when a nav item is added or renamed.
    Mirrored by BREAKPOINTS.nav in lib/breakpoints.js. */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   /* With the links collapsed there's nothing to balance the logo against, so the
      lockup centres and the hamburger pins to the right edge. */
   .navbar { padding: 16px 24px; justify-content: center; }

@@ -45,4 +45,18 @@
 /* The catering and meal-prep photo grids reuse .gallery-grid, but sit under a
    price list rather than a header, so they need their own top margin. */
 .catering-section .gallery-grid,
-.mealprep-section .gallery-grid { margin-top: 8px; }
+.mealprep-section .gallery-grid,
+.juice-section .gallery-grid { margin-top: 8px; }
+
+/* Juice Cleanse runs three priced menus between the packages and the photos;
+   each needs its own heading and breathing room. */
+.juice-menu-block { margin-top: 48px; }
+.juice-menu-block .menu-grid { margin-top: 20px; }
+
+.juice-note {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--cream);
+  margin: 28px auto 0;
+  max-width: 560px;
+}

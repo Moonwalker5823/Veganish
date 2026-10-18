@@ -6,9 +6,10 @@ export const BREAKPOINTS = {
   mobile: 480,
   tablet: 768,
   desktop: 1024,
-  // The nav collapses to the hamburger earlier than the rest: logo + nine items
-  // + CTA measure 1080px on one line, so this sits above `desktop`, not on it.
-  nav: 1100,
+  // The nav collapses to the hamburger earlier than the rest. Publishing Juice
+  // Cleanse took it to ten items; below 1200 the labels wrap and the bar grows
+  // from 84px to 108px, so this sits well above `desktop`.
+  nav: 1200,
 };
 
 // Lazy so importing this doesn't require a `window`.
