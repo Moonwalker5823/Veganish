@@ -25,6 +25,14 @@
   font-size: 1.8rem;
   color: var(--cream);
 }
+.footer-logo-mark {
+  display: block;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  background: var(--cream);
+  border-radius: 50%;
+}
 .footer-logo em { color: var(--orange); font-style: normal; }
 .footer-brand p {
   font-size: 0.88rem;

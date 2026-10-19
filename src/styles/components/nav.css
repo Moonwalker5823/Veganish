@@ -31,8 +31,18 @@
   white-space: nowrap;
 }
 .nav-logo em { color: var(--orange); font-style: normal; }
-.nav-logo svg { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-.nav-logo:hover svg { transform: rotate(-8deg) scale(1.08); }
+/* The badge is transparent inside and the nav sits over hero photography, so the
+   mark was disappearing into the image. A cream disc is also what the real
+   sticker is, and it keeps the near-black city text legible. */
+.nav-logo-mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  background: var(--cream);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.nav-logo:hover .nav-logo-mark { transform: rotate(-8deg) scale(1.08); }
 .nav-logo:hover em { color: var(--green-lt); }
 .nav-logo em { transition: color 0.25s ease; }
 

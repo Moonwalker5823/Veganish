@@ -2,6 +2,7 @@
 // data-event-date or data-event-dates; line-up rows expire individually so a
 // partly-run series still reads correctly.
 import { $, $$ } from '../lib/dom.js';
+import { brandName } from '../lib/html.js';
 
 /** End of the given day, local time - an event isn't past while it's running. */
 function endOfDay(iso) {
@@ -65,7 +66,7 @@ export function initEvents() {
   // Don't call the section "What's On" when nothing is.
   if (!anyUpcoming) {
     const eyebrow = $('[data-events-eyebrow]', section);
-    if (eyebrow) eyebrow.textContent = 'Recently at Veganish';
+    if (eyebrow) eyebrow.innerHTML = brandName('Recently at Veganish');
     const desc = $('[data-events-desc]', section);
     if (desc) desc.textContent = 'Here’s what we’ve been up to. Follow us on Instagram so you catch the next one live.';
   }

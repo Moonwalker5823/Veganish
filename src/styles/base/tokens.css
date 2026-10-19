@@ -18,20 +18,20 @@
   --dark:     #111111;
   --dark2:    #1a1a1a;
   --dark3:    #222222;
-  --green:    #4CAF50;
-  --green2:   #388E3C;
-  --green-lt: #81C784;
+  --green:    #4FBE37;          /* logo mid green  — 7.25:1 on --dark2 */
+  --green2:   #2A913E;          /* logo green, gradient partner to --green */
+  --green-lt: #6FC72D;          /* logo lime       — 8.19:1 on --dark2 */
   /* White text needs 4.5:1. It gets 2.8:1 on --green and 4.1:1 on --green2, so
      neither can carry body copy. This is the fill for any green surface with
      white/cream text on it — 5.1:1. --green and --green2 stay as-is for
      accents, borders and green-on-dark text, where they already pass. */
-  --green-deep: #2E7D32;
+  --green-deep: #27652E;        /* logo ring green — 7.03:1 with white text */
   /* Hover lift for those same surfaces — lighter than --green-deep but still
      4.7:1, so the label stays readable mid-hover. */
-  --green-deep-hi: #328436;
-  --orange:   #FF6B35;
-  --orange-hi:#FF7F4F;          /* .btn-accent hover — 7.9:1 on --black */
-  --gold:     #D4AF37;
+  --green-deep-hi: #2F7A37;     /* --green-deep lightened for hover */
+  --orange:   #F57C35;          /* logo orange     — 7.37:1 with --black */
+  --orange-hi:#F89355;          /* .btn-accent hover — 8.76:1 on --black */
+  --gold:     #FAB238;          /* logo dot amber  — 9.52:1 on --dark2 */
   --cream:    #F5F0E8;
   --white:    #ffffff;
   --muted:    #9a9a9a;          /* nudged up from #888 for AA contrast on --dark2 */
@@ -118,6 +118,10 @@ address { font-style: normal; }
   color: var(--orange);
   margin-bottom: 12px;
 }
+/* "Veganish" anywhere in running text or a heading takes the logo's split —
+   orange suffix, matching the nav and footer wordmarks. */
+.brand-ish { color: var(--orange); font-style: normal; }
+
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 3rem);
