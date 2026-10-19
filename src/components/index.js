@@ -1,13 +1,13 @@
 // Pure `data -> HTML string`. Behaviour lives in src/features/.
 
-import { esc } from '../lib/html.js';
+import { esc, brandName } from '../lib/html.js';
 import { usd, panPricing, MARKET_PRICE_LABEL } from '../lib/money.js';
 
 export function SectionHeader({ eyebrow, title, titleId, desc }) {
   return `
     <div class="section-header reveal">
-      ${eyebrow ? `<span class="section-eyebrow">${esc(eyebrow)}</span>` : ''}
-      <h2 class="section-title"${titleId ? ` id="${esc(titleId)}"` : ''}>${esc(title)}</h2>
+      ${eyebrow ? `<span class="section-eyebrow">${brandName(eyebrow)}</span>` : ''}
+      <h2 class="section-title"${titleId ? ` id="${esc(titleId)}"` : ''}>${brandName(title)}</h2>
       ${desc ? `<p class="section-desc">${esc(desc)}</p>` : ''}
     </div>`;
 }

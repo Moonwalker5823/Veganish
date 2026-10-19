@@ -23,16 +23,9 @@
   .intro-logo-wrap,
   .intro-text-wrap,
   .intro-loader,
-  .intro-enter,
-  .logo-dots circle {
+  .intro-enter {
     opacity: 1 !important;
     transform: none !important;
   }
-  /* Keeps its positioning transform — see the note on .logo-leaf above. */
-  .logo-leaf {
-    opacity: 1 !important;
-    transform: translate(110px, 110px) !important;
-  }
-  .logo-ring, .logo-ring-inner { stroke-dashoffset: 0 !important; }
 }
 
