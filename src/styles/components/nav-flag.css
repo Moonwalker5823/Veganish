@@ -1,13 +1,17 @@
 /* ══════════════════════════════════════════
    NAV FLAG
-   Link to the newest event, sitting opposite the hamburger with the logo
-   centred between the two. Absolute like .nav-toggle so it never competes with
-   the lockup for flex space.
+   Link to the newest event. Two positions: a flex item between the lockup and
+   the links on a wide bar, and absolute on the left in collapsed-nav, where it
+   balances the hamburger with the logo centred between the two. Between those
+   widths it's hidden - see the band below.
 ══════════════════════════════════════════ */
 .nav-flag {
-  /* Collapsed-nav only. Above the breakpoint the bar is logo + links with no
-     room to spare, and the Events dropdown carries the same link. */
-  display: none;
+  display: inline-flex;
+  /* Containing block for the hit-area pseudo-element below; collapsed-nav
+     swaps this for absolute, which serves the same purpose. */
+/* Its mid-desktop sizing lives with the rest of that band's nav tightening,
+   in responsive.css. */
+  position: relative;
   align-items: center;
   gap: 8px;
   padding: 6px 12px 6px 7px;
@@ -21,6 +25,19 @@
   transition: var(--transition);
 }
 .nav-flag:hover { border-color: var(--orange); }
+/* The pill is 36px tall, and 22x41 once it strips back to the tag alone - under
+   the touch minimum on exactly the screens where it's tapped rather than
+   clicked. The hit area is extended to 44x44 without changing the pill, the
+   same trade .nav-toggle and .reviews-arrow make by being sized explicitly. */
+.nav-flag::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
 
 /* --orange carries dark text, never white — 7.37:1 against --black. */
 .nav-flag-tag {

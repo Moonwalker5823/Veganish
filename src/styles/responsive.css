@@ -11,6 +11,30 @@
   .event-card   { padding: 40px; gap: 40px; }
 }
 
+/* 1201-1399: the lockup, the flag and ten links won't share a row at full
+   spacing. Left alone the flag touched the lockup on one side and Home on the
+   other from 1340 down, and below ~1320 it pushed Order Now past the right
+   edge, where overflow-x: hidden clipped it rather than scrolling - the button
+   simply vanished. Rather than hide the flag through the whole band, the row
+   tightens: ~160px comes back out of link padding, the gap and the CTA, and
+   the flag itself drops a size. That buys real air at every width in the band
+   - 25px either side at 1201, 64 at 1280, 124 at 1399 - with the bar still on
+   one line and the links still 40px tall.
+
+   The only min-width query in this file, because it brackets a band rather
+   than a floor. Re-measure it alongside BREAKPOINTS.nav whenever a nav item is
+   added or renamed. */
+@media (min-width: 1201px) and (max-width: 1399px) {
+  .navbar          { padding: 20px 24px; }
+  .navbar.scrolled { padding: 14px 24px; }
+  .nav-links       { gap: 2px; }
+  .nav-link        { padding: 8px; }
+  .nav-link::after { left: 8px; right: 8px; }
+  .nav-cta         { padding: 10px 16px; margin-left: 4px; }
+  .nav-flag        { font-size: 0.72rem; padding: 5px 10px 5px 6px; gap: 6px; }
+  .nav-flag-tag    { font-size: 0.55rem; padding: 3px 7px; }
+}
+
 /* Ten nav items need 1200px to hold one line. Below that the labels wrap and the
    bar grows 84px -> 108px; below 1080 the wordmark broke in two as well. The
    hamburger therefore takes over well above the 1024 layout breakpoint.
