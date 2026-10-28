@@ -43,6 +43,11 @@
     top: 50%;
     transform: translateY(-50%);
   }
+  /* Stood down while the menu is open. It clears the overlay rather than
+     sitting over it, but the same link is already listed under Events there,
+     and a second route to one anchor left in the bar reads as a stray control
+     next to the close button. */
+  .navbar.menu-open .nav-flag { display: none; }
 }
 
 /* Below ~520px the label would reach the centred logo — 24px inset plus a
