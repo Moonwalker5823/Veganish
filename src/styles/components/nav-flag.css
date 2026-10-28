@@ -2,15 +2,15 @@
    NAV FLAG
    Link to the newest event. Two positions: a flex item between the lockup and
    the links on a wide bar, and absolute on the left in collapsed-nav, where it
-   balances the hamburger with the logo centred between the two. Between those
-   widths it's hidden - see the band below.
+   balances the hamburger with the logo centred between the two. Below 600 it
+   gives way to .hero-flag — see the foot of this file.
+   Its mid-desktop sizing lives with the rest of that band's nav tightening,
+   in responsive.css.
 ══════════════════════════════════════════ */
 .nav-flag {
   display: inline-flex;
   /* Containing block for the hit-area pseudo-element below; collapsed-nav
      swaps this for absolute, which serves the same purpose. */
-/* Its mid-desktop sizing lives with the rest of that band's nav tightening,
-   in responsive.css. */
   position: relative;
   align-items: center;
   gap: 8px;
@@ -25,10 +25,10 @@
   transition: var(--transition);
 }
 .nav-flag:hover { border-color: var(--orange); }
-/* The pill is 36px tall, and 22x41 once it strips back to the tag alone - under
-   the touch minimum on exactly the screens where it's tapped rather than
-   clicked. The hit area is extended to 44x44 without changing the pill, the
-   same trade .nav-toggle and .reviews-arrow make by being sized explicitly. */
+/* The pill is 36px tall - under the touch minimum on the tablet widths where
+   it's tapped rather than clicked. The hit area is extended to 44x44 without
+   changing the pill, the same trade .nav-toggle and .reviews-arrow make by
+   being sized explicitly. */
 .nav-flag::after {
   content: '';
   position: absolute;
@@ -67,18 +67,12 @@
   .navbar.menu-open .nav-flag { display: none; }
 }
 
-/* Below ~520px the label would reach the centred logo — 24px inset plus a
-   ~150px pill against a gap of (W - 154) / 2. The tag alone still clears it
-   down to 320, and the label stays for screen readers. */
-@media (max-width: 560px) {
-  .nav-flag { left: 16px; padding: 0; background: none; border: none; }
-  .nav-flag-text {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0;
-  }
+/* Below 600 the pill reaches the centred logo: it ends at 206px against a logo
+   starting at (W - 154) / 2, which doesn't clear it until ~582. Shrinking it to
+   fit isn't an option either - the label alone is 132px against the 77-104px a
+   phone leaves beside the logo, so all that fits is a word too short to mean
+   anything. .hero-flag takes over instead, with the whole label and a target to
+   match; the two are never shown at the same width. */
+@media (max-width: 600px) {
+  .nav-flag { display: none; }
 }
