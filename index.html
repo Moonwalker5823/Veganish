@@ -88,6 +88,13 @@
   ══════════════════════════════════════════ -->
   <div id="main-site">
     <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <!-- Balances the hamburger: absolute on the left, logo centred between the
+           two. Collapsed-nav only — above the breakpoint the Events dropdown
+           carries the same link. -->
+      <a class="nav-flag" href="#soul-food-platter">
+        <span class="nav-flag-tag">New</span>
+        <span class="nav-flag-text">Soul Food Sundays</span>
+      </a>
       <a href="#home" class="nav-logo">
         <img src="assets/images/brand/logo.svg" alt="" width="44" height="44" class="nav-logo-mark" aria-hidden="true" />
         <span>Vegan<em>-ish</em></span>
@@ -103,7 +110,21 @@
         <li><a href="#mealprep" class="nav-link">Meal Prep</a></li>
         <li data-nav-juice><a href="#juice" class="nav-link">Juice Cleanse</a></li>
         <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#events" class="nav-link">Events</a></li>
+        <li class="nav-has-sub">
+          <a href="#events" class="nav-link">Events</a>
+          <!-- Shown only in the mobile overlay: a hover dropdown has nothing to
+               hover on a touch screen, and always-open made the list taller than
+               the viewport. -->
+          <button type="button" class="nav-sub-toggle" aria-expanded="false" aria-controls="eventsSub">
+            <span class="sr-only">Show events</span>
+            <span class="nav-sub-caret" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-sub" id="eventsSub">
+            <li><a href="#soul-food-platter" class="nav-sub-link" data-event-sub>Soul Food Platter</a></li>
+            <li><a href="#concert-nights" class="nav-sub-link" data-event-sub>Concert Nights</a></li>
+            <li><a href="#vegans-on-the-run" class="nav-sub-link" data-event-sub>Vegans on the Run 5K</a></li>
+          </ul>
+        </li>
         <li><a href="#contact" class="nav-link">Visit Us</a></li>
         <li><a href="#order" class="nav-cta">Order Now</a></li>
       </ul>
@@ -111,6 +132,8 @@
 
     <main id="main-content">
     <section id="home" class="hero" aria-label="Welcome">
+
+
       <div class="hero-slides" id="heroSlides" aria-hidden="true">
         <!-- Slides are background-position:center, so portrait crops lose their subject.
              Keep these square or landscape. -->
@@ -296,8 +319,60 @@
 
         <div class="events-stack">
 
+          <!-- ── SOUL FOOD PLATTER, WEEKLY ──
+               Recurring rather than dated: no last day, so it can't be a list of
+               dates. data-event-recurring is the label once it's running. -->
+          <article class="event-card" id="soul-food-platter" data-event-recurring="Every Sunday" data-event-from="2026-11-01">
+            <div class="event-left">
+              <span class="section-eyebrow" data-event-eyebrow>Starts Sunday, Nov 1</span>
+              <h3 class="event-title">Return of the Soul Food Platter</h3>
+              <p class="event-tagline">Good food. Plant based.</p>
+              <p class="event-desc">
+                The Soul Food Platter is back &mdash; and this time it&rsquo;s staying. One plate, piled with everything: rice and peas, cabbage, candied yams, mac and cheese, curry and barbecue. Served every Sunday from November 1st.
+              </p>
+              <ul class="event-highlights">
+                <li class="event-hi"><span aria-hidden="true">🍚</span> Rice &amp; peas, cabbage, candied yams</li>
+                <li class="event-hi"><span aria-hidden="true">🧀</span> Mac and cheese</li>
+                <li class="event-hi"><span aria-hidden="true">🔥</span> Curry and barbecue</li>
+                <li class="event-hi"><span aria-hidden="true">🌱</span> 100% plant-based, like everything we make</li>
+              </ul>
+              <a href="tel:+12032758924" class="btn btn-accent btn-lg" data-event-cta>Call to Order &mdash; (203) 275-8924</a>
+            </div>
+            <div class="event-right">
+              <div class="event-flyer">
+                <img src="assets/images/soul-food-platter-flyer.webp" alt="Return of the Soul Food Platter &mdash; starting November 1st 2026 and every Sunday after" width="800" height="1200" loading="lazy" decoding="async" />
+              </div>
+              <div class="event-details-box" data-event-note-anchor>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">📅</span>
+                  <div>
+                    <strong>Starts</strong>
+                    <p><time datetime="2026-11-01">Sunday, November 1, 2026</time></p>
+                    <small>And every Sunday after</small>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">📍</span>
+                  <div>
+                    <strong>Veganish Cafe</strong>
+                    <p>881 Lafayette Blvd</p>
+                    <p>Bridgeport, CT 06604</p>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">🍽️</span>
+                  <div>
+                    <strong>On the menu</strong>
+                    <p>Vegan Soul Platter</p>
+                    <small>See the brunch menu for pricing</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
           <!-- ── LATE NITE CONCERT SEASON ── -->
-          <article class="event-card event-card--concert" data-event-dates="2026-07-08,2026-07-11,2026-07-19,2026-07-21">
+          <article class="event-card event-card--concert" id="concert-nights" data-event-dates="2026-07-08,2026-07-11,2026-07-19,2026-07-21">
             <div class="event-left">
               <span class="section-eyebrow" data-event-eyebrow>Late Nite Season</span>
               <h3 class="event-title">Vegan<em class="brand-ish">ish</em> Concert Nights</h3>
@@ -340,7 +415,7 @@
           </article>
 
           <!-- ── 2-YEAR ANNIVERSARY + VEGANS ON THE RUN 5K ── -->
-          <article class="event-card" data-event-date="2026-07-18">
+          <article class="event-card" id="vegans-on-the-run" data-event-date="2026-07-18">
             <div class="event-left">
               <span class="section-eyebrow" data-event-eyebrow>Community Event</span>
               <h3 class="event-title">2-Year Anniversary &amp; Vegans on the Run 5K</h3>

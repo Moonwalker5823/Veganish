@@ -1,0 +1,62 @@
+/* ══════════════════════════════════════════
+   NAV FLAG
+   Link to the newest event, sitting opposite the hamburger with the logo
+   centred between the two. Absolute like .nav-toggle so it never competes with
+   the lockup for flex space.
+══════════════════════════════════════════ */
+.nav-flag {
+  /* Collapsed-nav only. Above the breakpoint the bar is logo + links with no
+     room to spare, and the Events dropdown carries the same link. */
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 7px;
+  border-radius: 50px;
+  background: rgba(10,10,10,0.72);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--cream);
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.nav-flag:hover { border-color: var(--orange); }
+
+/* --orange carries dark text, never white — 7.37:1 against --black. */
+.nav-flag-tag {
+  background: var(--orange);
+  color: var(--black);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 50px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .nav-flag {
+    display: inline-flex;
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Below ~520px the label would reach the centred logo — 24px inset plus a
+   ~150px pill against a gap of (W - 154) / 2. The tag alone still clears it
+   down to 320, and the label stays for screen readers. */
+@media (max-width: 560px) {
+  .nav-flag { left: 16px; padding: 0; background: none; border: none; }
+  .nav-flag-text {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

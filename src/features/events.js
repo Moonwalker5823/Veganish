@@ -3,6 +3,7 @@
 // partly-run series still reads correctly.
 import { $, $$ } from '../lib/dom.js';
 import { brandName } from '../lib/html.js';
+import { scrollSpy } from '../lib/scrollSpy.js';
 
 /** End of the given day, local time - an event isn't past while it's running. */
 function endOfDay(iso) {
@@ -63,6 +64,17 @@ export function initEvents() {
     }
   }
 
+  // A weekly special has no last date, so it can't be expressed as a list of
+  // days — it stays current indefinitely. data-event-recurring carries the
+  // running label ("Every Sunday"), which replaces the announcement wording
+  // once data-event-from has passed.
+  for (const card of $$('[data-event-recurring]', section)) {
+    anyUpcoming = true;
+    const from = endOfDay(card.dataset.eventFrom);
+    const eyebrow = $('[data-event-eyebrow]', card);
+    if (eyebrow && from && now > from) eyebrow.textContent = card.dataset.eventRecurring;
+  }
+
   // Don't call the section "What's On" when nothing is.
   if (!anyUpcoming) {
     const eyebrow = $('[data-events-eyebrow]', section);
@@ -70,4 +82,8 @@ export function initEvents() {
     const desc = $('[data-events-desc]', section);
     if (desc) desc.textContent = 'Here’s what we’ve been up to. Follow us on Instagram so you catch the next one live.';
   }
+
+  // Event cards run 900-1700px tall, so a tighter band than the nav's -45%:
+  // with that margin one card holds the highlight across the whole section.
+  scrollSpy($$('[data-event-sub]'), { rootMargin: '-15% 0px -70% 0px' });
 }
