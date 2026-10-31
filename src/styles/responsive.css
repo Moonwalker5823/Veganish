@@ -11,6 +11,30 @@
   .event-card   { padding: 40px; gap: 40px; }
 }
 
+/* 1201-1399: the lockup, the flag and ten links won't share a row at full
+   spacing. Left alone the flag touched the lockup on one side and Home on the
+   other from 1340 down, and below ~1320 it pushed Order Now past the right
+   edge, where overflow-x: hidden clipped it rather than scrolling - the button
+   simply vanished. Rather than hide the flag through the whole band, the row
+   tightens: ~160px comes back out of link padding, the gap and the CTA, and
+   the flag itself drops a size. That buys real air at every width in the band
+   - 25px either side at 1201, 64 at 1280, 124 at 1399 - with the bar still on
+   one line and the links still 40px tall.
+
+   The only min-width query in this file, because it brackets a band rather
+   than a floor. Re-measure it alongside BREAKPOINTS.nav whenever a nav item is
+   added or renamed. */
+@media (min-width: 1201px) and (max-width: 1399px) {
+  .navbar          { padding: 20px 24px; }
+  .navbar.scrolled { padding: 14px 24px; }
+  .nav-links       { gap: 2px; }
+  .nav-link        { padding: 8px; }
+  .nav-link::after { left: 8px; right: 8px; }
+  .nav-cta         { padding: 10px 16px; margin-left: 4px; }
+  .nav-flag        { font-size: 0.72rem; padding: 5px 10px 5px 6px; gap: 6px; }
+  .nav-flag-tag    { font-size: 0.55rem; padding: 3px 7px; }
+}
+
 /* Ten nav items need 1200px to hold one line. Below that the labels wrap and the
    bar grows 84px -> 108px; below 1080 the wordmark broke in two as well. The
    hamburger therefore takes over well above the 1024 layout breakpoint.
@@ -45,14 +69,22 @@
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
+  /* Opaque while open so the bar reads as solid over the page behind it. */
+  .navbar.menu-open { background: var(--black); }
+  /* Starts below the bar rather than behind it. Spanning the full height meant
+     the list scrolled under the logo and showed through: .nav-links is a child
+     of .navbar, so the navbar's own background can never paint over it, and a
+     masking pseudo-element didn't hold up either. Not overlapping is the fix. */
   .nav-links {
     display: none;
     position: fixed;
-    top: 0;
+    top: var(--nav-h);
     left: 0;
     width: 100vw;
-    height: 100vh;
-    height: 100dvh; /* tracks the collapsing mobile URL bar */
+    height: calc(100vh - var(--nav-h));
+    /* dvh tracks the collapsing mobile URL bar — must subtract the bar too, or
+       it silently undoes the line above. */
+    height: calc(100dvh - var(--nav-h));
     background: rgba(10,10,10,0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -77,6 +109,61 @@
   /* Match the larger padding so the underline sits under the text, not past it. */
   .nav-link::after { left: 24px; right: 24px; bottom: 6px; }
   .nav-cta  { font-size: 1.1rem; padding: 14px 32px; margin-left: 0; display: block; }
+  /* In the overlay the submenu is just an indented list — a hover dropdown has
+     nothing to hover on a touch screen. */
+  /* Collapsed by default so Events reads as one row like every other item;
+     always-open pushed the list past the viewport and it scrolled under the logo. */
+  /* Full width so the sub-list centres against the overlay, not against the
+     narrow Events+caret box — which pushed the longer titles off to the left. */
+  .nav-has-sub {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  /* The caret stays in the row and the link carries a matching left margin, so
+     the pair is symmetric and "Events" sits on the same centre line as every
+     other item. Absolute positioning was tried and resolved against the
+     full-width row, throwing the caret to the viewport edge. */
+  .nav-has-sub > .nav-link { margin-left: 44px; }
+  .nav-sub-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* WCAG 2.5.8 */
+    min-width: 44px;
+    min-height: 44px;
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.75);
+    cursor: pointer;
+  }
+  .nav-has-sub.is-open .nav-sub-caret { transform: rotate(-135deg); }
+  .nav-sub {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    border: none;
+    box-shadow: none;
+    min-width: 0;
+    padding: 0;
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  /* The desktop dropdown's hover/focus-within rule outranks the `transform:
+     none` above, so it survived into the overlay: the full-width list slid left
+     by half its own width (-360px at 768) the moment a sub-link was hovered,
+     tapped or focused. Undone here so the desktop slide-in keeps working. */
+  .nav-has-sub:hover .nav-sub,
+  .nav-has-sub:focus-within .nav-sub { transform: none; }
+  .nav-has-sub.is-open .nav-sub { display: flex; padding: 4px 0 8px; }
+  .nav-sub-link { font-size: 0.95rem; padding: 8px 18px; }
 }
 
 @media (max-width: 900px) {

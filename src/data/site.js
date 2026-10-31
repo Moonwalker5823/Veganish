@@ -30,10 +30,9 @@ export const site = {
   ordering: {
     grubhub: 'https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064',
     ubereats: 'https://www.ubereats.com/store/veganish-cafe/M534NMX0TJ2JhZ4s1W9c2g',
-    // Waiting on the store's Clover Online Ordering URL. Commission-free, unlike the
-    // delivery marketplaces, so it should become the primary CTA once it exists.
-    // Dashboard > Account & Setup > Online Ordering > Providers > Clover > More Options.
-    clover: null,
+    // The store's own ordering page. Commission-free, unlike the two delivery
+    // marketplaces below, so it leads the order section and they follow.
+    yourMenu: 'https://order.yourmenu.com/veganishcafe',
   },
 };
 

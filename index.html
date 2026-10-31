@@ -92,6 +92,14 @@
         <img src="assets/images/brand/logo.svg" alt="" width="44" height="44" class="nav-logo-mark" aria-hidden="true" />
         <span>Vegan<em>-ish</em></span>
       </a>
+      <!-- Sits between the lockup and the links on a wide bar; in collapsed-nav
+           it goes absolute on the left to balance the hamburger, with the logo
+           centred between the two. Hidden in the band between the two, where
+           the links still own the row and the Events dropdown carries it. -->
+      <a class="nav-flag" href="#soul-food-platter">
+        <span class="nav-flag-tag">New</span>
+        <span class="nav-flag-text">Soul Food Sundays</span>
+      </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
@@ -103,7 +111,21 @@
         <li><a href="#mealprep" class="nav-link">Meal Prep</a></li>
         <li data-nav-juice><a href="#juice" class="nav-link">Juice Cleanse</a></li>
         <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#events" class="nav-link">Events</a></li>
+        <li class="nav-has-sub">
+          <a href="#events" class="nav-link">Events</a>
+          <!-- Shown only in the mobile overlay: a hover dropdown has nothing to
+               hover on a touch screen, and always-open made the list taller than
+               the viewport. -->
+          <button type="button" class="nav-sub-toggle" aria-expanded="false" aria-controls="eventsSub">
+            <span class="sr-only">Show events</span>
+            <span class="nav-sub-caret" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-sub" id="eventsSub">
+            <li><a href="#soul-food-platter" class="nav-sub-link" data-event-sub>Soul Food Platter</a></li>
+            <li><a href="#concert-nights" class="nav-sub-link" data-event-sub>Concert Nights</a></li>
+            <li><a href="#vegans-on-the-run" class="nav-sub-link" data-event-sub>Vegans on the Run 5K</a></li>
+          </ul>
+        </li>
         <li><a href="#contact" class="nav-link">Visit Us</a></li>
         <li><a href="#order" class="nav-cta">Order Now</a></li>
       </ul>
@@ -111,6 +133,8 @@
 
     <main id="main-content">
     <section id="home" class="hero" aria-label="Welcome">
+
+
       <div class="hero-slides" id="heroSlides" aria-hidden="true">
         <!-- Slides are background-position:center, so portrait crops lose their subject.
              Keep these square or landscape. -->
@@ -121,6 +145,14 @@
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
+        <!-- Phones only, standing in for the bar's flag, which has no room
+             beside a centred logo below 600. Same link, whole label, and a
+             target that reads as a button; the two are never shown together. -->
+        <a class="hero-flag" href="#soul-food-platter">
+          <span class="hero-flag-tag">New</span>
+          <span class="hero-flag-text">Soul Food Sundays</span>
+          <span class="hero-flag-chevron" aria-hidden="true"></span>
+        </a>
         <span class="hero-eyebrow">Black Owned · Downtown Bridgeport, CT</span>
         <h1 class="hero-title">
           Flavorful.<br/>
@@ -296,8 +328,60 @@
 
         <div class="events-stack">
 
+          <!-- ── SOUL FOOD PLATTER, WEEKLY ──
+               Recurring rather than dated: no last day, so it can't be a list of
+               dates. data-event-recurring is the label once it's running. -->
+          <article class="event-card" id="soul-food-platter" data-event-recurring="Every Sunday" data-event-from="2026-11-01">
+            <div class="event-left">
+              <span class="section-eyebrow" data-event-eyebrow>Starts Sunday, Nov 1</span>
+              <h3 class="event-title">Return of the Soul Food Platter</h3>
+              <p class="event-tagline">Good food. Plant based.</p>
+              <p class="event-desc">
+                The Soul Food Platter is back &mdash; and this time it&rsquo;s staying. One plate, piled with everything: rice and peas, cabbage, candied yams, mac and cheese, curry and barbecue. Served every Sunday from November 1st.
+              </p>
+              <ul class="event-highlights">
+                <li class="event-hi"><span aria-hidden="true">🍚</span> Rice &amp; peas, cabbage, candied yams</li>
+                <li class="event-hi"><span aria-hidden="true">🧀</span> Mac and cheese</li>
+                <li class="event-hi"><span aria-hidden="true">🔥</span> Curry and barbecue</li>
+                <li class="event-hi"><span aria-hidden="true">🌱</span> 100% plant-based, like everything we make</li>
+              </ul>
+              <a href="tel:+12032758924" class="btn btn-accent btn-lg" data-event-cta>Call to Order &mdash; (203) 275-8924</a>
+            </div>
+            <div class="event-right">
+              <div class="event-flyer">
+                <img src="assets/images/soul-food-platter-flyer.webp" alt="Return of the Soul Food Platter &mdash; starting November 1st 2026 and every Sunday after" width="800" height="1200" loading="lazy" decoding="async" />
+              </div>
+              <div class="event-details-box" data-event-note-anchor>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">📅</span>
+                  <div>
+                    <strong>Starts</strong>
+                    <p><time datetime="2026-11-01">Sunday, November 1, 2026</time></p>
+                    <small>And every Sunday after</small>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">📍</span>
+                  <div>
+                    <strong>Veganish Cafe</strong>
+                    <p>881 Lafayette Blvd</p>
+                    <p>Bridgeport, CT 06604</p>
+                  </div>
+                </div>
+                <div class="event-detail-row">
+                  <span class="event-detail-icon" aria-hidden="true">🍽️</span>
+                  <div>
+                    <strong>On the menu</strong>
+                    <p>Vegan Soul Platter</p>
+                    <small>See the brunch menu for pricing</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
           <!-- ── LATE NITE CONCERT SEASON ── -->
-          <article class="event-card event-card--concert" data-event-dates="2026-07-08,2026-07-11,2026-07-19,2026-07-21">
+          <article class="event-card event-card--concert" id="concert-nights" data-event-dates="2026-07-08,2026-07-11,2026-07-19,2026-07-21">
             <div class="event-left">
               <span class="section-eyebrow" data-event-eyebrow>Late Nite Season</span>
               <h3 class="event-title">Vegan<em class="brand-ish">ish</em> Concert Nights</h3>
@@ -340,7 +424,7 @@
           </article>
 
           <!-- ── 2-YEAR ANNIVERSARY + VEGANS ON THE RUN 5K ── -->
-          <article class="event-card" data-event-date="2026-07-18">
+          <article class="event-card" id="vegans-on-the-run" data-event-date="2026-07-18">
             <div class="event-left">
               <span class="section-eyebrow" data-event-eyebrow>Community Event</span>
               <h3 class="event-title">2-Year Anniversary &amp; Vegans on the Run 5K</h3>
@@ -411,14 +495,10 @@
           <h2 id="order-title">Ready to Order?</h2>
           <p>Pick up in-store, get it delivered, or call us — we'll have it fresh and ready for you.</p>
           <div class="order-actions">
-            <!-- TODO(clover): un-comment when the Clover Online Ordering URL arrives, and drop the
-                 phone button below back to `btn btn-outline btn-lg` so this stays the only primary.
-                 Where to find the link: Clover Dashboard → Account & Setup → Online Ordering,
-                 then Online Ordering Providers → Clover → "More Options" (URL + QR code).
-                 Keep this FIRST and PRIMARY — it's commission-free, unlike Grubhub/Uber Eats.
-            <a href="CLOVER_ORDERING_URL" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Order Pickup — Powered by Clover</a>
-            -->
-            <a href="tel:+12032758924" class="btn btn-primary btn-lg">
+            <!-- First and primary: the store keeps the whole ticket here, where Grubhub
+                 and Uber Eats take a cut. Mirrored in site.js ordering.yourMenu. -->
+            <a href="https://order.yourmenu.com/veganishcafe" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Order Pickup — Veganish Cafe</a>
+            <a href="tel:+12032758924" class="btn btn-outline btn-lg">
               <span aria-hidden="true">📞</span> Call (203) 275-8924
             </a>
             <a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Order on Grubhub</a>
@@ -457,9 +537,7 @@
             <h3>Order &amp; Connect</h3>
             <ul>
               <li><a href="tel:+12032758924">(203) 275-8924</a></li>
-              <!-- TODO(clover): un-comment alongside the order-banner button above.
-              <li><a href="CLOVER_ORDERING_URL" target="_blank" rel="noopener noreferrer">Order Pickup (Clover)</a></li>
-              -->
+              <li><a href="https://order.yourmenu.com/veganishcafe" target="_blank" rel="noopener noreferrer">Order Pickup</a></li>
               <li><a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer">Grubhub</a></li>
               <li><a href="https://www.ubereats.com/store/veganish-cafe/M534NMX0TJ2JhZ4s1W9c2g" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
               <li><a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
