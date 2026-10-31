@@ -495,14 +495,10 @@
           <h2 id="order-title">Ready to Order?</h2>
           <p>Pick up in-store, get it delivered, or call us — we'll have it fresh and ready for you.</p>
           <div class="order-actions">
-            <!-- TODO(clover): un-comment when the Clover Online Ordering URL arrives, and drop the
-                 phone button below back to `btn btn-outline btn-lg` so this stays the only primary.
-                 Where to find the link: Clover Dashboard → Account & Setup → Online Ordering,
-                 then Online Ordering Providers → Clover → "More Options" (URL + QR code).
-                 Keep this FIRST and PRIMARY — it's commission-free, unlike Grubhub/Uber Eats.
-            <a href="CLOVER_ORDERING_URL" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Order Pickup — Powered by Clover</a>
-            -->
-            <a href="tel:+12032758924" class="btn btn-primary btn-lg">
+            <!-- First and primary: the store keeps the whole ticket here, where Grubhub
+                 and Uber Eats take a cut. Mirrored in site.js ordering.yourMenu. -->
+            <a href="https://order.yourmenu.com/veganishcafe" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Order Pickup — Veganish Cafe</a>
+            <a href="tel:+12032758924" class="btn btn-outline btn-lg">
               <span aria-hidden="true">📞</span> Call (203) 275-8924
             </a>
             <a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Order on Grubhub</a>
@@ -541,9 +537,7 @@
             <h3>Order &amp; Connect</h3>
             <ul>
               <li><a href="tel:+12032758924">(203) 275-8924</a></li>
-              <!-- TODO(clover): un-comment alongside the order-banner button above.
-              <li><a href="CLOVER_ORDERING_URL" target="_blank" rel="noopener noreferrer">Order Pickup (Clover)</a></li>
-              -->
+              <li><a href="https://order.yourmenu.com/veganishcafe" target="_blank" rel="noopener noreferrer">Order Pickup</a></li>
               <li><a href="https://www.grubhub.com/restaurant/veganish-cafe-881-lafayette-blvd-bridgeport/11368064" target="_blank" rel="noopener noreferrer">Grubhub</a></li>
               <li><a href="https://www.ubereats.com/store/veganish-cafe/M534NMX0TJ2JhZ4s1W9c2g" target="_blank" rel="noopener noreferrer">Uber Eats</a></li>
               <li><a href="https://www.instagram.com/veganish_ct/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
