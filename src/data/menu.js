@@ -29,8 +29,8 @@ export const menu = {
         ]
       },
       {
-        "name": "Breakfast Taco",
-        "price": "$12",
+        "name": "Breakfast Tacos",
+        "price": "$15",
         "desc": "Plant-based breakfast taco packed with fresh morning ingredients.",
         "tags": [
           "Handheld"
@@ -102,7 +102,7 @@ export const menu = {
       {
         "name": "Ackee & Plantain Sliders",
         "price": "$16",
-        "desc": "Caribbean-inspired sliders with ackee and sweet plantain.",
+        "desc": "Jamaican-inspired breakfast sliders featuring ackee and plantain.",
         "tags": [
           "Caribbean"
         ]
@@ -148,7 +148,7 @@ export const menu = {
       {
         "name": "The Burger Blvd",
         "price": "$22",
-        "desc": "Our premium smash burger — stacked, sauced, and unapologetically bold.",
+        "desc": "Grilled vegan burger with a thin vegan sausage patty served on a potato bun, garnished with lettuce, tomato and vegan cheese.",
         "tags": [
           "Signature"
         ],
@@ -157,7 +157,7 @@ export const menu = {
       {
         "name": "Vegan Crispy Sandwich",
         "price": "$21",
-        "desc": "Crispy plant-based chicken sandwich with house sauce on a brioche bun.",
+        "desc": "Crispy fried oyster mushrooms served on a warm potato bun with lettuce, tomato and house slaw.",
         "tags": [
           "Crispy"
         ]
@@ -173,7 +173,7 @@ export const menu = {
       {
         "name": "Vegan Tacos",
         "price": "$16",
-        "desc": "Three seasoned plant-based tacos with fresh toppings and house salsa.",
+        "desc": "Three tacos — choose vegan jerk, crispy vegan fish, vegan chicken or vegan beef crumbles, with cheese.",
         "tags": [
           "Bold"
         ]
@@ -181,7 +181,7 @@ export const menu = {
       {
         "name": "Bang Bang Cauliflower Taco",
         "price": "$19",
-        "desc": "Crispy cauliflower in bang bang sauce wrapped in soft tortillas.",
+        "desc": "Crispy fried cauliflower topped with charred street corn and vegan bang bang sauce.",
         "tags": [
           "Spicy",
           "Crispy"
@@ -206,7 +206,7 @@ export const menu = {
       {
         "name": "Miami Fries",
         "price": "$13",
-        "desc": "Loaded fries topped with house seasoning and signature toppings.",
+        "desc": "Crinkle-cut fries layered with vegan beef and chorizo crumbles, topped with jalapenos and tomatoes, garnished with zesty ranch dressing.",
         "tags": [
           "Shareable"
         ]
@@ -230,7 +230,7 @@ export const menu = {
       {
         "name": "Fried Fish Sandwich",
         "price": "$16",
-        "desc": "Crispy plant-based fish on a brioche bun with tartar sauce and slaw.",
+        "desc": "Fried vegan fish served on a garlic buttered brioche roll, topped with our house vegan tartar sauce.",
         "tags": [
           "Crispy"
         ]
@@ -238,7 +238,7 @@ export const menu = {
       {
         "name": "Vegan Fish & Chips",
         "price": "$19",
-        "desc": "Beer-battered plant-based fish with house fries and house tartar sauce.",
+        "desc": "Crispy battered tofu served with golden chips.",
         "tags": [
           "Classic"
         ]
@@ -262,7 +262,7 @@ export const menu = {
       {
         "name": "Loaded Philly Cheese Steak",
         "price": "$25",
-        "desc": "The philly, loaded — stacked higher with everything on it.",
+        "desc": "Tender vegan steak and melted cheese on a hoagie roll.",
         "tags": [
           "Hearty",
           "Large"
@@ -283,7 +283,7 @@ export const menu = {
       {
         "name": "The Vegan Cobb",
         "price": "$18",
-        "desc": "A hearty cobb salad loaded with plant-based proteins, avocado, and house dressing.",
+        "desc": "Romaine lettuce, avocado, tomatoes, cucumber, kale, vegan chicken and blue cheese vegan crumbles.",
         "tags": [
           "High Protein"
         ],
@@ -300,7 +300,7 @@ export const menu = {
       {
         "name": "Caesar Salad",
         "price": "$16",
-        "desc": "Crisp romaine, vegan caesar dressing, house croutons, and nutritional yeast.",
+        "desc": "Romaine lettuce tossed with fried chickpeas, avocado, Caesar dressing and shaved parmesan.",
         "tags": [
           "Classic"
         ]
@@ -322,7 +322,7 @@ export const menu = {
       {
         "name": "Vegan Chicken & Waffle",
         "price": "$24",
-        "desc": "Crispy plant-based chicken on a fluffy waffle with maple syrup and hot sauce.",
+        "desc": "Fluffy, delightfully sweet waffle topped with a crispy fried oyster mushroom or tofu chicken breast of your choice. Drizzled with hot honey or smothered in our wild mushroom gravy.",
         "tags": [
           "Sweet & Savory"
         ]
@@ -338,7 +338,7 @@ export const menu = {
       {
         "name": "Vegan Brunch “My Way”",
         "price": "$29",
-        "desc": "Build your own brunch plate — choose your proteins, sides, and extras.",
+        "desc": "2 pancakes, 2 sausage patties, scrambled vegan eggs and slices of vegan bacon.",
         "tags": [
           "Customizable"
         ]
@@ -346,7 +346,7 @@ export const menu = {
       {
         "name": "The Vegan Scrambler",
         "price": "$25",
-        "desc": "Plant-based egg scramble with fresh veggies and house seasoning.",
+        "desc": "Tofu scrambled eggs, kale, peppers, onions and mushrooms with a vegan sausage patty.",
         "tags": [
           "Savory"
         ]
@@ -370,7 +370,7 @@ export const menu = {
       {
         "name": "Upside Down Pineapple Pancakes",
         "price": "$17.50",
-        "desc": "Caramelized pineapple pancakes — sweet, tropical, and unforgettable.",
+        "desc": "Sweet and caramelized pineapple rings atop fluffy pancakes.",
         "tags": [
           "Sweet"
         ]
@@ -378,7 +378,7 @@ export const menu = {
       {
         "name": "Very Berry Pancakes",
         "price": "$17.50",
-        "desc": "Light fluffy pancakes loaded with mixed berries and whipped coconut cream.",
+        "desc": "Blueberry pancakes topped with a honey, strawberry and raspberry fusion.",
         "tags": [
           "Sweet"
         ]
@@ -400,9 +400,9 @@ export const menu = {
         ]
       },
       {
-        "name": "Crispy Fish Bites",
+        "name": "Crispy Fish Bites & Fries",
         "price": "$17",
-        "desc": "Brunch-style crispy plant-based fish bites with house dipping sauce.",
+        "desc": "Crispy plant-based fish bites served with french fries.",
         "tags": [
           "Crispy"
         ]
@@ -410,7 +410,7 @@ export const menu = {
       {
         "name": "The Nitty Grittys",
         "price": "$16 / $17",
-        "desc": "Your choice of vegan Fysh ($16) or vegan Chick’N ($17).",
+        "desc": "Creamy slow-cooked grit bowl topped with butter bean and tomato gravy. Your choice of vegan Fysh ($16) or vegan Chick’N ($17).",
         "tags": [
           "Customizable"
         ]
@@ -422,20 +422,20 @@ export const menu = {
     "items": [
       {
         "name": "Regular Fries",
-        "price": "$4",
-        "desc": "Classic crispy fries with house seasoning.",
+        "price": "$6.50",
+        "desc": "Crinkle-cut fries.",
         "tags": []
       },
       {
         "name": "Sweet Potato Fries",
-        "price": "$7.50",
+        "price": "$8.50",
         "desc": "Hand-cut sweet potato fries seasoned to perfection.",
         "tags": []
       },
       {
         "name": "Gluten Free Pancakes",
         "price": "$16",
-        "desc": "Fluffy gluten-free pancakes — same great taste, no gluten.",
+        "desc": "Plain, blueberry or chocolate chip.",
         "tags": [
           "GF"
         ]
@@ -443,7 +443,7 @@ export const menu = {
       {
         "name": "Gluten Free Cauliflower Wings & Fries",
         "price": "$22",
-        "desc": "Crispy cauliflower wings served with fries, fully gluten-free.",
+        "desc": "With your choice of sweet chili jerk, BBQ, honey mustard, sweet chili or buffalo.",
         "tags": [
           "GF"
         ]
@@ -451,7 +451,7 @@ export const menu = {
       {
         "name": "Gluten Free Vegan Fysh & Chips",
         "price": "$22",
-        "desc": "Plant-based fysh and chips, fully gluten-free.",
+        "desc": "Crispy gluten-free battered vegan fish served with golden fries.",
         "tags": [
           "GF"
         ]
@@ -459,7 +459,7 @@ export const menu = {
       {
         "name": "Gluten Free Crispy Chik’N Skewers (3)",
         "price": "$14",
-        "desc": "Three skewers of crispy plant-based chik’n with dipping sauce.",
+        "desc": "Fried oyster mushroom in gluten-free flour.",
         "tags": [
           "GF"
         ]
@@ -467,7 +467,7 @@ export const menu = {
       {
         "name": "Gluten Free Tacos (2)",
         "price": "$15",
-        "desc": "Two tacos, fully gluten-free.",
+        "desc": "Choose vegan jerk, crispy vegan fish, vegan chicken or vegan ground beef.",
         "tags": [
           "GF"
         ]
