@@ -328,9 +328,9 @@ export const menu = {
         ]
       },
       {
-        "name": "Vegan Unlimited Fried Seafood Platter",
+        "name": "Vegan Seafood Platter",
         "price": "$36",
-        "desc": "All-you-can-eat plant-based fried seafood platter — the ultimate brunch treat.",
+        "desc": "Plant-based fried seafood platter.",
         "tags": [
           "Premium"
         ]
