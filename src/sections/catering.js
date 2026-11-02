@@ -23,6 +23,13 @@ export function renderCatering() {
       <p class="catering-terms reveal">
         <strong>${esc(cateringIntro.terms)}</strong>
         <span class="catering-legend">M/P = market price, quoted when you book.</span>
+        <!-- Nate asked for an obvious way to ask a question on arriving at the
+             catering menu. The full CTA is at the foot of the section, but
+             that's past every tray list and the photo grid, so this sits in the
+             notice box that's already carrying the booking terms. -->
+        <a class="catering-inquire" href="mailto:${esc(site.email)}?subject=Catering%20inquiry">
+          Any questions? Send an inquiry <span aria-hidden="true">→</span>
+        </a>
       </p>
 
       <div class="tray-categories" data-reveal-stagger>
