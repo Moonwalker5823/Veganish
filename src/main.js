@@ -82,6 +82,7 @@ if (ld) {
       ratingValue: String(site.rating.value),
       reviewCount: String(site.rating.count),
     },
+    award: `${site.award.issuer} ${site.award.title} - ${site.award.category}, ${site.award.region}`,
     openingHoursSpecification: toSchemaHours(hours),
     sameAs: [site.social.instagram, site.social.facebook],
     // One Menu carrying every section the cafe sells from. Catering, Meal Prep

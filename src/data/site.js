@@ -21,6 +21,23 @@ export const site = {
 
   rating: { value: 4.7, count: 171 },
 
+  // BusinessRate's "Best of 2026", which is derived from Google Reviews - so it
+  // belongs beside the rating rather than off on its own. The plaque is Nate's
+  // image, cropped out of the screenshot he sent (region 11,187 465x578); it's
+  // shown small, as a token next to real type, because the wording baked into a
+  // phone screenshot is neither crisp nor indexable.
+  award: {
+    title: 'Best of 2026',
+    category: 'Vegan Restaurant',
+    region: 'Fairfield County, Connecticut',
+    issuer: 'BusinessRate',
+    basis: 'Google Reviews',
+    image: 'assets/images/brand/award-best-of-2026.webp',
+    width: 465,
+    height: 578,
+    alt: 'Best of 2026 award plaque from BusinessRate, naming Veganish Cafe a top vegan restaurant in Fairfield County, Connecticut',
+  },
+
   social: {
     instagram: 'https://www.instagram.com/veganish_ct/',
     instagramHandle: '@veganish_ct',

@@ -125,3 +125,61 @@
 }
 
 
+
+/* ── AWARD ──
+   Sits with the rating because the award is derived from the same Google
+   reviews. The plaque is a photo of a physical award and its own background is
+   near-black, so on --black it would read as floating text; a --dark2 card with
+   a border gives it an edge. Shown at 132px against a 465px source, so it stays
+   sharp at 2x and the caption does the talking. */
+.award {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 28px auto 0;
+  padding: 16px 24px 16px 16px;
+  background: var(--dark2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+
+.award-plaque {
+  width: 132px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+.award-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.award-text strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.award-source {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Below 560 the row leaves the caption about 150px and the region wraps to
+   three lines. Stacking reads better than squeezing. */
+@media (max-width: 560px) {
+  .award {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    text-align: center;
+  }
+  .award-text { align-items: center; }
+}
