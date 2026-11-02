@@ -5,6 +5,8 @@
    Every feature is independently guarded, so one missing element can never take
    down the rest of the page.
 ══════════════════════════════════════════ */
+import { inject } from '@vercel/analytics';
+
 import { $, mount } from './lib/dom.js';
 
 import { renderMenu, menuSections } from './sections/menu.js';
@@ -115,3 +117,15 @@ initSmoothScroll();
 initFooterYear();
 initScrollReveal();
 initActiveNavLink();   // last: needs the final set of sections in the DOM
+
+/* ── 4. analytics ─────────────────────────── */
+// Vercel Web Analytics. The dashboard's quickstart defaults to the Next.js
+// component, which doesn't apply to a plain Vite build - this is `inject`, the
+// "other" option in those docs. No route support, which costs nothing on a
+// one-page site. Cookieless and carries no personal identifiers, so it needs no
+// consent banner.
+//
+// Production only. In dev `inject` points at a debug endpoint and logs that it's
+// in development; under `vite preview` it requests /_vercel/insights/script.js,
+// which only exists on Vercel, so a 404 there is expected rather than a fault.
+if (import.meta.env.PROD) inject();
