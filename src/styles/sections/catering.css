@@ -60,3 +60,25 @@
   margin: 28px auto 0;
   max-width: 560px;
 }
+
+/* Sits inside the orange terms notice, so it takes cream rather than another
+   orange - the box's text is already --orange and a link needs to separate from
+   it. Cream lands ~14:1 on the tinted plate. Pill-shaped and 44px tall to match
+   the site's other controls; as plain inline text it was a ~20px target. */
+.catering-inquire {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 0 18px;
+  border: 1px solid rgba(255,107,53,0.45);
+  border-radius: 50px;
+  color: var(--cream);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.catering-inquire:hover {
+  background: rgba(255,107,53,0.16);
+  border-color: var(--orange);
+}

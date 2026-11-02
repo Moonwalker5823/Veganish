@@ -71,15 +71,24 @@ export function initMusic() {
     if (shouldRemember) remember('off');
   }
 
+  // Not every interaction can start audio. Per the HTML spec only an activation
+  // triggering input event grants user activation: keydown, mousedown,
+  // pointerdown when pointerType is "mouse", pointerup when it isn't, and
+  // touchend. pointerdown and touchstart - the two this used to listen for -
+  // grant nothing on a touchscreen, so on Android the first tap fired the
+  // handler, play() was refused, the listeners came off, and the music was
+  // silent for the rest of the visit. Desktop hid it: there pointerdown IS the
+  // mouse. Hence this list, and hence standing down on success rather than on
+  // the first event - a refused attempt has to leave the next tap a chance.
   function armFirstGesture() {
     if (armed) return;
     armed = true;
-    const events = ['pointerdown', 'keydown', 'touchstart'];
-    const onGesture = () => {
-      if (!optedOut() && !wantsPlaying) play();
-      events.forEach((e) => document.removeEventListener(e, onGesture));
+    const events = ['pointerup', 'touchend', 'mousedown', 'keydown'];
+    const onGesture = async () => {
+      if (optedOut() || wantsPlaying) return;
+      if (await play()) events.forEach((e) => document.removeEventListener(e, onGesture));
     };
-    events.forEach((e) => document.addEventListener(e, onGesture, { once: true, passive: true }));
+    events.forEach((e) => document.addEventListener(e, onGesture, { passive: true }));
   }
 
   toggle.addEventListener('click', () => (wantsPlaying ? pause() : play()));

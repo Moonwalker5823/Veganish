@@ -1,7 +1,25 @@
 import { ReviewCard } from '../components/index.js';
 import { esc, join } from '../lib/html.js';
+import { asset } from '../lib/assets.js';
 import { reviews } from '../data/reviews.js';
 import { site } from '../data/site.js';
+
+/* The plaque is decorative at this size - the caption carries the same words in
+   real type, so the image is alt-empty to keep a screen reader from hearing it
+   twice. */
+function Award() {
+  const a = site.award;
+  return `
+    <figure class="award">
+      <img class="award-plaque" src="${asset(a.image)}" alt="" role="presentation"
+           width="${a.width}" height="${a.height}" loading="lazy" decoding="async" />
+      <figcaption class="award-text">
+        <strong>${esc(a.title)} — ${esc(a.category)}</strong>
+        <span>${esc(a.region)}</span>
+        <span class="award-source">${esc(a.issuer)}, from ${esc(a.basis)}</span>
+      </figcaption>
+    </figure>`;
+}
 
 export function renderReviews() {
   return `
@@ -13,6 +31,7 @@ export function renderReviews() {
           <span aria-hidden="true">★★★★★</span>
           <strong>${site.rating.value}</strong> from ${site.rating.count} reviews
         </p>
+        ${Award()}
       </div>
       <div class="reviews-carousel-wrap">
         <button type="button" class="reviews-arrow reviews-prev" id="reviewsPrev" aria-label="Previous reviews">←</button>

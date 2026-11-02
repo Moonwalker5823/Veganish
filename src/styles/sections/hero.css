@@ -175,3 +175,57 @@
 }
 
 
+
+/* ── HERO FLAG ──
+   Phones only. Below 600 the bar's pill has no room beside the centred logo and
+   stands down, so the link is carried here instead - full width for the whole
+   label, and a target that reads as a button. The two are never visible at the
+   same width. */
+.hero-flag { display: none; }
+
+@media (max-width: 600px) {
+  .hero-flag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 48px;
+    margin-bottom: 16px;
+    padding: 8px 14px 8px 8px;
+    border-radius: 50px;
+    /* The only green surface carrying cream text here — 7.03:1, and it reads as
+       a control against the hero photography rather than another plate. */
+    background: var(--green-deep);
+    border: 1px solid var(--green-deep-hi);
+    color: var(--cream);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+  .hero-flag:active { background: var(--green-deep-hi); }
+
+  .hero-flag-tag {
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 50px;
+    background: var(--orange);
+    color: var(--black);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .hero-flag-text { flex: 1; }
+
+  /* Chevron, so it reads as somewhere to go rather than a label. */
+  .hero-flag-chevron {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+    opacity: 0.8;
+  }
+}

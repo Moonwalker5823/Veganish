@@ -91,9 +91,13 @@
 /* The focus ring already marks keyboard position, so don't double up with the
    underline's entrance - just show it immediately. */
 .nav-link:focus-visible::after { transform: scaleX(1); transition: none; }
-/* Matches .btn-accent — the ordering CTA is one colour wherever it appears. */
+/* Matches .btn-accent — the ordering CTA is one colour wherever it appears.
+   nowrap for the same reason .nav-link has it: squeezed near the breakpoint this
+   broke into "Order / Now" and took the bar from 84px to 108px. .nav-link alone
+   didn't cover it — the CTA is a different class. */
 .nav-cta {
   display: block;
+  white-space: nowrap;
   padding: 10px 22px;
   background: var(--orange);
   color: var(--black);
@@ -142,3 +146,65 @@
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 
+
+/* ── EVENTS SUBMENU ──
+   Opens on hover and on :focus-within, so it isn't mouse-only. */
+.nav-has-sub { position: relative; }
+
+.nav-sub {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -6px);
+  min-width: 215px;
+  padding: 8px;
+  margin: 0;
+  list-style: none;
+  background: rgba(10,10,10,0.97);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 1001;
+}
+.nav-has-sub:hover .nav-sub,
+.nav-has-sub:focus-within .nav-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.nav-sub-link {
+  display: block;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(245,240,232,0.8);
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.nav-sub-link:hover { background: var(--dark3); color: var(--cream); }
+.nav-sub-link.active { color: var(--green-lt); background: var(--dark3); }
+
+/* Sits on hero photography until the dark bar arrives; green keeps it distinct
+   from the black rather than merging into it. */
+.is-scrolled .nav-flag {
+  background: var(--green-deep);
+  border-color: var(--green-deep-hi);
+}
+.is-scrolled .nav-flag-tag { background: var(--gold); }
+
+/* Desktop opens on hover/focus, so the disclosure button is mobile-only. */
+.nav-sub-toggle { display: none; }
+.nav-sub-caret {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}

@@ -1,5 +1,6 @@
 // Navbar + mobile overlay.
-import { $, $$, rafThrottle, scrollLock } from '../lib/dom.js';
+import { $, $$, rafThrottle, scrollLock, root } from '../lib/dom.js';
+import { scrollSpy } from '../lib/scrollSpy.js';
 import { BREAKPOINTS } from '../lib/breakpoints.js';
 
 export function initNav() {
@@ -8,7 +9,13 @@ export function initNav() {
   const navLinks = $('#navLinks');
   if (!navbar) return;
 
-  const onScroll = rafThrottle(() => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  // root carries the same flag so elements outside the navbar — the hero corner
+  // link — can react when the dark bar comes in.
+  const onScroll = rafThrottle(() => {
+    const scrolled = window.scrollY > 60;
+    navbar.classList.toggle('scrolled', scrolled);
+    root.classList.toggle('is-scrolled', scrolled);
+  });
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
@@ -23,8 +30,25 @@ export function initNav() {
     navbar.classList.toggle('menu-open', open);
     navToggle.setAttribute('aria-expanded', String(open));
     navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    if (open) scrollLock.lock(); else scrollLock.unlock();
+    if (open) scrollLock.lock(); else { scrollLock.unlock(); closeSubs(); }
   }
+
+  // Events disclosure. Mobile-only in CSS; desktop opens on hover/focus, so this
+  // never fires there.
+  const subToggles = $$('.nav-sub-toggle', navLinks);
+  for (const toggle of subToggles) {
+    toggle.addEventListener('click', () => {
+      const parent = toggle.closest('.nav-has-sub');
+      const open = parent.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+  const closeSubs = () => {
+    for (const toggle of subToggles) {
+      toggle.closest('.nav-has-sub')?.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  };
 
   const isOpen = () => navLinks.classList.contains('open');
   navToggle.addEventListener('click', () => setMenu(!isOpen()));
@@ -44,28 +68,5 @@ export function initNav() {
  * highlighting.
  */
 export function initActiveNavLink() {
-  const links = new Map();
-  for (const link of $$('.nav-link')) {
-    const id = link.getAttribute('href')?.slice(1);
-    if (id) links.set(id, link);
-  }
-  if (!links.size) return;
-
-  const sections = [...links.keys()]
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
-  if (!sections.length) return;
-
-  const visible = new Set();
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) visible.add(entry.target.id);
-      else visible.delete(entry.target.id);
-    }
-    // Topmost visible section wins, so the highlight tracks reading position.
-    const active = sections.find((s) => visible.has(s.id));
-    links.forEach((link, id) => link.classList.toggle('active', id === active?.id));
-  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-
-  sections.forEach((s) => observer.observe(s));
+  scrollSpy($$('.nav-link'));
 }

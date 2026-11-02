@@ -89,38 +89,6 @@
   color: var(--orange);
 }
 
-.social-links { display: flex; gap: 12px; flex-wrap: wrap; }
-.social-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: var(--transition);
-  border: 1px solid transparent;
-}
-.social-btn:hover { transform: translateY(-2px); }
-.social-btn.facebook {
-  background: rgba(24, 119, 242, 0.12);
-  border-color: rgba(24, 119, 242, 0.3);
-  color: #7ab8f7;
-}
-.social-btn.facebook:hover { background: rgba(24, 119, 242, 0.2); }
-.social-btn.instagram {
-  background: rgba(225, 48, 108, 0.12);
-  border-color: rgba(225, 48, 108, 0.3);
-  color: #f191b4;
-}
-.social-btn.instagram:hover { background: rgba(225, 48, 108, 0.2); }
-.social-btn.yelp {
-  background: rgba(211, 35, 35, 0.12);
-  border-color: rgba(211, 35, 35, 0.3);
-  color: #ef8b8b;
-}
-.social-btn.yelp:hover { background: rgba(211, 35, 35, 0.2); }
-
 .contact-map {
   display: flex;
   flex-direction: column;

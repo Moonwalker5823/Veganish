@@ -1,0 +1,78 @@
+/* ══════════════════════════════════════════
+   NAV FLAG
+   Link to the newest event. Two positions: a flex item between the lockup and
+   the links on a wide bar, and absolute on the left in collapsed-nav, where it
+   balances the hamburger with the logo centred between the two. Below 600 it
+   gives way to .hero-flag — see the foot of this file.
+   Its mid-desktop sizing lives with the rest of that band's nav tightening,
+   in responsive.css.
+══════════════════════════════════════════ */
+.nav-flag {
+  display: inline-flex;
+  /* Containing block for the hit-area pseudo-element below; collapsed-nav
+     swaps this for absolute, which serves the same purpose. */
+  position: relative;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 7px;
+  border-radius: 50px;
+  background: rgba(10,10,10,0.72);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--cream);
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+.nav-flag:hover { border-color: var(--orange); }
+/* The pill is 36px tall - under the touch minimum on the tablet widths where
+   it's tapped rather than clicked. The hit area is extended to 44x44 without
+   changing the pill, the same trade .nav-toggle and .reviews-arrow make by
+   being sized explicitly. */
+.nav-flag::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+/* --orange carries dark text, never white — 7.37:1 against --black. */
+.nav-flag-tag {
+  background: var(--orange);
+  color: var(--black);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 50px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .nav-flag {
+    display: inline-flex;
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  /* Stood down while the menu is open. It clears the overlay rather than
+     sitting over it, but the same link is already listed under Events there,
+     and a second route to one anchor left in the bar reads as a stray control
+     next to the close button. */
+  .navbar.menu-open .nav-flag { display: none; }
+}
+
+/* Below 600 the pill reaches the centred logo: it ends at 206px against a logo
+   starting at (W - 154) / 2, which doesn't clear it until ~582. Shrinking it to
+   fit isn't an option either - the label alone is 132px against the 77-104px a
+   phone leaves beside the logo, so all that fits is a word too short to mean
+   anything. .hero-flag takes over instead, with the whole label and a target to
+   match; the two are never shown at the same width. */
+@media (max-width: 600px) {
+  .nav-flag { display: none; }
+}
