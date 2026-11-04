@@ -39,13 +39,6 @@ export const legacyGallery = [
     "height": 1152
   },
   {
-    "src": "assets/images/owners.webp",
-    "alt": "Nate and Hannah Campbell at Veganish Cafe",
-    "caption": "Nate & Hannah Campbell",
-    "width": 1119,
-    "height": 1200
-  },
-  {
     "src": "assets/images/food-7.webp",
     "alt": "Vegan Soul Platter — rice and peas, mac and cheese, candied yams, cabbage, curry and BBQ",
     "caption": "Vegan Soul Platter",

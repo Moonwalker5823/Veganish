@@ -1,4 +1,9 @@
 // Notable moments / press.
+//
+// The "Meet the Owners" card is out at Nate's request - the only photo of him and
+// Hannah was pulled off a video and was the last soft image on the site. He's
+// sending a proper shot; drop it back in here when it lands. The grid sizes
+// itself to the card count, so nothing else needs touching.
 
 export const highlights = [
   {
@@ -27,16 +32,6 @@ export const highlights = [
     "tag": "Congressional Visit",
     "title": "Congressman Jim Himes",
     "body": "Congressman Jim Himes stopped in for lunch and couldn't leave without telling Chef Hannah how flavorful the food was.",
-    "imgClass": "img-pos-top"
-  },
-  {
-    "img": "assets/images/owners.webp",
-    "alt": "Nate and Hannah Campbell, owners of Veganish Cafe",
-    "width": 1119,
-    "height": 1200,
-    "tag": "Meet the Owners",
-    "title": "Nate & Hannah Campbell",
-    "body": "Chef Hannah and Nate Campbell — the husband and wife team behind Veganish Cafe. Built on love, seasoned with culture, and rooted in Bridgeport.",
     "imgClass": "img-pos-top"
   }
 ];
