@@ -3,11 +3,12 @@
 ══════════════════════════════════════════ */
 .highlights-section { background: var(--dark); }
 
-/* auto-fit, not repeat(4): the card count changes - the owners card is out until
-   Nate sends a better photo - and a fixed four left an empty cell behind it.
-   Empty tracks collapse, so three cards fill the row and four still fit. The
-   two-column band in responsive.css runs to 1100 rather than 1024 for this
-   grid; below that width four cards don't get four tracks. */
+/* auto-fit, not repeat(4): the card count moves - the owners card came out for a
+   fortnight while Nate found a better photo - and a fixed four left an empty cell
+   behind it whenever it wasn't exactly four. Empty tracks collapse, so three fill
+   the row and four still fit. The two-column band in responsive.css runs to 1100
+   rather than 1024 for this grid; below that width four cards don't get four
+   tracks. */
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

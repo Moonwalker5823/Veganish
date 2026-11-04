@@ -3,9 +3,9 @@
 ══════════════════════════════════════════ */
 /* Highlights hold two columns up to 1100, not 1024. The grid above is
    auto-fit minmax(240px), and at 1025 a 977px container only fits three tracks -
-   fine for the three cards there are now, but the moment the owners card comes
-   back it's four cards in three tracks and a 667px hole. Handing the two-column
-   layout another 76px means the auto-fit row never runs one track short.
+   fine for three cards, but four cards in three tracks leaves a 667px hole, which
+   is what the fourth card does. Handing the two-column layout another 76px means
+   the auto-fit row never runs one track short.
 
    Within the band, an odd card count leaves the last one alone beside a ~500px
    gap, so the orphan stretches across - the same trade the gallery makes at this
