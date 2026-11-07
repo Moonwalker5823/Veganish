@@ -30,13 +30,18 @@
    max-width keeps it inside the column.
    The badge goes back to the shared bottom-left: pinned top-right it landed
    squarely on her face. */
-.about-img-frame--secondary {
-  margin-top: 16px;
+/* The gap belongs between frames, not on one of them - either can lead. */
+.about-img-frame + .about-img-frame { margin-top: 16px; }
+
+/* --uncropped names the treatment rather than the order: size the frame to the
+   photo instead of slicing it into the fixed landscape box above. The backing
+   fills whatever width the photo doesn't use. */
+.about-img-frame--uncropped {
   background: var(--dark2);
   display: flex;
   justify-content: center;
 }
-.about-img-frame--secondary .about-img {
+.about-img-frame--uncropped .about-img {
   /* width:auto here reserved nothing before the lazy image loaded and the frame
      jumped 460px on arrival. A stated width lets the browser take the ratio from
      the img's own width/height attributes and hold the space, which is the whole

@@ -69,18 +69,33 @@
    column and that column is a fixed 520px at x~40 whatever the viewport. As
    percentages the dark end tracked the viewport instead: fine at 1440, where the
    text sits in the left third, but on a phone the same text spans the full width
-   and ran out into the 0.15 end. Measured against every slide, the subtitle -
-   19.2px at weight 400, so body text needing 4.5:1 - failed over 46% of its area
-   on the smothered plate at 768, and was still failing at 1024 and 1100.
-   Anchored at 600px the dark zone covers the text at every width and still falls
-   away to 0.15 on the right, which is where the chef shot needs to stay bright.
-   Worst case across all five slides at 375-1920 is now 5.31:1. */
+   and ran out into the light end. Measured against every slide, the subtitle
+   failed over 46% of its area on the smothered plate at 768.
+
+   The seven stops approximate a smoothstep from 0.68 at 200px to 0.15 at 1200px.
+   A two-stop ramp hit the same numbers but you could see where it landed - the
+   slope broke 0.00275/px at the knee against 0.00039/px here, and that edge read
+   as a band across the photo. Eased and spread over 1000px there's nothing to
+   see, and 0.68 on the left is lighter than the 0.78 it replaced, so the food
+   sits brighter under the text than it did.
+
+   This only works because .hero-desc is bold: at 19.2px that clears WCAG's
+   large-text bar, so the target is 3:1 rather than 4.5:1. With the old regular
+   weight this same gradient fails 15.9% of the subtitle. Worst case now is
+   4.02:1 across all five slides at 375-1440. Don't lighten one without the
+   other. */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to right, rgba(0,0,0,0.78) 0px, rgba(0,0,0,0.70) 600px, rgba(0,0,0,0.15) 100%),
+    linear-gradient(to right,
+      rgba(0,0,0,0.68) 200px,
+      rgba(0,0,0,0.625) 400px,
+      rgba(0,0,0,0.493) 600px,
+      rgba(0,0,0,0.337) 800px,
+      rgba(0,0,0,0.205) 1000px,
+      rgba(0,0,0,0.15) 1200px),
     linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
 }
 
@@ -120,9 +135,14 @@
 }
 .hero-accent { color: var(--green); font-style: italic; }
 
+/* Bold and fully opaque, which is load-bearing rather than decorative: 19.2px at
+   700 is large text by WCAG, so this needs 3:1 instead of 4.5:1, and that's what
+   lets .hero-overlay stay as light as it is. Dropping the weight or the opacity
+   puts the gradient back to blacking out the photo. */
 .hero-desc {
   font-size: 1.2rem;
-  color: rgba(245,240,232,0.75);
+  font-weight: 700;
+  color: var(--cream);
   max-width: 520px;
   margin-bottom: 40px;
   line-height: 1.8;
