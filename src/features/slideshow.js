@@ -3,7 +3,20 @@
 import { $, $$, reduceMotion } from '../lib/dom.js';
 
 export function initSlideshow() {
-  const slides = $$('.hero-slide');
+  // A slide can declare the width it needs. The chef portrait is the reason:
+  // below 1024 the hero is taller than it is wide, so the shot fills the full
+  // height and her face lands behind the headline and the nav pills - she reads
+  // as a white blur rather than a portrait. Our Story carries her properly on
+  // those widths instead. Dropping rather than hiding keeps the dots honest
+  // (they're generated from this list) and spares phones the download.
+  // Evaluated once, like every other breakpoint here; a resize past it won't
+  // bring the slide back until reload.
+  const slides = $$('.hero-slide').filter((slide) => {
+    const min = Number(slide.dataset.minWidth);
+    if (!min || window.innerWidth >= min) return true;
+    slide.parentNode.removeChild(slide);
+    return false;
+  });
   const dotsEl = $('.hero-slide-dots');
   const hero = $('.hero');
   if (slides.length < 2) return;

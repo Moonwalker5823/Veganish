@@ -22,16 +22,30 @@
   object-position: center 68%;
   border-radius: var(--radius-lg);
 }
-.about-img-frame--secondary { margin-top: 16px; }
-.about-img-frame--secondary .about-img {
-  height: 240px;
-  object-position: center 20%;
+/* The secondary frame used to be a fixed 240px landscape slot, cover-cropped -
+   tuned for the near-square Himes photo that was here. Hannah's portrait is 4:5
+   and a 240px band sliced it, so this frame sizes to the photo instead: natural
+   aspect, capped height, centred on a backing that fills the width it doesn't
+   use. Nothing is cropped. Swap in another landscape image and it still works -
+   max-width keeps it inside the column.
+   The badge goes back to the shared bottom-left: pinned top-right it landed
+   squarely on her face. */
+.about-img-frame--secondary {
+  margin-top: 16px;
+  background: var(--dark2);
+  display: flex;
+  justify-content: center;
 }
-.about-img-frame--secondary .about-img-badge {
-  bottom: auto;
-  top: 16px;
-  left: auto;
-  right: 16px;
+.about-img-frame--secondary .about-img {
+  /* width:auto here reserved nothing before the lazy image loaded and the frame
+     jumped 460px on arrival. A stated width lets the browser take the ratio from
+     the img's own width/height attributes and hold the space, which is the whole
+     point of carrying them. max-width sets how large the photo sits on the
+     backing; height follows from the ratio, so nothing is cropped or letterboxed
+     whatever shape the next image is. */
+  width: 100%;
+  max-width: 368px;
+  height: auto;
 }
 .about-img-badge {
   position: absolute;
