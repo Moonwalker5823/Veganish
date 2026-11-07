@@ -1,19 +1,13 @@
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
-/* Highlights hold two columns up to 1100, not 1024. The grid above is
-   auto-fit minmax(240px), and at 1025 a 977px container only fits three tracks -
-   fine for three cards, but four cards in three tracks leaves a 667px hole, which
-   is what the fourth card does. Handing the two-column layout another 76px means
-   the auto-fit row never runs one track short.
-
-   Within the band, an odd card count leaves the last one alone beside a ~500px
-   gap, so the orphan stretches across - the same trade the gallery makes at this
-   width. Bounded rather than reset in the 768 block below, because `span 2` in a
-   single-column grid invents a second column and overflows the page. */
+/* Highlights hold two per row up to 1100, not 1024: left to wrap on their own
+   basis the cards would go three across at 1025, which is too narrow for an
+   image, a title and a body. Dropping max-width lets a lone last card grow to
+   fill its row rather than sit centred at card width - the stretch the gallery
+   also makes at this size. */
 @media (min-width: 769px) and (max-width: 1100px) {
-  .highlights-grid { grid-template-columns: 1fr 1fr; }
-  .highlight-card:last-child:nth-child(odd) { grid-column: span 2; }
+  .highlight-card { flex: 1 1 calc(50% - 12px); max-width: none; }
 }
 
 @media (max-width: 1024px) {
@@ -202,7 +196,7 @@
   .footer-brand { grid-column: span 1; }
 
   .menu-grid { grid-template-columns: 1fr; }
-  .highlights-grid { grid-template-columns: 1fr; }
+  .highlight-card { flex: 1 1 100%; max-width: none; }
 
   .review-card { flex: 0 0 100%; }
   .reviews-carousel-wrap { gap: 8px; }

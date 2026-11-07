@@ -3,16 +3,25 @@
 ══════════════════════════════════════════ */
 .highlights-section { background: var(--dark); }
 
-/* auto-fit, not repeat(4): the card count moves - the owners card came out for a
-   fortnight while Nate found a better photo - and a fixed four left an empty cell
-   behind it whenever it wasn't exactly four. Empty tracks collapse, so three fill
-   the row and four still fit. The two-column band in responsive.css runs to 1100
-   rather than 1024 for this grid; below that width four cards don't get four
-   tracks. */
+/* Flex rather than grid, because the card count moves - the owners card came out
+   for a fortnight, the catering one arrived after - and a short last row has to
+   look deliberate. Grid with 1fr tracks packs the leftovers to the left: five
+   cards in a four-track row left the fifth alone with 882px of nothing beside
+   it, and grid can't centre a lone card in that row without spanning two tracks
+   and doubling its width. Flex wraps the same way and `justify-content: center`
+   centres whatever the last row holds.
+   max-width is what stops a lone card stretching across the whole row up here;
+   the two-column band below drops it, so an orphan there still fills its row the
+   way it used to. */
 .highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
+}
+.highlight-card {
+  flex: 1 1 240px;
+  max-width: 284px;
 }
 
 .highlight-card {
