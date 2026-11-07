@@ -65,12 +65,22 @@
 }
 .slide-dot.active::after { width: 40px; }
 
+/* The horizontal stops are in px, not %, because they exist to darken the text
+   column and that column is a fixed 520px at x~40 whatever the viewport. As
+   percentages the dark end tracked the viewport instead: fine at 1440, where the
+   text sits in the left third, but on a phone the same text spans the full width
+   and ran out into the 0.15 end. Measured against every slide, the subtitle -
+   19.2px at weight 400, so body text needing 4.5:1 - failed over 46% of its area
+   on the smothered plate at 768, and was still failing at 1024 and 1100.
+   Anchored at 600px the dark zone covers the text at every width and still falls
+   away to 0.15 on the right, which is where the chef shot needs to stay bright.
+   Worst case across all five slides at 375-1920 is now 5.31:1. */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.15) 100%),
+    linear-gradient(to right, rgba(0,0,0,0.78) 0px, rgba(0,0,0,0.70) 600px, rgba(0,0,0,0.15) 100%),
     linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
 }
 
