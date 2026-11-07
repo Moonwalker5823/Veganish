@@ -155,21 +155,89 @@
   margin-bottom: 48px;
 }
 
+/* ── HERO BADGE ──
+   The announcement strip, filled at random from src/data/announcements.js. It
+   carries Soul Food Sundays now that the nav flag and the phone chip are gone,
+   so it has to hold its own against the photo rather than whisper: a near-opaque
+   plate instead of a 5% white wash, and cream text instead of 78% cream.
+
+   The orange tag is lifted straight off the retired flag - it was the part that
+   actually read at a glance. --orange takes dark text, never white: 7.37:1
+   against --black, 2.84:1 against white. */
+/* The strip is the last thing in a vertically centred column, so a line of text
+   appearing or going changes the column's height and everything above it slides
+   by half the difference - measured at 19px on a desktop and 35px at 375, every
+   six seconds as the announcements rotate. The slot holds the tallest of them so
+   the column's height never changes; the plate itself stays snug to its text and
+   grows downward inside it, so its own top edge doesn't move either. Re-measure
+   these two numbers when an announcement is added that's longer than the
+   "As featured" line. */
+.hero-badge-slot {
+  display: flex;
+  align-items: flex-start;
+  min-height: 62px;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border);
+  gap: 12px;
+  min-height: 48px;
+  background: rgba(10,10,10,0.72);
+  border: 1px solid rgba(255,255,255,0.16);
   border-left: 3px solid var(--gold);
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: rgba(245,240,232,0.78);
-  max-width: 500px;
+  padding: 10px 18px 10px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--cream);
+  /* 100% as well as the 520: inline-flex sized to its content and at 320 that
+     ran 319px wide, straight through the hero's 24px padding and out to both
+     edges. */
+  max-width: min(520px, 100%);
+  /* The rotation swaps text of different lengths, so the strip would jump width
+     on every change without this. */
+  transition: opacity 0.3s ease;
 }
-.badge-icon { font-size: 1.1rem; }
+/* Mid-swap. Opacity only - collapsing the height would bounce the hero. */
+.hero-badge.is-swapping { opacity: 0; }
+
+.badge-tag {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: var(--orange);
+  color: var(--black);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+/* Announcements without a tag keep an emoji in the same slot. */
+.badge-icon { flex-shrink: 0; font-size: 1.1rem; }
+.badge-text { flex: 1; }
+
+/* Chevron, so a linked strip reads as somewhere to go rather than a label. */
+.badge-chevron {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.75;
+}
+
+/* Only when it links somewhere - a statement shouldn't invite a click. */
+a.hero-badge { color: var(--cream); }
+a.hero-badge:hover {
+  background: rgba(10,10,10,0.88);
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+a.hero-badge:hover .badge-chevron { opacity: 1; }
+a.hero-badge:active { transform: translateY(0); }
 
 .hero-scroll-hint {
   position: absolute;
@@ -203,60 +271,3 @@
   50%  { transform: translateX(0); }
   100% { transform: translateX(100%); }
 }
-
-
-
-/* ── HERO FLAG ──
-   Phones only. Below 600 the bar's pill has no room beside the centred logo and
-   stands down, so the link is carried here instead - full width for the whole
-   label, and a target that reads as a button. The two are never visible at the
-   same width. */
-.hero-flag { display: none; }
-
-@media (max-width: 600px) {
-  .hero-flag {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    min-height: 48px;
-    margin-bottom: 16px;
-    padding: 8px 14px 8px 8px;
-    border-radius: 50px;
-    /* The only green surface carrying cream text here — 7.03:1, and it reads as
-       a control against the hero photography rather than another plate. */
-    background: var(--green-deep);
-    border: 1px solid var(--green-deep-hi);
-    color: var(--cream);
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: var(--transition);
-  }
-  .hero-flag:active { background: var(--green-deep-hi); }
-
-  .hero-flag-tag {
-    flex-shrink: 0;
-    padding: 4px 10px;
-    border-radius: 50px;
-    background: var(--orange);
-    color: var(--black);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-  }
-
-  .hero-flag-text { flex: 1; }
-
-  /* Chevron, so it reads as somewhere to go rather than a label. */
-  .hero-flag-chevron {
-    flex-shrink: 0;
-    width: 8px;
-    height: 8px;
-    border-top: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    transform: rotate(45deg);
-    opacity: 0.8;
-  }
-}
-

@@ -92,14 +92,6 @@
         <img src="assets/images/brand/logo.svg" alt="" width="44" height="44" class="nav-logo-mark" aria-hidden="true" />
         <span>Vegan<em>-ish</em></span>
       </a>
-      <!-- Sits between the lockup and the links on a wide bar; in collapsed-nav
-           it goes absolute on the left to balance the hamburger, with the logo
-           centred between the two. Hidden in the band between the two, where
-           the links still own the row and the Events dropdown carries it. -->
-      <a class="nav-flag" href="#soul-food-platter">
-        <span class="nav-flag-tag">New</span>
-        <span class="nav-flag-text">Soul Food Sundays</span>
-      </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
@@ -161,14 +153,6 @@
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <!-- Phones only, standing in for the bar's flag, which has no room
-             beside a centred logo below 600. Same link, whole label, and a
-             target that reads as a button; the two are never shown together. -->
-        <a class="hero-flag" href="#soul-food-platter">
-          <span class="hero-flag-tag">New</span>
-          <span class="hero-flag-text">Soul Food Sundays</span>
-          <span class="hero-flag-chevron" aria-hidden="true"></span>
-        </a>
         <span class="hero-eyebrow">Black Owned · Downtown Bridgeport, CT</span>
         <h1 class="hero-title">
           Flavorful.<br/>
@@ -183,10 +167,18 @@
           <a href="#menu" class="btn btn-outline">Explore the Menu</a>
           <a href="#order" class="btn btn-accent">Order Now</a>
         </div>
-        <p class="hero-badge">
-          <span class="badge-icon" aria-hidden="true">🏆</span>
-          <span>As featured — Governor Ned Lamont · Congressman Jim Himes · State Rep. Antonio Felipe</span>
-        </p>
+        <!-- Filled from src/data/announcements.js, one at random per visit, so
+             this line can carry whatever's current. It's also the only place
+             Soul Food Sundays is announced now - the nav flag and the phone
+             chip that used to do it are gone. What's written here is the
+             fallback if the script doesn't run; keep it true. -->
+        <div class="hero-badge-slot">
+          <a class="hero-badge" id="heroBadge" href="#soul-food-platter">
+            <span class="badge-tag">New</span>
+            <span class="badge-text">Soul Food Platter, every Sunday</span>
+            <span class="badge-chevron" aria-hidden="true"></span>
+          </a>
+        </div>
       </div>
       <div class="hero-slide-dots" id="heroSlideDots" role="group" aria-label="Choose hero image"></div>
       <div class="hero-scroll-hint" aria-hidden="true">

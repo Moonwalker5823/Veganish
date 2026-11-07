@@ -17,6 +17,8 @@
   .scroll-line::after { animation: none; opacity: 0; }
   .intro-bg { animation: none; }
   .music-bars span { animation: none; transform: scaleY(0.8); }
+  /* The strip stops rotating in JS; this makes sure it can't be left faded. */
+  .hero-badge.is-swapping { opacity: 1; }
 
   /* Never leave content stuck at opacity:0 when transitions are neutered. */
   .reveal,

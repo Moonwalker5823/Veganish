@@ -189,14 +189,6 @@
 .nav-sub-link:hover { background: var(--dark3); color: var(--cream); }
 .nav-sub-link.active { color: var(--green-lt); background: var(--dark3); }
 
-/* Sits on hero photography until the dark bar arrives; green keeps it distinct
-   from the black rather than merging into it. */
-.is-scrolled .nav-flag {
-  background: var(--green-deep);
-  border-color: var(--green-deep-hi);
-}
-.is-scrolled .nav-flag-tag { background: var(--gold); }
-
 /* Desktop opens on hover/focus, so the disclosure button is mobile-only. */
 .nav-sub-toggle { display: none; }
 .nav-sub-caret {

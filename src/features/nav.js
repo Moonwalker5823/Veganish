@@ -1,5 +1,5 @@
 // Navbar + mobile overlay.
-import { $, $$, rafThrottle, scrollLock, root } from '../lib/dom.js';
+import { $, $$, rafThrottle, scrollLock } from '../lib/dom.js';
 import { scrollSpy } from '../lib/scrollSpy.js';
 import { BREAKPOINTS } from '../lib/breakpoints.js';
 
@@ -9,12 +9,8 @@ export function initNav() {
   const navLinks = $('#navLinks');
   if (!navbar) return;
 
-  // root carries the same flag so elements outside the navbar — the hero corner
-  // link — can react when the dark bar comes in.
   const onScroll = rafThrottle(() => {
-    const scrolled = window.scrollY > 60;
-    navbar.classList.toggle('scrolled', scrolled);
-    root.classList.toggle('is-scrolled', scrolled);
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
