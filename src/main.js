@@ -18,6 +18,7 @@ import { renderMealPrep, mealPrepSections } from './sections/mealPrep.js';
 import { renderJuiceCleanse, isJuiceCleansePublished, juiceCleanseSections } from './sections/juiceCleanse.js';
 import { renderContact, renderHoursList } from './sections/contact.js';
 
+import { initHeroSlides } from './features/heroSlides.js';
 import { initHeroBadge } from './features/heroBadge.js';
 import { initMusic } from './features/music.js';
 import { initIntro } from './features/intro.js';
@@ -104,6 +105,7 @@ if (ld) {
 }
 
 /* ── 3. behaviour ─────────────────────────── */
+initHeroSlides();   // before initSlideshow, which counts what this leaves
 initHeroBadge();
 const music = initMusic();
 initIntro(music);

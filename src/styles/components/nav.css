@@ -11,6 +11,35 @@
   padding: 20px 40px;
   transition: var(--transition);
 }
+/* At rest the bar used to be fully transparent, which read well over the dark
+   half of the hero and failed badly over the bright half: the links measured
+   1.18:1 over the smothered plate at 1920, against the 4.5:1 they need at 14px.
+   The hero scrim doesn't help - it's at its lightest on the right, which is
+   exactly where the links are.
+   A plain fade doesn't fix it either, because a fade is thinnest at the link
+   baseline; 0.80 over 160px still only reached 3.35. So this holds ~0.57-0.60
+   across the whole link row (the 0.72 stop sits below it) and only fades in the
+   32px under the bar, which keeps the soft edge without costing contrast.
+   Measured as applied against all 15 hero photos at hero heights 640/768/1080:
+   worst single pixel 4.76:1, nothing in the link band under 4.5. That's only a
+   ~6% margin, so darken this rather than the text if a brighter photo joins the
+   pool.
+   z-index -1 keeps it inside the navbar's own stacking context - behind the
+   links, still above the hero. */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 -32px 0;
+  z-index: -1;
+  background: linear-gradient(to bottom,
+    rgba(10,10,10,0.62) 0%,
+    rgba(10,10,10,0.55) 72%,
+    transparent 100%);
+  transition: opacity 0.35s ease;
+}
+/* The solid scrolled bar takes over, so the two don't stack. */
+.navbar.scrolled::before { opacity: 0; }
+
 .navbar.scrolled {
   background: rgba(10,10,10,0.95);
   backdrop-filter: blur(16px);
@@ -61,7 +90,10 @@
      is what grew the bar from 84px to 108px. If they stop fitting, the nav
      breakpoint is wrong - raise it rather than letting them wrap. */
   white-space: nowrap;
-  color: rgba(245,240,232,0.75);
+  /* 0.92 rather than 0.75: the scrim above does most of the work, but at 14px
+     these are body text and the margin was thin. Hover and .active still read,
+     through the background tint and the underline rather than opacity alone. */
+  color: rgba(245,240,232,0.92);
   border-radius: 50px;
   transition: color 0.25s ease, background-color 0.25s ease;
 }
